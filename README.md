@@ -2,7 +2,7 @@
 
 **Know the code. Own the risk.**
 
-Blindspot estimates file-level *comprehension risk*: which files in a repository are likely to be hard to understand, modify safely and maintain. Every score comes with the evidence behind it, a confidence level, and a list of what it could not observe. It measures files, never developers.
+Blindspot estimates file-level _comprehension risk_: which files in a repository are likely to be hard to understand, modify safely and maintain. Every score comes with the evidence behind it, a confidence level, and a list of what it could not observe. It measures files, never developers.
 
 > **Status:** Stage 0 (architecture). Nothing is installable yet.
 

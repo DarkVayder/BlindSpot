@@ -11,14 +11,16 @@ Each stage ends with a report: the features built, important files and decisions
 Deliverables: [architecture](architecture.md), [threat model](threat-model.md), [scoring model](scoring-model.md), this plan, [decisions](decisions/), [blockers](blockers.md).
 
 Gate:
+
 - [x] The plan matches the actual repository (empty, greenfield).
-- [x] No unresolved *critical* design decisions for Stages 1–2. Open hosted-side items are listed in `blockers.md` and none of them block Stages 1–2.
+- [x] No unresolved _critical_ design decisions for Stages 1–2. Open hosted-side items are listed in `blockers.md` and none of them block Stages 1–2.
 
 ## Stage 1 — CLI and core engine
 
 Scope: packages `core`, `git`, `analyzers`, `engine`, `report` and `cli`. Workspace tooling: tsconfig, ESLint, Prettier, Vitest and a GitHub Actions CI file.
 
 Work order:
+
 1. Workspace scaffold, CI script, lint/format/typecheck passing on an empty package.
 2. `core`: schemas, config schema, model constants, scoring functions and their unit and property tests.
 3. `git`: safe runner (see threat model §3.1), log/numstat parser with rename chains, shallow-clone detection. Integration tests use real temporary repos with scripted histories (fixed author dates, renames, deletions, binaries, merges).
@@ -29,6 +31,7 @@ Work order:
 8. Docs: README quick start, CLI reference, config reference.
 
 Gate:
+
 - [ ] `pnpm install --frozen-lockfile && pnpm build && pnpm test` passes on a fresh clone (Windows locally and Linux in CI).
 - [ ] `pnpm lint`, `pnpm typecheck` and `pnpm format:check` are clean.
 - [ ] Integration tests cover: renamed, deleted, binary and new files; a shallow clone (reported as incomplete); an empty repo; a non-repo directory (actionable error); and malicious file names.
@@ -55,6 +58,7 @@ Scope: package `research`, with reproducible snapshots and outcome labels.
 - Output: aggregate CSV/JSON exports with provenance (tool version, dataset hash, timestamps) and a limitations section.
 
 Gate:
+
 - [ ] Re-running the pipeline on the pinned dataset reproduces identical aggregates.
 - [ ] At least 6 repositories covering at least 3 languages, small/medium/large sizes, and both active and dormant projects.
 - [ ] Missing-data handling verified (shallow history, unsupported languages).
@@ -66,6 +70,7 @@ Gate:
 Scope: `db` (Prisma), `apps/web` API layer, GitHub sign-in, tenant-scoped repositories, the job table and queue (pg-boss), and `apps/worker` skeleton running `engine` on local paths.
 
 Gate:
+
 - [ ] Migrations apply from an empty database. A down/rollback procedure is documented and tested.
 - [ ] Integration tests run against real Postgres (Docker) and pass.
 - [ ] A cross-tenant access test runs for every route and every request is rejected.
@@ -75,6 +80,7 @@ Gate:
 ## Stage 4 — GitHub App and webhooks
 
 Gate:
+
 - [ ] A valid signed delivery is processed. An invalid signature is rejected with 401 before the body is parsed.
 - [ ] A duplicate delivery ID causes no duplicate job and no duplicate comment.
 - [ ] After revocation or uninstall, no further API calls are made and data deletion is scheduled and verified.
@@ -85,6 +91,7 @@ Gate:
 ## Stage 5 — Dashboard and visualization
 
 Gate:
+
 - [ ] Every screen reads the real API. A grep check confirms no fixture or mock imports in production builds.
 - [ ] The empty, loading, error and insufficient-data states render and are tested.
 - [ ] Keyboard navigation works across the explorer and treemap, which has a table fallback. Automated axe checks find no serious or critical issues.
@@ -94,6 +101,7 @@ Gate:
 ## Stage 6 — End-to-end hardening
 
 Gate:
+
 - [ ] A Playwright E2E test covers install → webhook → analysis → dashboard → uninstall → deletion.
 - [ ] Malicious-repo test suite (threat model §3.1) passes on the worker.
 - [ ] `pnpm audit`, container scan (Trivy) and `next build` pass. Performance budget recorded.
@@ -102,6 +110,7 @@ Gate:
 ## Stage 7 — Deployment and release
 
 Gate:
+
 - [ ] A staging deploy from clean documented steps succeeds and health checks pass.
 - [ ] Migration on staging is verified. Rollback is rehearsed.
 - [ ] A backup restore is rehearsed.
@@ -110,6 +119,7 @@ Gate:
 ## Stage 8 — Release readiness
 
 Gate:
+
 - [ ] Docs are complete for someone who has never seen the source: CLI help, config reference, security policy, privacy requirements, contributing guide, changelog and license review.
 - [ ] Sample reports are labelled as real (with the repo named) or synthetic.
 - [ ] The research report is published only if Stage 2 results support it.

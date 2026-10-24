@@ -54,14 +54,14 @@ core  ←  github  ←  web, worker
 
 All types are defined as Zod schemas in `core` and inferred into TypeScript.
 
-| Type | Purpose |
-| --- | --- |
-| `BlindspotConfig` | Validated user config (`blindspot.config.json`): include/exclude globs, extensions, weights, criticality paths, provenance rules, thresholds. |
-| `FileEvidence` | **Observed facts only** for one file: commits, authors count, churn, last-modified dates, rename chain, complexity metrics, fan-in/fan-out, explicit provenance markers. Each field is `{ status: "observed", value } \| { status: "missing", reason }`. |
-| `SignalScore` | One derived signal (0–1) with the inputs used, normalization method and explanation text. |
-| `FileRisk` | Score 0–100, confidence 0–1, signals, explanations, limitations, recommended actions, `modelVersion`. |
-| `AnalysisResult` | Run metadata (tool version, model version, repo HEAD, timestamps, config hash), coverage stats, `FileRisk[]`, warnings. Serialized as the JSON report; versioned schema. |
-| `BaselineComparison` | Diff of two `AnalysisResult`s: new/removed files, score deltas, newly elevated files. |
+| Type                 | Purpose                                                                                                                                                                                                                                                  |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `BlindspotConfig`    | Validated user config (`blindspot.config.json`): include/exclude globs, extensions, weights, criticality paths, provenance rules, thresholds.                                                                                                            |
+| `FileEvidence`       | **Observed facts only** for one file: commits, authors count, churn, last-modified dates, rename chain, complexity metrics, fan-in/fan-out, explicit provenance markers. Each field is `{ status: "observed", value } \| { status: "missing", reason }`. |
+| `SignalScore`        | One derived signal (0–1) with the inputs used, normalization method and explanation text.                                                                                                                                                                |
+| `FileRisk`           | Score 0–100, confidence 0–1, signals, explanations, limitations, recommended actions, `modelVersion`.                                                                                                                                                    |
+| `AnalysisResult`     | Run metadata (tool version, model version, repo HEAD, timestamps, config hash), coverage stats, `FileRisk[]`, warnings. Serialized as the JSON report; versioned schema.                                                                                 |
+| `BaselineComparison` | Diff of two `AnalysisResult`s: new/removed files, score deltas, newly elevated files.                                                                                                                                                                    |
 
 The separation between `FileEvidence` (observed) and `SignalScore`/`FileRisk` (inferred) is
 the main structural defence against fabricated or over-claimed results.
@@ -114,18 +114,18 @@ in the database or logs.
 
 ## 5. Key technology decisions
 
-| Area | Choice | Why |
-| --- | --- | --- |
-| Package manager | pnpm workspaces | Fast, strict, lockfile already the norm for monorepos. |
-| Language | TypeScript `strict`, ESM, Node 24 LTS | Required by brief; one runtime everywhere. |
-| Git access | System `git` via `execFile` (no shell), `-z` output | Fast on large histories, rename detection, no shell injection. |
-| Validation | Zod | Brief requirement; types inferred from schemas. |
-| Complexity (v1) | TypeScript compiler API for TS/JS | Accurate, already a dependency. Other languages: history-only signals, flagged. |
-| Tests | Vitest; real temp git repos built by fixtures | Brief requirement; avoids mocked git. |
-| Queue | pg-boss | Uses existing Postgres; no Redis to operate. |
-| ORM / DB | Prisma + PostgreSQL | Brief requirement. |
-| Web | Next.js App Router, Tailwind, D3 for treemap | Brief requirement. |
-| Auth | GitHub sign-in (GitHub App user-to-server OAuth) | Users already need GitHub; enables repo-access checks. |
+| Area            | Choice                                              | Why                                                                             |
+| --------------- | --------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Package manager | pnpm workspaces                                     | Fast, strict, lockfile already the norm for monorepos.                          |
+| Language        | TypeScript `strict`, ESM, Node 24 LTS               | Required by brief; one runtime everywhere.                                      |
+| Git access      | System `git` via `execFile` (no shell), `-z` output | Fast on large histories, rename detection, no shell injection.                  |
+| Validation      | Zod                                                 | Brief requirement; types inferred from schemas.                                 |
+| Complexity (v1) | TypeScript compiler API for TS/JS                   | Accurate, already a dependency. Other languages: history-only signals, flagged. |
+| Tests           | Vitest; real temp git repos built by fixtures       | Brief requirement; avoids mocked git.                                           |
+| Queue           | pg-boss                                             | Uses existing Postgres; no Redis to operate.                                    |
+| ORM / DB        | Prisma + PostgreSQL                                 | Brief requirement.                                                              |
+| Web             | Next.js App Router, Tailwind, D3 for treemap        | Brief requirement.                                                              |
+| Auth            | GitHub sign-in (GitHub App user-to-server OAuth)    | Users already need GitHub; enables repo-access checks.                          |
 
 See [`decisions/`](decisions/) for full records.
 

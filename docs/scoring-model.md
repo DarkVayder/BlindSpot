@@ -3,7 +3,7 @@
 Status: Stage 0 draft. It is implemented in Stage 1 and calibrated in Stage 2.
 Model id: `bs-risk@0.1.0`
 
-> **What the score means.** It is an *estimate* of how hard a file is likely to be to
+> **What the score means.** It is an _estimate_ of how hard a file is likely to be to
 > understand and to change safely, relative to other files in the same repository. It is
 > **not** a measure of code quality, a claim that anyone misunderstands the code, a
 > judgement about any developer, or a validated predictor of defects. Predictive
@@ -23,23 +23,25 @@ Model id: `bs-risk@0.1.0`
 The analysis window `W` defaults to 365 days and the recent window `R` to 90 days. Both are configurable.
 
 ### G1 · Change pressure (default weight 0.25)
+
 How much and how often the file has been changing recently. Rationale: frequently changing code has more opportunities for the team's understanding to go out of date.
 
-| Signal | Evidence | Raw value |
-| --- | --- | --- |
-| `churn_recent` | numstat across the rename chain | (lines added + deleted in `R`) ÷ max(current LOC, 20) |
-| `commits_recent` | git log | number of commits touching the file in `R` |
+| Signal           | Evidence                        | Raw value                                                         |
+| ---------------- | ------------------------------- | ----------------------------------------------------------------- |
+| `churn_recent`   | numstat across the rename chain | (lines added + deleted in `R`) ÷ max(current non-blank lines, 20) |
+| `commits_recent` | git log                         | number of commits touching the file in `R`                        |
 
 The group value is the mean of the two normalized signals.
 
 ### G2 · Knowledge distribution (default weight 0.25)
+
 How concentrated or stale the history of changes to the file is. This is a property of the file's history and is never reported per person.
 
-| Signal | Evidence | Raw value |
-| --- | --- | --- |
-| `ownership_concentration` | per-author churn in `W` (authors identified by normalized email, with `.mailmap` respected) | Share of changed lines contributed by the single largest contributor (0–1). |
-| `inactive_knowledge` | per-author churn over the full history, plus each author's last commit anywhere in the repo | Share of the file's historical churn by authors with no repo commits in the last 180 days. |
-| `time_since_change` | last commit date | Days since the file was last modified. A high value raises this signal only together with complexity (see §3.3). |
+| Signal                    | Evidence                                                                                    | Raw value                                                                                                        |
+| ------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `ownership_concentration` | per-author churn in `W` (authors identified by normalized email, with `.mailmap` respected) | Share of changed lines contributed by the single largest contributor (0–1).                                      |
+| `inactive_knowledge`      | per-author churn over the full history, plus each author's last commit anywhere in the repo | Share of the file's historical churn by authors with no repo commits in the last 180 days.                       |
+| `time_since_change`       | last commit date                                                                            | Days since the file was last modified. A high value raises this signal only together with complexity (see §3.3). |
 
 The group value is the mean of the signals that apply. `time_since_change` applies only
 under the interaction rule in §3.3. If G3 is missing, it is left out.
@@ -47,47 +49,55 @@ under the interaction rule in §3.3. If G3 is missing, it is left out.
 `time_since_change` measures staleness. A recent commit is **not** treated as evidence that anyone understands the file. It only means the history-based signals are current.
 
 ### G3 · Structural complexity (default weight 0.25)
+
 How hard the code itself is to follow. In v1 this is computed for TS/JS using the TypeScript compiler API. For other languages it is reported as `missing (language not supported)`.
 
-| Signal | Raw value |
-| --- | --- |
-| `cyclomatic_max` | Highest cyclomatic complexity of any function in the file. |
+| Signal            | Raw value                                                       |
+| ----------------- | --------------------------------------------------------------- |
+| `cyclomatic_max`  | Highest cyclomatic complexity of any function in the file.      |
 | `cognitive_total` | Total cognitive-complexity-style nesting score across the file. |
-| `size_loc` | Non-blank, non-comment lines. |
+| `size_loc`        | Non-blank, non-comment lines.                                   |
 
 The group value is a weighted mean (0.4 / 0.4 / 0.2). Size gets a lower weight because it partly drives the other two.
 
 ### G4 · Review evidence (default weight 0.20)
+
 Whether changes to the file went through review.
 
-| Signal | Raw value |
-| --- | --- |
+| Signal                    | Raw value                                                                                                   |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------- |
 | `unreviewed_change_share` | Share of the file's recent churn (`R`) from commits not covered by a PR with at least one approving review. |
 
 **In local CLI mode this signal is always `missing`.** Local git does not record reviews, and merge commits or `Reviewed-by:` conventions are too inconsistent to use as evidence. In hosted mode the evidence comes from the GitHub API.
 
 ### G5 · Explicit AI provenance (default weight 0.05)
+
 **Verified markers only:**
+
 - `Co-authored-by:` or `Generated-by:` trailers that match configured patterns (defaults: Copilot, Claude, Cursor, Codex, Gemini, Devin, Aider)
 - Bot author identities
 - Paths the user declares in config
 
 The tool never infers AI authorship from coding style.
 
-| Signal | Raw value |
-| --- | --- |
+| Signal                           | Raw value                                                                                                                                                                                                      |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ai_attributed_unreviewed_share` | Share of recent churn from commits carrying a marker **and** lacking review evidence. If review evidence is missing, the share of marked churn is used and the explanation says that review status is unknown. |
 
 The weight is low on purpose. This is a hypothesis to test in Stage 2, not an established risk factor. AI authorship alone is not treated as a defect. The absence of markers is reported as "no explicit provenance markers found" and never as "human-written".
 
+When a file has no markers in recent changes, G5 is **not applicable**. It is left out of both the score and the confidence denominator. Treating "no markers" as low risk would reward missing evidence, and treating it as missing evidence would lower confidence for every repository that doesn't use trailers.
+
+Markers are matched as case-insensitive substrings, not regular expressions, because a regex taken from repository config could be used for ReDoS.
+
 ### Impact modifier · Dependency and criticality
 
-| Signal | Raw value |
-| --- | --- |
-| `fan_in_transitive` | Number of files that transitively import this one (TS/JS v1). Otherwise `missing`. |
-| `criticality` | 1 if the path matches the configured `critical` globs (for example `src/auth/**` or `migrations/**`), otherwise 0. With no config, this is `missing` and is never guessed from names. |
+| Signal              | Raw value                                                                                                                                                                             |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fan_in_transitive` | Number of files that transitively import this one (TS/JS v1). Otherwise `missing`.                                                                                                    |
+| `criticality`       | 1 if the path matches the configured `critical` globs (for example `src/auth/**` or `migrations/**`), otherwise 0. With no config, this is `missing` and is never guessed from names. |
 
-`impact = max(norm(fan_in_transitive), criticality)`. If both are missing, `impact` is set to 0.5 (neutral) and confidence is reduced.
+`impact` is 1 for a file matching the `critical` globs. Otherwise it is `norm(fan_in_transitive)`. When fan-in is missing and the file is not critical, `impact` is set to 0.5 (neutral) and confidence is reduced. "Not critical" alone is not treated as evidence of low impact.
 
 ## 3. Computation
 
@@ -104,8 +114,10 @@ Each raw value `x` is converted to `[0, 1]` as the **geometric mean of two trans
 
 ```
 difficulty = Σ wᵍ · Gᵍ / Σ wᵍ        (over groups G1–G5 that have evidence)
-score      = round(100 · difficulty · (0.6 + 0.4 · impact), 1)
+score      = round(100 · difficulty · (f + (1 − f) · impact), 1)    f = impactFloor, default 0.6
 ```
+
+If none of G1–G4 has evidence, the score is `null` and the file is reported as insufficient evidence. G5 alone never produces a score.
 
 Impact scales the score between 60% and 100% of difficulty. A low-impact file can still be hard to understand, but high-impact files rank above it. The 0.6/0.4 split is a prior that Stage 2 will test.
 
@@ -116,21 +128,21 @@ Impact scales the score between 60% and 100% of difficulty. A low-impact file ca
 ### 3.4 Confidence (0–1)
 
 ```
-coverage  = Σ wᵍ (groups with evidence) / Σ wᵍ (all groups)
-history   = min(1, commits_in_W / 5) · min(1, file_age_days / 30)
+coverage  = Σ wᵍ (groups with evidence) / Σ wᵍ (applicable groups with wᵍ > 0)
+history   = min(1, total_commits / 5) · min(1, file_age_days / 30)
 impactOk  = 1 if impact was observed, 0.8 if neutral fallback
 confidence = round(coverage · (0.5 + 0.5 · history) · impactOk, 2)
 ```
 
 Results are reported in these bands:
 
-| Confidence | Shown as |
-| --- | --- |
-| ≥ 0.7 | the score with its risk band |
-| 0.4 – 0.7 | the score with a "limited evidence" marker |
-| < 0.4 | **"Insufficient evidence"**: the score is still in the JSON but is not ranked or coloured as risk |
+| Confidence | Shown as                                                                                          |
+| ---------- | ------------------------------------------------------------------------------------------------- |
+| ≥ 0.7      | the score with its risk band                                                                      |
+| 0.4 – 0.7  | the score with a "limited evidence" marker                                                        |
+| < 0.4      | **"Insufficient evidence"**: the score is still in the JSON but is not ranked or coloured as risk |
 
-New files and files in shallow clones therefore show up as *unknown*, not as extreme risk.
+New files and files in shallow clones therefore show up as _unknown_, not as extreme risk.
 
 ### 3.5 Risk bands
 
@@ -139,6 +151,7 @@ New files and files in shallow clones therefore show up as *unknown*, not as ext
 ## 4. Per-file output
 
 Each file result contains:
+
 - `score`, `band`, `confidence`, `modelVersion`
 - every signal with its raw value, its normalized value and its evidence status
 - **Explanations** generated from templates using only observed values, for example: "Changed in 14 commits over the last 90 days (top 8% in this repository)."
@@ -151,6 +164,7 @@ Each file result contains:
 ## 5. Eligibility and exclusions
 
 A file is analyzed only if all of the following hold:
+
 - Git tracks it at the analyzed commit.
 - It is not binary (NUL-byte probe plus `.gitattributes` `-diff`).
 - It does not match the default exclusions (`node_modules`, `dist`, `build`, `vendor`, lockfiles, minified files, `*.generated.*`, files with an `@generated` header) or the user's exclusions.
@@ -167,7 +181,7 @@ Renames are followed with `git log -M` so a file's history survives moves. Delet
 
 ## 7. Known weaknesses (to investigate in Stage 2)
 
-- Percentile normalization makes scores incomparable *across* repositories. Cross-repo views must use raw metrics or say this clearly.
+- Percentile normalization makes scores incomparable _across_ repositories. Cross-repo views must use raw metrics or say this clearly.
 - Author-email identity misses contributors with multiple emails unless `.mailmap` exists.
 - Squash-merge workflows merge authorship of many commits into one, which distorts G2.
 - Complexity covers TS/JS only in v1.
