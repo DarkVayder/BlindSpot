@@ -5,7 +5,10 @@
     "declaration": false,
     "declarationMap": false,
     "sourceMap": false,
-    "noEmit": true
+    "noEmit": true,
+    "paths": {
+      "@blindspot/*": ["./packages/*/src/index.ts"]
+    }
   },
   "include": ["packages/*/src/**/*.ts", "vitest.config.ts"]
 }

@@ -74,9 +74,20 @@ Whether changes to the file went through review.
 
 **Verified markers only:**
 
-- `Co-authored-by:` or `Generated-by:` trailers that match configured patterns (defaults: Copilot, Claude, Cursor, Codex, Gemini, Devin, Aider)
-- Bot author identities
-- Paths the user declares in config
+- An author or `Co-authored-by:` **email** that contains a configured marker.
+- A `[bot]` account name that contains a configured marker.
+- A `Generated-by:` trailer value that contains a configured marker.
+- Paths the user declares in config.
+
+The defaults are specific agent identities, not first names:
+
+- `noreply@anthropic.com`
+- `copilot@users.noreply.github.com` and `copilot-swe-agent[bot]`
+- `cursoragent@cursor.com`
+- `noreply@aider.chat`
+- `devin-ai-integration[bot]`
+
+Plain names are never matched, so a person named Claude or Devin is not reported as AI-assisted. Add identities for other tools in config. A missing default does not mean a tool wasn't used.
 
 The tool never infers AI authorship from coding style.
 

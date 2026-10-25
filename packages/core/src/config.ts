@@ -25,7 +25,14 @@ export const DEFAULT_EXTENSIONS = [
   ".scala",
 ];
 
-export const DEFAULT_AI_MARKERS = ["copilot", "claude", "cursor", "codex", "gemini", "devin", "aider"];
+export const DEFAULT_AI_MARKERS = [
+  "noreply@anthropic.com",
+  "copilot@users.noreply.github.com",
+  "copilot-swe-agent[bot]",
+  "cursoragent@cursor.com",
+  "noreply@aider.chat",
+  "devin-ai-integration[bot]",
+];
 
 const weight = z.number().min(0).max(1);
 const days = z.number().int().min(1).max(3650);
