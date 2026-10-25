@@ -33,6 +33,18 @@ importers:
         specifier: ^5.0.5
         version: 5.0.5(@types/node@24.19.2)(vite@8.3.5(@types/node@24.19.2))
 
+  packages/analyzers:
+    dependencies:
+      '@blindspot/core':
+        specifier: workspace:*
+        version: link:../core
+      '@blindspot/git':
+        specifier: workspace:*
+        version: link:../git
+      typescript:
+        specifier: ~6.0.3
+        version: 6.0.3
+
   packages/core:
     dependencies:
       zod:

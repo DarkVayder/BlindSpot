@@ -32,6 +32,7 @@ export interface RunOptions {
   cwd: string;
   timeoutMs: number;
   maxOutputBytes?: number;
+  input?: string;
 }
 
 const STDERR_LIMIT = 64 * 1024;
@@ -134,8 +135,19 @@ export function streamGit(
       env: gitEnv(),
       shell: false,
       windowsHide: true,
-      stdio: ["ignore", "pipe", "pipe"],
+      stdio: [options.input === undefined ? "ignore" : "pipe", "pipe", "pipe"],
     });
+
+    const { stdin, stdout, stderr: stderrStream } = child;
+    if (!stdout || !stderrStream) {
+      child.kill();
+      reject(new GitError("failed", "Could not open pipes to git."));
+      return;
+    }
+    if (options.input !== undefined && stdin) {
+      stdin.on("error", () => undefined);
+      stdin.end(options.input);
+    }
 
     let stderr = "";
     let settled = false;
@@ -151,7 +163,7 @@ export function streamGit(
       fail(new GitError("timeout", `git ${args[0] ?? ""} did not finish within ${options.timeoutMs} ms.`));
     }, options.timeoutMs);
 
-    child.stdout.on("data", (chunk: Buffer) => {
+    stdout.on("data", (chunk: Buffer) => {
       if (failure) return;
       try {
         onStdout(chunk);
@@ -163,7 +175,7 @@ export function streamGit(
         );
       }
     });
-    child.stderr.on("data", (chunk: Buffer) => {
+    stderrStream.on("data", (chunk: Buffer) => {
       if (stderr.length < STDERR_LIMIT) stderr += chunk.toString("utf8");
     });
 

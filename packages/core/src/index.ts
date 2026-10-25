@@ -1,5 +1,6 @@
 export * from "./config.js";
 export * from "./evidence.js";
+export { GlobError, MAX_BRACE_EXPANSIONS, expandBraces, matchesGlob, validateGlob } from "./glob.js";
 export * from "./result.js";
 export {
   BANDS,

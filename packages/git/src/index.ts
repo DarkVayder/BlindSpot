@@ -1,4 +1,5 @@
 export { collectHistory, type HistoryResult } from "./analyze.js";
+export { CatFileParser, readBlobs, type BlobHandler } from "./blobs.js";
 export { HistoryCollector, identityHaystacks, missingHistory, type FileHistoryEvidence } from "./history.js";
 export {
   LogParser,

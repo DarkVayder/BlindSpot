@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { validateGlob } from "./glob.js";
 
 export const DEFAULT_EXTENSIONS = [
   ".ts",
@@ -36,7 +37,15 @@ export const DEFAULT_AI_MARKERS = [
 
 const weight = z.number().min(0).max(1);
 const days = z.number().int().min(1).max(3650);
-const glob = z.string().min(1).max(500);
+const glob = z
+  .string()
+  .min(1)
+  .max(500)
+  .superRefine((pattern, ctx) => {
+    const problem = validateGlob(pattern);
+    if (problem) ctx.addIssue({ code: "custom", message: problem });
+  });
+const globs = z.array(glob).max(200);
 const marker = z
   .string()
   .min(2)
@@ -58,13 +67,14 @@ export type Weights = z.infer<typeof Weights>;
 
 export const BlindspotConfig = z.strictObject({
   $schema: z.string().optional(),
-  include: z.array(glob).default(() => ["**/*"]),
-  exclude: z.array(glob).default(() => []),
+  include: globs.default(() => []),
+  exclude: globs.default(() => []),
+  useDefaultExcludes: z.boolean().default(true),
   extensions: z
     .array(z.string().regex(/^\.[A-Za-z0-9]+$/, "Extensions must look like '.ts'"))
     .min(1)
     .default(() => [...DEFAULT_EXTENSIONS]),
-  critical: z.array(glob).default(() => []),
+  critical: globs.default(() => []),
   windows: z
     .strictObject({
       analysisDays: days.default(365),
@@ -87,7 +97,7 @@ export const BlindspotConfig = z.strictObject({
   provenance: z
     .strictObject({
       markers: z.array(marker).default(() => [...DEFAULT_AI_MARKERS]),
-      declaredPaths: z.array(glob).default(() => []),
+      declaredPaths: globs.default(() => []),
     })
     .default(() => ({ markers: [...DEFAULT_AI_MARKERS], declaredPaths: [] })),
   limits: z

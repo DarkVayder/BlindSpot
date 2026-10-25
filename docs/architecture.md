@@ -75,8 +75,9 @@ blindspot analyze <path>
    │
    ├─ load + validate config (Zod)              → actionable error on failure
    ├─ git: verify repo, HEAD, shallow-clone check
-   ├─ analyzers: list tracked files (git ls-files -z) → apply exclusions
-   │              → classify (binary / generated / vendored / source)
+   ├─ git: list files at HEAD (git ls-tree -r -z --long) → analyzers: apply exclusions
+   ├─ git: read contents at HEAD (git cat-file --batch, never the working tree)
+   │      → analyzers: classify (binary / generated / source)
    ├─ git: one streamed `git log --numstat -M -z` pass → per-file history with renames
    ├─ analyzers: complexity (TS/JS AST; others: none, marked missing)
    ├─ analyzers: dependency graph (TS/JS import resolution) → fan-in, transitive impact

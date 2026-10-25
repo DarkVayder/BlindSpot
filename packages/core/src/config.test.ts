@@ -60,6 +60,19 @@ describe("parseConfig", () => {
     expect(result.ok && result.config.provenance.markers).toEqual(["copilot"]);
   });
 
+  it("rejects malformed globs, brace bombs and oversized glob lists", () => {
+    expect(parseConfig({ exclude: ["src/{a,b"] }).ok).toBe(false);
+    expect(parseConfig({ critical: ["{a,b}".repeat(12)] }).ok).toBe(false);
+    expect(parseConfig({ include: Array.from({ length: 201 }, (_, i) => `d${i}/**`) }).ok).toBe(false);
+    expect(parseConfig({ include: ["src/**/*.{ts,tsx}"] }).ok).toBe(true);
+  });
+
+  it("defaults to including every file and applying the default exclusions", () => {
+    const result = parseConfig({});
+    expect(result.ok && result.config.include).toEqual([]);
+    expect(result.ok && result.config.useDefaultExcludes).toBe(true);
+  });
+
   it("returns a readable message on failure", () => {
     const result = parseConfig({ impactFloor: 2 });
     expect(result.ok).toBe(false);

@@ -81,7 +81,8 @@ describe("listTrackedFiles", () => {
     r.write("untracked.ts", "not committed\n");
 
     const entries = await listTrackedFiles(await openRepository(r.root, T), T);
-    expect(entries).toEqual([
+    expect(entries.every((e) => /^[0-9a-f]{40}$/.test(e.oid))).toBe(true);
+    expect(entries.map(({ path, kind, size }) => ({ path, kind, size }))).toEqual([
       { path: "-dash.ts", kind: "file", size: 2 },
       { path: "dir with space/naïve 文件.ts", kind: "file", size: 6 },
       { path: "plain.ts", kind: "file", size: 2 },

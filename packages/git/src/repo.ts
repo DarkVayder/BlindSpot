@@ -59,6 +59,7 @@ export type TrackedKind = "file" | "symlink" | "submodule";
 export interface TrackedEntry {
   path: string;
   kind: TrackedKind;
+  oid: string;
   size: number | null;
 }
 
@@ -70,9 +71,16 @@ export async function listTrackedFiles(repo: Repository, timeoutMs: number): Pro
   const splitter = new NulSplitter((token) => {
     const match = LS_TREE_ENTRY.exec(token);
     if (!match) throw new GitError("failed", "Unexpected output from git ls-tree.");
-    const [, mode, , , size, filePath] = match as unknown as [string, string, string, string, string, string];
+    const [, mode, , oid, size, filePath] = match as unknown as [
+      string,
+      string,
+      string,
+      string,
+      string,
+      string,
+    ];
     const kind: TrackedKind = mode === "160000" ? "submodule" : mode === "120000" ? "symlink" : "file";
-    entries.push({ path: filePath, kind, size: size === "-" ? null : Number(size) });
+    entries.push({ path: filePath, kind, oid, size: size === "-" ? null : Number(size) });
   });
   await streamGit(
     ["ls-tree", "-r", "-z", "--long", "--full-tree", repo.head],
