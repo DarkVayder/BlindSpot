@@ -15,6 +15,7 @@ export interface AnalysisOutput {
   files: AnalyzedFile[];
   excluded: Exclusion[];
   importEdges: number;
+  graphComplete: boolean;
   warnings: string[];
 }
 
@@ -100,6 +101,7 @@ export async function analyzeFiles(
     files,
     excluded: excluded.sort((a, b) => compare(a.path, b.path)),
     importEdges: graph.edges,
+    graphComplete: !graph.budgetExceeded,
     warnings,
   };
 }

@@ -356,6 +356,16 @@ describe("properties", () => {
 });
 
 describe("explanations only reference observed evidence", () => {
+  it("explains a signal on which every file ties without claiming a top rank", () => {
+    const solo = Array.from({ length: 10 }, (_, i) =>
+      file(`f${i}.ts`, { history: history({ churnByAuthorInWindow: [50 + i] }) }),
+    );
+    for (const r of scoreRepository(solo, config, AS_OF)) {
+      const line = r.explanations.find((e) => e.includes("single contributor"));
+      expect(line).toBe("100% of lines changed in the last 365 days came from a single contributor.");
+    }
+  });
+
   it("never explains a signal that was missing or not applicable", () => {
     const r = scoreOne(
       file("target.ts", {

@@ -86,6 +86,8 @@ blindspot analyze <path>
               optional: --baseline <json> → comparison + CI exit code
 ```
 
+The engine validates its own output against the `AnalysisResult` schema before returning it, so a malformed result is a crash, never a silently wrong report. In local mode, configuration is read from the working tree (`blindspot.config.json`, else the `"blindspot"` key in `package.json`) so it can be tried before it is committed. File contents always come from HEAD. The hosted worker (Stage 4) must read configuration from the HEAD commit instead, because it clones without a checkout.
+
 No network access occurs during analysis. File contents are read only to compute
 complexity and imports; they are never written to reports — reports contain paths,
 metrics and explanations only.

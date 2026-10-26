@@ -118,6 +118,12 @@ describe("analyzeFiles", () => {
 
   it("returns empty results for an empty repository", async () => {
     const r = TestRepo.create();
-    await expect(run(r)).resolves.toEqual({ files: [], excluded: [], importEdges: 0, warnings: [] });
+    await expect(run(r)).resolves.toEqual({
+      files: [],
+      excluded: [],
+      importEdges: 0,
+      graphComplete: true,
+      warnings: [],
+    });
   });
 });

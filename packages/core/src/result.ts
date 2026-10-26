@@ -63,16 +63,22 @@ export const AnalysisResult = z.object({
   schemaVersion: z.literal(ANALYSIS_SCHEMA_VERSION),
   toolVersion: z.string(),
   modelVersion: z.string(),
-  asOf: z.iso.datetime({ offset: true }),
+  asOf: z.iso.datetime({ offset: true }).nullable(),
   repository: z.object({
-    headCommit: z.string().regex(/^[0-9a-f]{40,64}$/),
+    headCommit: z
+      .string()
+      .regex(/^[0-9a-f]{40}([0-9a-f]{24})?$/)
+      .nullable(),
     shallow: z.boolean(),
   }),
-  configHash: z.string(),
+  configHash: z.string().regex(/^sha256:[0-9a-f]{64}$/),
   coverage: z.object({
     trackedFiles: z.number().int().nonnegative(),
     analyzedFiles: z.number().int().nonnegative(),
     excludedFiles: z.number().int().nonnegative(),
+    excludedByReason: z.record(z.string(), z.number().int().positive()),
+    commitsRead: z.number().int().nonnegative(),
+    historyTruncated: z.boolean(),
     incomplete: z.boolean(),
   }),
   notes: z.array(z.string()),

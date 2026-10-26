@@ -66,7 +66,7 @@ function explanations({ ctx, config, groups, signals }: DescribeInput): string[]
     });
 
   const lines = highlighted.map(
-    (s) => `${signalSentence(s.id, s.raw, config, ctx.provenanceReviewKnown)} (${rankPhrase(s.percentile)}).`,
+    (s) => `${signalSentence(s.id, s.raw, config, ctx.provenanceReviewKnown)}${rankPhrase(s.percentile)}.`,
   );
 
   const crit = ctx.evidence.criticality;
@@ -159,7 +159,10 @@ function pct(share: number): string {
   return `${Math.round(share * 100)}%`;
 }
 
+// A mid-rank percentile at or below 0.5 means the file is not above this repository's
+// median (for example when every file ties), so a "top N%" rank would mislead.
 function rankPhrase(percentile: number): string {
+  if (percentile <= 0.5) return "";
   const top = Math.max(1, Math.round((1 - percentile) * 100));
-  return `top ${top}% in this repository`;
+  return ` (top ${top}% in this repository)`;
 }

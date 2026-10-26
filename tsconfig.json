@@ -1,4 +1,9 @@
 {
   "files": [],
-  "references": [{ "path": "packages/core" }, { "path": "packages/git" }, { "path": "packages/analyzers" }]
+  "references": [
+    { "path": "packages/core" },
+    { "path": "packages/git" },
+    { "path": "packages/analyzers" },
+    { "path": "packages/engine" }
+  ]
 }
