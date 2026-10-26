@@ -4,6 +4,7 @@
     { "path": "packages/core" },
     { "path": "packages/git" },
     { "path": "packages/analyzers" },
-    { "path": "packages/engine" }
+    { "path": "packages/engine" },
+    { "path": "packages/report" }
   ]
 }
