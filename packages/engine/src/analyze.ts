@@ -22,6 +22,12 @@ export interface AnalyzeOptions {
   config: BlindspotConfig;
   toolVersion: string;
   graphBudget?: number;
+  extraWarnings?: readonly string[];
+}
+
+export async function resolveRepositoryRoot(directory: string): Promise<string> {
+  await checkGitVersion(VERSION_CHECK_TIMEOUT_MS);
+  return (await openRepository(directory, VERSION_CHECK_TIMEOUT_MS)).root;
 }
 
 export const RUN_NOTES = [
@@ -38,7 +44,7 @@ export async function analyzeRepository(directory: string, options: AnalyzeOptio
   await checkGitVersion(VERSION_CHECK_TIMEOUT_MS);
   const repo = await openRepository(directory, timeoutMs);
 
-  const warnings: string[] = [];
+  const warnings: string[] = [...(options.extraWarnings ?? [])];
   if (repo.shallow) {
     warnings.push(
       "This is a shallow clone, so history-based signals were not computed. Fetch the full history (for example `git fetch --unshallow`, or `fetch-depth: 0` with actions/checkout) and run again.",

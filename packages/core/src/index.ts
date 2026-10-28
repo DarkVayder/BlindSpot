@@ -1,3 +1,4 @@
+export * from "./compare.js";
 export * from "./config.js";
 export * from "./evidence.js";
 export { GlobError, MAX_BRACE_EXPANSIONS, expandBraces, matchesGlob, validateGlob } from "./glob.js";

@@ -122,3 +122,10 @@ export function parseConfig(input: unknown): ConfigResult {
 export function defaultConfig(): BlindspotConfig {
   return BlindspotConfig.parse({});
 }
+
+export function configJsonSchema(): Record<string, unknown> {
+  return {
+    $id: "urn:blindspot:config:v1",
+    ...z.toJSONSchema(BlindspotConfig, { target: "draft-2020-12", io: "input", unrepresentable: "any" }),
+  };
+}

@@ -1,4 +1,10 @@
-import type { AnalysisResult, RiskBand } from "@blindspot/core";
+import {
+  newlyAtOrAbove,
+  type AnalysisResult,
+  type Comparison,
+  type RankedBand,
+  type RiskBand,
+} from "@blindspot/core";
 import { sanitizeTerminal } from "./escape.js";
 import { BAND_LABEL, BAND_ORDER, bandCounts, isRanked, rankFiles } from "./order.js";
 
@@ -118,4 +124,53 @@ function wrap(text: string, width: number, firstPrefix: string, restPrefix: stri
   }
   if (line) lines.push(line);
   return lines.map((l, i) => (i === 0 ? firstPrefix : restPrefix) + l);
+}
+
+export interface ComparisonOptions {
+  color: boolean;
+  width: number;
+  highlight?: RankedBand;
+  limit?: number;
+}
+
+export function renderComparison(comparison: Comparison, options: ComparisonOptions): string {
+  const width = Math.min(MAX_WIDTH, Math.max(MIN_WIDTH, Math.floor(options.width)));
+  const limit = options.limit ?? 15;
+  const band = options.highlight ?? "elevated";
+  const paint = (code: keyof typeof ANSI, text: string) =>
+    options.color ? `\u001b[${ANSI[code]}m${text}\u001b[0m` : text;
+  const out: string[] = [];
+  const line = (text: string, indent = "") => out.push(...wrap(text, width, indent, `${indent}  `));
+
+  const b = comparison.baseline;
+  line(
+    `${paint("bold", "Compared with baseline")} commit ${b.headCommit?.slice(0, 12) ?? "none"} (as of ${b.asOf?.slice(0, 10) ?? "n/a"})`,
+  );
+  const s = comparison.summary;
+  line(
+    `${s.new} new · ${s.removed} removed · ${s.changed} changed · ${s.worsened} moved to a higher band · ${s.improved} moved to a lower band`,
+    "  ",
+  );
+
+  const risen = newlyAtOrAbove(comparison, band);
+  if (risen.length === 0) {
+    line(`No file is newly at or above ${BAND_LABEL[band].toLowerCase()}.`, "  ");
+  } else {
+    line(`Newly at or above ${BAND_LABEL[band].toLowerCase()}:`, "  ");
+    for (const d of risen.slice(0, limit)) {
+      const after = d.after;
+      if (!after) continue;
+      const from = d.before ? `was ${BAND_LABEL[d.before.band].toLowerCase()}` : "new file";
+      const score = (after.score ?? 0).toFixed(1).padStart(5);
+      const label = `${paint(after.band, BAND_LABEL[after.band])} (${from})`;
+      out.push(`  ${score}  ${truncateMiddle(sanitizeTerminal(d.path), width - 46)}  ${label}`);
+    }
+    if (risen.length > limit) line(`… ${risen.length - limit} more.`, "  ");
+  }
+  for (const caveat of comparison.caveats) {
+    out.push(
+      ...wrap(sanitizeTerminal(caveat), width, "  Caveat: ", "          ").map((l) => paint("dim", l)),
+    );
+  }
+  return `${out.join("\n")}\n`;
 }
