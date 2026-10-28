@@ -80,7 +80,7 @@ export function renderTerminal(result: AnalysisResult, options: TerminalOptions)
     }
     if (ranked.length > limit)
       line(`… ${ranked.length - limit} more ranked file(s) in the JSON and HTML reports.`, "  ");
-    if (ranked.some((f) => f.limitedEvidence))
+    if (ranked.slice(0, limit).some((f) => f.limitedEvidence))
       line(paint("dim", "* limited evidence: treat this estimate with extra caution."), "  ");
   }
 

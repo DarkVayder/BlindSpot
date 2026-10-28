@@ -16,16 +16,17 @@ export function revealBidi(value: string): string {
   return value.replace(BIDI_CONTROLS, (c) => `\\u{${c.charCodeAt(0).toString(16)}}`);
 }
 
-export function escapeHtml(value: string | number): string {
-  return revealBidi(String(value)).replace(/[&<>"']/g, (c) => HTML_ESCAPES[c] ?? c);
+// File names can contain escape sequences that recolor, rewrite or hyperlink a terminal
+// (CSI, OSC 8), and newlines or tabs that make a path display as a different one. Every
+// C0/C1 control character and DEL is shown as a visible \xNN escape instead.
+function revealControls(value: string): string {
+  return value.replace(CONTROL_CHARS, (c) => `\\x${c.charCodeAt(0).toString(16).padStart(2, "0")}`);
 }
 
-// File names and commit-derived text can contain escape sequences that recolor, rewrite
-// or hyperlink the user's terminal (CSI, OSC 8). Every C0/C1 control character and DEL is
-// shown as a visible \xNN escape instead of being passed through.
+export function escapeHtml(value: string | number): string {
+  return revealControls(revealBidi(String(value))).replace(/[&<>"']/g, (c) => HTML_ESCAPES[c] ?? c);
+}
+
 export function sanitizeTerminal(value: string): string {
-  return revealBidi(value).replace(
-    CONTROL_CHARS,
-    (c) => `\\x${c.charCodeAt(0).toString(16).padStart(2, "0")}`,
-  );
+  return revealControls(revealBidi(value));
 }

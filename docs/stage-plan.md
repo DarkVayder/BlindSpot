@@ -32,13 +32,17 @@ Work order:
 
 Gate:
 
-- [ ] `pnpm install --frozen-lockfile && pnpm build && pnpm test` passes on a fresh clone (Windows locally and Linux in CI).
-- [ ] `pnpm lint`, `pnpm typecheck` and `pnpm format:check` are clean.
-- [ ] Integration tests cover: renamed, deleted, binary and new files; a shallow clone (reported as incomplete); an empty repo; a non-repo directory (actionable error); and malicious file names.
-- [ ] Golden test: a fixture repo produces byte-identical JSON across two runs and across operating systems.
-- [ ] Network-isolation test: the CLI completes with outbound network blocked.
-- [ ] HTML report escaping test with hostile paths.
-- [ ] Smoke test: the CLI analyzes this repository and one real public repository, and the output is checked by hand for plausibility.
+- [x] `pnpm install --frozen-lockfile && pnpm build && pnpm test` passes on a fresh clone (Windows locally and Linux in CI).
+      Windows 11, Node 24: 244 passed, 1 skipped (symlink test needs developer mode). Linux (`node:24-bookworm` container, standing in for CI until the repository has a remote): 245 passed.
+- [x] `pnpm lint`, `pnpm typecheck` and `pnpm format:check` are clean on both operating systems.
+- [x] Integration tests cover: renamed, deleted, binary and new files; a shallow clone (reported as incomplete); an empty repo; a non-repo directory (actionable error); and malicious file names.
+- [x] Golden test: a fixture repo produces byte-identical JSON across two runs and across operating systems.
+      The committed golden file passes on Windows and Linux. A real repository (sindresorhus/ky, 592 commits) also gives byte-identical JSON on both.
+- [x] Network-isolation test: the CLI completes with outbound network blocked.
+      An in-process test fails on any socket. The built CLI also analyzed ky and this repository in a `docker run --network none` container (loopback only).
+- [x] HTML report escaping test with hostile paths, plus an end-to-end test that commits hostile names to git and checks every output.
+- [x] Smoke test: the CLI analyzes this repository and one real public repository, and the output is checked by hand for plausibility.
+      For sindresorhus/ky (115 files, 8.7 s), the top-ranked files are the request core and body/merge helpers. There are no AI markers, which the trailers confirm. The baseline from 60 commits earlier gives exit 1 under `--fail-on new-elevated`, and the 43 new files match git.
 
 ## Stage 2 — Scoring validation and research pipeline
 

@@ -23,6 +23,11 @@ describe("escapeHtml", () => {
     );
     expect(escapeHtml(42)).toBe("42");
   });
+
+  it("shows control characters visibly so a path cannot display as a different one", () => {
+    const raw = `new${String.fromCharCode(0x0a)}line${String.fromCharCode(0x1b)}[31m.ts`;
+    expect(escapeHtml(raw)).toBe("new\\x0aline\\x1b[31m.ts");
+  });
 });
 
 describe("renderTerminal", () => {
@@ -72,6 +77,13 @@ describe("renderTerminal", () => {
     expect(text).toContain("commit no commits · as of n/a");
     expect(text).toContain("No file has enough evidence to be ranked yet.");
     expect(text).toContain("! The repository has no commits yet");
+  });
+
+  it("explains the limited-evidence marker only when a listed file carries it", () => {
+    const shown = renderTerminal(goldenResult(), { color: false, width: 100, limit: 4 });
+    expect(shown).toContain("* limited evidence");
+    const topOnly = renderTerminal(goldenResult(), { color: false, width: 100, limit: 1 });
+    expect(topOnly).not.toContain("*");
   });
 
   it("keeps every line within the requested width", () => {
