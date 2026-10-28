@@ -46,7 +46,18 @@ Gate:
 
 ## Stage 2 — Scoring validation and research pipeline
 
-Scope: package `research`, with reproducible snapshots and outcome labels.
+Scope: package `research`, with reproducible snapshots and outcome labels. The analysis is fixed in advance by [research-protocol.md](research-protocol.md).
+
+Work order:
+
+1. Research protocol, written before any outcome data.
+2. Engine: score a repository at a pinned commit without checking it out.
+3. `research fetch` and the pinned dataset.
+4. `snapshot` and `label`.
+5. `sample` and label precision.
+6. Statistics, checked against reference values from statsmodels.
+7. Export, the forbidden-phrases check and a reproducibility re-run.
+8. Keep, recalibrate or rethink decision.
 
 - Repository selection: documented inclusion criteria (language mix, size bands, activity, license). The list and commit SHAs are pinned in `research/datasets/*.json`.
 - Snapshots: score files as of commit `T`, then label outcomes in `(T, T+180d]`.

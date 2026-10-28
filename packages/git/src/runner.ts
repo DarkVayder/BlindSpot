@@ -10,6 +10,7 @@ export type GitErrorCode =
   | "path_not_found"
   | "not_a_repository"
   | "bare_repository"
+  | "bad_revision"
   | "dubious_ownership"
   | "timeout"
   | "output_limit"

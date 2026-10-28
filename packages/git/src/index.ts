@@ -12,6 +12,7 @@ export {
 export {
   listTrackedFiles,
   openRepository,
+  type OpenOptions,
   type Repository,
   type TrackedEntry,
   type TrackedKind,

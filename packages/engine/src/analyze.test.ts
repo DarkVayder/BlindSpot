@@ -124,6 +124,18 @@ describe("analyzeRepository", () => {
     expect(result.warnings.join(" ")).toContain("import graph");
   });
 
+  it("scores an older commit exactly as if it were checked out, ignoring the working tree", async () => {
+    const repo = buildGoldenRepo();
+    const older = repo.git("rev-parse", "HEAD~2").trim();
+    const { config } = loadConfig(repo.root);
+    const pinned = await analyzeRepository(repo.root, { config, toolVersion: TOOL_VERSION, revision: older });
+    repo.git("checkout", "-q", "--detach", older);
+    const checkedOut = await analyze(repo.root);
+    expect(pinned.repository.headCommit).toBe(older);
+    expect(pinned.asOf).toBe("2026-04-20T09:00:00.000Z");
+    expect(JSON.stringify(pinned)).toBe(JSON.stringify(checkedOut));
+  });
+
   it("fails clearly outside a repository", async () => {
     await expect(analyze(tempDir())).rejects.toMatchObject({ code: "not_a_repository" });
   });

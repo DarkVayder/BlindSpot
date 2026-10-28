@@ -21,6 +21,7 @@ const VERSION_CHECK_TIMEOUT_MS = 30_000;
 export interface AnalyzeOptions {
   config: BlindspotConfig;
   toolVersion: string;
+  revision?: string;
   graphBudget?: number;
   extraWarnings?: readonly string[];
 }
@@ -42,7 +43,11 @@ export async function analyzeRepository(directory: string, options: AnalyzeOptio
   const { config, toolVersion } = options;
   const timeoutMs = config.limits.gitTimeoutMs;
   await checkGitVersion(VERSION_CHECK_TIMEOUT_MS);
-  const repo = await openRepository(directory, timeoutMs);
+  const repo = await openRepository(
+    directory,
+    timeoutMs,
+    options.revision === undefined ? {} : { revision: options.revision },
+  );
 
   const warnings: string[] = [...(options.extraWarnings ?? [])];
   if (repo.shallow) {

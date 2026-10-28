@@ -69,6 +69,35 @@ describe("openRepository", () => {
   });
 });
 
+describe("openRepository at a pinned revision", () => {
+  it("uses the given commit and its commit time instead of HEAD", async () => {
+    const r = repo();
+    r.write("a.ts", "export const a = 1;");
+    const first = r.commit("first", "2026-01-01T00:00:00Z");
+    r.write("b.ts", "export const b = 2;").commit("second", "2026-02-01T00:00:00Z");
+    const opened = await openRepository(r.root, T, { revision: first });
+    expect(opened).toMatchObject({ head: first, headCommittedAt: Date.parse("2026-01-01T00:00:00Z") / 1000 });
+    expect((await listTrackedFiles(opened, T)).map((e) => e.path)).toEqual(["a.ts"]);
+  });
+
+  it("accepts only a full commit hash that exists and names a commit", async () => {
+    const r = repo();
+    r.write("a.ts", "export const a = 1;").commit("first", "2026-01-01T00:00:00Z");
+    const tree = r.git("rev-parse", "HEAD^{tree}").trim();
+    for (const revision of [
+      "HEAD",
+      "HEAD~1",
+      "--output=x",
+      "A".repeat(40),
+      "a".repeat(39),
+      "a".repeat(40),
+      tree,
+    ]) {
+      await expect(openRepository(r.root, T, { revision })).rejects.toMatchObject({ code: "bad_revision" });
+    }
+  });
+});
+
 describe("listTrackedFiles", () => {
   it("lists files at HEAD with sizes, including awkward names, and flags submodules", async () => {
     const r = repo();

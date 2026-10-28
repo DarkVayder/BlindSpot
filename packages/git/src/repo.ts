@@ -10,7 +10,21 @@ export interface Repository {
   shallow: boolean;
 }
 
-export async function openRepository(directory: string, timeoutMs: number): Promise<Repository> {
+const COMMIT_HASH = /^[0-9a-f]{40}([0-9a-f]{24})?$/;
+
+export interface OpenOptions {
+  revision?: string;
+}
+
+export async function openRepository(
+  directory: string,
+  timeoutMs: number,
+  open: OpenOptions = {},
+): Promise<Repository> {
+  if (open.revision !== undefined && !COMMIT_HASH.test(open.revision)) {
+    throw new GitError("bad_revision", "A revision must be a full lowercase commit hash.");
+  }
+
   const absolute = path.resolve(directory);
   if (!statSync(absolute, { throwIfNoEntry: false })?.isDirectory())
     throw new GitError("path_not_found", `Directory not found: ${absolute}`);
@@ -34,13 +48,20 @@ export async function openRepository(directory: string, timeoutMs: number): Prom
   let head: string | null = null;
   try {
     head = (
-      await runGit(["rev-parse", "--verify", "--quiet", "--end-of-options", "HEAD^{commit}"], rootOptions)
+      await runGit(
+        ["rev-parse", "--verify", "--quiet", "--end-of-options", `${open.revision ?? "HEAD"}^{commit}`],
+        rootOptions,
+      )
     ).trim();
   } catch (error) {
-    if (!(error instanceof GitError) || error.code !== "failed" || error.stderr !== "") throw error;
+    if (!(error instanceof GitError) || error.code !== "failed") throw error;
+    if (open.revision === undefined && error.stderr !== "") throw error;
   }
   if (head === "") head = null;
-  if (head !== null && !/^[0-9a-f]{40}([0-9a-f]{24})?$/.test(head)) {
+  if (open.revision !== undefined && head !== open.revision) {
+    throw new GitError("bad_revision", `Commit ${open.revision} was not found in this repository.`);
+  }
+  if (head !== null && !COMMIT_HASH.test(head)) {
     throw new GitError("failed", `Unexpected HEAD value from git: ${head.slice(0, 80)}`);
   }
 
