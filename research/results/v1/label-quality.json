@@ -1,0 +1,78 @@
+{
+  "rule": "bugfix@1",
+  "seed": 20261028,
+  "dataset": {
+    "id": "v1",
+    "sha256": "e6211fd54c212ae8365f629c47ee84363067d61a279f1f7d1cb74bbcadab44ac"
+  },
+  "labelledBy": "Rabiu Muhammad (accepted Claude's suggestions)",
+  "sample": {
+    "positives": 195,
+    "negatives": 98,
+    "unsurePositives": 5,
+    "unsureNegatives": 2
+  },
+  "population": {
+    "positives": 1131,
+    "negatives": 968
+  },
+  "precision": {
+    "estimate": 0.7949,
+    "lower": 0.7328,
+    "upper": 0.8456
+  },
+  "missRate": {
+    "estimate": 0.0408,
+    "lower": 0.016,
+    "upper": 0.1003
+  },
+  "recall": {
+    "estimate": 0.9579,
+    "lower": 0.8951,
+    "upper": 0.9841
+  },
+  "threshold": 0.7,
+  "meetsThreshold": true,
+  "byRepository": {
+    "cobra": {
+      "judgedPositives": 1,
+      "truePositives": 1
+    },
+    "django": {
+      "judgedPositives": 59,
+      "truePositives": 29
+    },
+    "express": {
+      "judgedPositives": 1,
+      "truePositives": 1
+    },
+    "flask": {
+      "judgedPositives": 2,
+      "truePositives": 1
+    },
+    "gin": {
+      "judgedPositives": 4,
+      "truePositives": 3
+    },
+    "ky": {
+      "judgedPositives": 2,
+      "truePositives": 2
+    },
+    "requests": {
+      "judgedPositives": 1,
+      "truePositives": 1
+    },
+    "vite": {
+      "judgedPositives": 55,
+      "truePositives": 50
+    },
+    "vue-core": {
+      "judgedPositives": 66,
+      "truePositives": 64
+    },
+    "zod": {
+      "judgedPositives": 4,
+      "truePositives": 3
+    }
+  }
+}

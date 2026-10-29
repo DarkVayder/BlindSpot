@@ -110,6 +110,9 @@ replicates and a fixed seed.
   the odds ratio per standard deviation of the score with a bootstrap interval.
 - Spearman correlation between the score and `bugfix_count`, per repository.
 - The primary analysis repeated for `reverted_any`.
+- **Sensitivity:** the primary analysis repeated without django, whose `bugfix@1` labels had
+  the lowest measured precision (29 of 59). Both results are reported. The decision rule
+  in §6 uses the primary result. If the two disagree, the decision record must say how.
 
 ### 5.3 Exploratory (labelled as such in every output)
 
@@ -163,3 +166,21 @@ The decision is recorded as an ADR.
   are allocated in proportion to each repository's population by largest remainder. The seed
   is 20261028. `unsure` judgements are left out of the precision and recall figures and
   counted. The 0.70 threshold applies to the point estimate.
+- **2026-10-29, who labelled the sample.** The judgements in `research/labels/v1-sample.csv`
+  are Claude's suggestions, reviewed and accepted by Rabiu Muhammad, not judgements made
+  independently. `label-quality.json` records this. The precision figures should be read as
+  one reviewed rater's labels, with no measure of agreement between raters.
+- **2026-10-29, sensitivity analysis and analysis details (after label quality was
+  measured, before any score was compared with an outcome).** The django sensitivity
+  analysis in §5.2 was added because of its label precision. The following details, left
+  open in §5, were fixed at the same time:
+  - **Files used.** These are ranked files with a known prior churn. Any file dropped for
+    lacking prior churn is counted in the output.
+  - **Bootstrap.** Repositories are resampled with replacement. Then, within each
+    repository, files are resampled with replacement separately among positives and
+    negatives, so every replicate has both classes. It uses seed 20261028 and 2,000
+    replicates, and the interval is the 2.5th to 97.5th percentile.
+  - **Regression.** It uses the repositories that are eligible for the pooled AUC. The
+    score is standardized across those files. It is fitted by iteratively reweighted
+    least squares, and its interval comes from the same bootstrap.
+  - **Spearman.** Ties take average ranks.

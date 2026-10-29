@@ -1,12 +1,12 @@
 n,repository,commit,url,subject,body,suggested,judgement,notes
-1,vite,2805b2d2f2ad,https://github.com/vitejs/vite/commit/2805b2d2f2ad216811092fc4e5df938aedbe21a2,perf: simplify explicit import mark in import analysis (#15724),,no,,
+1,vite,2805b2d2f2ad,https://github.com/vitejs/vite/commit/2805b2d2f2ad216811092fc4e5df938aedbe21a2,perf: simplify explicit import mark in import analysis (#15724),,no,no,
 2,django,86661f2449fb,https://github.com/django/django/commit/86661f2449fb0903f72b3522c68e146934013377,Fixed #35791 -- Updated icon button dimensions to 24x24 pixels.,"This is to meet the WCAG 2.5.8 minimum size requirement.
 
-Co-authored-by: Eva Nanyonga <evewish@gmail.com>",unsure,,
-3,django,f60d5e46e131,https://github.com/django/django/commit/f60d5e46e131b94d6ecc92b6891689ccc94bd1c9,Fixed #35913 -- Prevented formset name suffix 'FormFormSet'.,,yes,,
-4,vue-core,d94d8d4bffd1,https://github.com/vuejs/core/commit/d94d8d4bffd1daf171a655b292745ffc3e63052d,fix(compiler-sfc): use compilerOptions when re-parsing consumed AST,fixes hydration error for custom elements,yes,,
-5,django,dfac15d57048,https://github.com/django/django/commit/dfac15d57048432fd8ad3dd189276d1ef304fc4c,"Fixed #35517, Refs #35515 -- Improved test coverage of shell command.",,no,,
-6,vue-core,311655352931,https://github.com/vuejs/core/commit/311655352931863dfcf520b8cf29cebc5b7e1e00,fix(Transition): handle KeepAlive child unmount in Transition out-in mode (#11778),close #11775,yes,,
+Co-authored-by: Eva Nanyonga <evewish@gmail.com>",unsure,unsure,
+3,django,f60d5e46e131,https://github.com/django/django/commit/f60d5e46e131b94d6ecc92b6891689ccc94bd1c9,Fixed #35913 -- Prevented formset name suffix 'FormFormSet'.,,yes,yes,
+4,vue-core,d94d8d4bffd1,https://github.com/vuejs/core/commit/d94d8d4bffd1daf171a655b292745ffc3e63052d,fix(compiler-sfc): use compilerOptions when re-parsing consumed AST,fixes hydration error for custom elements,yes,yes,
+5,django,dfac15d57048,https://github.com/django/django/commit/dfac15d57048432fd8ad3dd189276d1ef304fc4c,"Fixed #35517, Refs #35515 -- Improved test coverage of shell command.",,no,no,
+6,vue-core,311655352931,https://github.com/vuejs/core/commit/311655352931863dfcf520b8cf29cebc5b7e1e00,fix(Transition): handle KeepAlive child unmount in Transition out-in mode (#11778),close #11775,yes,yes,
 7,gin,9f598a31aafb,https://github.com/gin-gonic/gin/commit/9f598a31aafb92d675f38f1c8371e4ac76f858bf,fix(router): catch-all conflicting wildcard (#3812),"* fix: catch-all conflicting wildcard
 
 * add: test cases
@@ -17,53 +17,53 @@ Co-authored-by: Eva Nanyonga <evewish@gmail.com>",unsure,,
 - Change the value of `language` from `['go']` to `[""go""]` in the file `.github/workflows/codeql.yml`
 - Change the value of `go-version` from `'^1.18'` to `""^1.18""` in the file `.github/workflows/gin.yml`
 - Add `1.21` to the list of `go` versions and change the value of `test-tags` in the file `.github/workflows/gin.yml`
-- Change the value of `if` condition from `matr…",yes,,
-8,vite,ed56d96cec8f,https://github.com/vitejs/vite/commit/ed56d96cec8fd3b9b6dae88d5511e386177e6d5c,fix(css): `.css?url` support (#15259),,yes,,
-9,vite,b0b839accc88,https://github.com/vitejs/vite/commit/b0b839accc88d8b3326733a94f76cb7c527fdb06,fix(logger): truncate log over 5000 characters long (#16581),,unsure,,
-10,vite,e961b31493f8,https://github.com/vitejs/vite/commit/e961b31493f8493277b46773156cc6e546b9c86b,fix: `build.modulePreload.resolveDependencies` is optimizable (#16083),,yes,,
+- Change the value of `if` condition from `matr…",yes,yes,
+8,vite,ed56d96cec8f,https://github.com/vitejs/vite/commit/ed56d96cec8fd3b9b6dae88d5511e386177e6d5c,fix(css): `.css?url` support (#15259),,yes,yes,
+9,vite,b0b839accc88,https://github.com/vitejs/vite/commit/b0b839accc88d8b3326733a94f76cb7c527fdb06,fix(logger): truncate log over 5000 characters long (#16581),,unsure,unsure,
+10,vite,e961b31493f8,https://github.com/vitejs/vite/commit/e961b31493f8493277b46773156cc6e546b9c86b,fix: `build.modulePreload.resolveDependencies` is optimizable (#16083),,yes,yes,
 11,vue-core,978ff3c1dbff,https://github.com/vuejs/core/commit/978ff3c1dbff9c93ec284c1804d3c77331ea33f8,fix(custom-element): fix custom-element double render on immediate prop change,"fix #9885
-close #11335",yes,,
-12,vite,804184654b68,https://github.com/vitejs/vite/commit/804184654b6858d35cefe16dfe269613d56d308a,fix(css): page reload was not happening with .css?raw (#16455),,yes,,
+close #11335",yes,yes,
+12,vite,804184654b68,https://github.com/vitejs/vite/commit/804184654b6858d35cefe16dfe269613d56d308a,fix(css): page reload was not happening with .css?raw (#16455),,yes,yes,
 13,vue-core,04af9504a720,https://github.com/vuejs/core/commit/04af9504a720c8e6de26c04b1282cf14fa1bcee3,fix(compiler-core): fix v-bind shorthand for component :is,"close #10469
-close #10471",yes,,
-14,flask,df201ed152b6,https://github.com/pallets/flask/commit/df201ed152b61c439ea1ace179f35b424594ba6c,fix js example test,,no,,
-15,django,3915d4c70d0d,https://github.com/django/django/commit/3915d4c70d0d7673abe675525b58117a5099afd3,Fixed #35060 -- Deprecated passing positional arguments to Model.save()/asave().,,no,,
-16,vue-core,6d4eb94853ed,https://github.com/vuejs/core/commit/6d4eb94853ed1b2b1675bdd7d5ba9c75cc6daed5,feat(runtime-dom): Trusted Types compatibility (#10844),,no,,
-17,requests,1604e20fc87c,https://github.com/psf/requests/commit/1604e20fc87ce212cf3a02474a6d7509b640cbbb,Fix the proxy_bypass_registry function all returning true in some cases.,,yes,,
-18,django,39828fa7786a,https://github.com/django/django/commit/39828fa7786a805f7a542abb929f352d3c5b722c,Added a high contrast mode to screenshot cases.,Thank you to Sarah Abderemane and Nick Pope for the reviews.,no,,
-19,django,f05edb2b43c3,https://github.com/django/django/commit/f05edb2b43c347d4929efd52c8e2b4e08839f542,Fixed #36016 -- Prevented traceback when quitting makemigrations with Ctrl-C.,,yes,,
-20,vue-core,e0b2975ef65a,https://github.com/vuejs/core/commit/e0b2975ef65ae6a0be0aa0a0df43fb887c665251,fix(types/ref): allow getter and setter types to be unrelated (#11442),,yes,,
+close #10471",yes,yes,
+14,flask,df201ed152b6,https://github.com/pallets/flask/commit/df201ed152b61c439ea1ace179f35b424594ba6c,fix js example test,,no,no,
+15,django,3915d4c70d0d,https://github.com/django/django/commit/3915d4c70d0d7673abe675525b58117a5099afd3,Fixed #35060 -- Deprecated passing positional arguments to Model.save()/asave().,,no,no,
+16,vue-core,6d4eb94853ed,https://github.com/vuejs/core/commit/6d4eb94853ed1b2b1675bdd7d5ba9c75cc6daed5,feat(runtime-dom): Trusted Types compatibility (#10844),,no,no,
+17,requests,1604e20fc87c,https://github.com/psf/requests/commit/1604e20fc87ce212cf3a02474a6d7509b640cbbb,Fix the proxy_bypass_registry function all returning true in some cases.,,yes,yes,
+18,django,39828fa7786a,https://github.com/django/django/commit/39828fa7786a805f7a542abb929f352d3c5b722c,Added a high contrast mode to screenshot cases.,Thank you to Sarah Abderemane and Nick Pope for the reviews.,no,no,
+19,django,f05edb2b43c3,https://github.com/django/django/commit/f05edb2b43c347d4929efd52c8e2b4e08839f542,Fixed #36016 -- Prevented traceback when quitting makemigrations with Ctrl-C.,,yes,yes,
+20,vue-core,e0b2975ef65a,https://github.com/vuejs/core/commit/e0b2975ef65ae6a0be0aa0a0df43fb887c665251,fix(types/ref): allow getter and setter types to be unrelated (#11442),,yes,yes,
 21,vue-core,983eb50a17ea,https://github.com/vuejs/core/commit/983eb50a17eac76f1bba4394ad0316c62b72191d,fix(templateRef): set ref on cached async component which wrapped in KeepAlive (#12290),"close #4999
-close #5004",yes,,
-22,vue-core,da7ad5e3d24f,https://github.com/vuejs/core/commit/da7ad5e3d24f3e108401188d909d27a4910da095,fix(ssr): avoid updating subtree of async component if it is resolved (#12363),close #12362,yes,,
-23,django,d9b91e383616,https://github.com/django/django/commit/d9b91e38361696014bdc98434d6d018eae809519,Fixed #32923 -- Refactored out Field._clean_bound_field().,,no,,
-24,cobra,756ba6dad614,https://github.com/spf13/cobra/commit/756ba6dad61458cbbf7abecfc502d230574c57d2,fix(completions): Complete map flags multiple times (#2174),,yes,,
-25,vue-core,3c4bf7627649,https://github.com/vuejs/core/commit/3c4bf7627649ec1e3220f8c4e4163c20d2afb367,fix(compiler-dom): should ignore leading newline in <textarea> per spec,,yes,,
-26,flask,4995a775df21,https://github.com/pallets/flask/commit/4995a775df21a206b529403bc30d71795a994fd4,fix subdomain_matching=False behavior,,yes,,
-27,vue-core,e19fc270428b,https://github.com/vuejs/core/commit/e19fc270428b59456fee43224990138c4d6ccb2d,fix(custom-element): keep instance.isCE for backwards compat,,yes,,
-28,gin,fd1faaded01a,https://github.com/gin-gonic/gin/commit/fd1faaded01aef14a3955ec076f1cbeb9cb87775,feat(binding): support override default binding implement (#3514),,no,,
-29,express,bdd81f867097,https://github.com/expressjs/express/commit/bdd81f8670975ef30fd49e92513ef48d35029eaf,Delete `back` as a magic string (#5933),,no,,
-30,vite,63b82f1e29a0,https://github.com/vitejs/vite/commit/63b82f1e29a00d06a82144fd03ea8d6eff114290,chore: better validation error message for dts build (#18948),,no,,
-31,vite,d4d98dc95e1f,https://github.com/vitejs/vite/commit/d4d98dc95e1f4e4bbbd1ed4529e08e159598a83a,feat: add `create-preact` to list of options in `create-vite` (#17674),,no,,
-32,vue-core,bb4a02a70c30,https://github.com/vuejs/core/commit/bb4a02a70c30e739a3c705b3d96d09258d7d7ded,feat(custom-element): support nonce option for injected style tags,close #6530,no,,
-33,vue-core,6bef15f094c8,https://github.com/vuejs/core/commit/6bef15f094c874a4dcf56f97513c852e81314ea4,chore: remove unused argument,,no,,
-34,vue-core,ae52a371e5ec,https://github.com/vuejs/core/commit/ae52a371e5ec3a2327c5cc24792245bf90535f7c,test: edge case for decodeHtmlBrowser (#11339),Co-authored-by: unknown <fangliang@qq.com>,no,,
-35,django,f25d84f61a03,https://github.com/django/django/commit/f25d84f61a039d538bc742861f36579c704a310b,Fixed #35232 -- Cached model's Options.verbose_name_raw.,,no,,
-36,vue-core,1b8e197a5b65,https://github.com/vuejs/core/commit/1b8e197a5b65d67a9703b8511786fb81df9aa7cc,fix(suspense/hydration): fix hydration timing of async component inside suspense,close #6638,yes,,
-37,flask,b337d210583a,https://github.com/pallets/flask/commit/b337d210583a3f5f84d0f70b56ae9a82b029dab5,update dev dependencies,,no,,
+close #5004",yes,yes,
+22,vue-core,da7ad5e3d24f,https://github.com/vuejs/core/commit/da7ad5e3d24f3e108401188d909d27a4910da095,fix(ssr): avoid updating subtree of async component if it is resolved (#12363),close #12362,yes,yes,
+23,django,d9b91e383616,https://github.com/django/django/commit/d9b91e38361696014bdc98434d6d018eae809519,Fixed #32923 -- Refactored out Field._clean_bound_field().,,no,no,
+24,cobra,756ba6dad614,https://github.com/spf13/cobra/commit/756ba6dad61458cbbf7abecfc502d230574c57d2,fix(completions): Complete map flags multiple times (#2174),,yes,yes,
+25,vue-core,3c4bf7627649,https://github.com/vuejs/core/commit/3c4bf7627649ec1e3220f8c4e4163c20d2afb367,fix(compiler-dom): should ignore leading newline in <textarea> per spec,,yes,yes,
+26,flask,4995a775df21,https://github.com/pallets/flask/commit/4995a775df21a206b529403bc30d71795a994fd4,fix subdomain_matching=False behavior,,yes,yes,
+27,vue-core,e19fc270428b,https://github.com/vuejs/core/commit/e19fc270428b59456fee43224990138c4d6ccb2d,fix(custom-element): keep instance.isCE for backwards compat,,yes,yes,
+28,gin,fd1faaded01a,https://github.com/gin-gonic/gin/commit/fd1faaded01aef14a3955ec076f1cbeb9cb87775,feat(binding): support override default binding implement (#3514),,no,no,
+29,express,bdd81f867097,https://github.com/expressjs/express/commit/bdd81f8670975ef30fd49e92513ef48d35029eaf,Delete `back` as a magic string (#5933),,no,no,
+30,vite,63b82f1e29a0,https://github.com/vitejs/vite/commit/63b82f1e29a00d06a82144fd03ea8d6eff114290,chore: better validation error message for dts build (#18948),,no,no,
+31,vite,d4d98dc95e1f,https://github.com/vitejs/vite/commit/d4d98dc95e1f4e4bbbd1ed4529e08e159598a83a,feat: add `create-preact` to list of options in `create-vite` (#17674),,no,no,
+32,vue-core,bb4a02a70c30,https://github.com/vuejs/core/commit/bb4a02a70c30e739a3c705b3d96d09258d7d7ded,feat(custom-element): support nonce option for injected style tags,close #6530,no,no,
+33,vue-core,6bef15f094c8,https://github.com/vuejs/core/commit/6bef15f094c874a4dcf56f97513c852e81314ea4,chore: remove unused argument,,no,no,
+34,vue-core,ae52a371e5ec,https://github.com/vuejs/core/commit/ae52a371e5ec3a2327c5cc24792245bf90535f7c,test: edge case for decodeHtmlBrowser (#11339),Co-authored-by: unknown <fangliang@qq.com>,no,no,
+35,django,f25d84f61a03,https://github.com/django/django/commit/f25d84f61a039d538bc742861f36579c704a310b,Fixed #35232 -- Cached model's Options.verbose_name_raw.,,no,no,
+36,vue-core,1b8e197a5b65,https://github.com/vuejs/core/commit/1b8e197a5b65d67a9703b8511786fb81df9aa7cc,fix(suspense/hydration): fix hydration timing of async component inside suspense,close #6638,yes,yes,
+37,flask,b337d210583a,https://github.com/pallets/flask/commit/b337d210583a3f5f84d0f70b56ae9a82b029dab5,update dev dependencies,,no,no,
 38,vite,aec5fdd72e3a,https://github.com/vitejs/vite/commit/aec5fdd72e3aeb2aa26796001b98f3f330be86d1,fix(less): prevent rebasing `@import url(...)` (#17857),"Co-authored-by: shaoyu <shaoyu>
-Co-authored-by: bluwy <bjornlu.dev@gmail.com>",yes,,
-39,vue-core,969c5fb30f4c,https://github.com/vuejs/core/commit/969c5fb30f4c725757c7385abfc74772514eae4b,fix(reactivity): fix hasOwnProperty key coercion edge cases,,yes,,
+Co-authored-by: bluwy <bjornlu.dev@gmail.com>",yes,yes,
+39,vue-core,969c5fb30f4c,https://github.com/vuejs/core/commit/969c5fb30f4c725757c7385abfc74772514eae4b,fix(reactivity): fix hasOwnProperty key coercion edge cases,,yes,yes,
 40,django,ef2434f85085,https://github.com/django/django/commit/ef2434f8508551fee183079ab471b1dc325c7acb,Refs #32114 -- Fixed test crash on non-picklable objects in subtests when PickleError is raised.,"Related to the https://github.com/python/cpython/issues/73373.
 
-Follow up to c09e8f5fd8f977bf16e9ec5d11b370151fc81ea8.",yes,,
-41,express,54271f69b511,https://github.com/expressjs/express/commit/54271f69b511fea198471e6ff3400ab805d6b553,fix: don't render redirect values in anchor href,Co-authored-by: Ulises Gascón <ulisesgascongonzalez@gmail.com>,yes,,
-42,vite,25fe9e3b48e2,https://github.com/vitejs/vite/commit/25fe9e3b48e29d49e90d6aed5ec3825dceafec18,chore: fix moduleSideEffects in build script on Windows (#18518),,no,,
-43,vite,1882c734b1aa,https://github.com/vitejs/vite/commit/1882c734b1aa3199d12988f06591b71ed5d5af27,feat(create-vite): allow overwrite in command line (#15808),Co-authored-by: bluwy <bjornlu.dev@gmail.com>,no,,
-44,vue-core,5e0f6d5f8fe7,https://github.com/vuejs/core/commit/5e0f6d5f8fe7c4eb8f247357c3e2e281726f36db,fix(types/custom-element): `defineCustomElement` with required props (#11578),,yes,,
-45,vite,ec16a5efc04d,https://github.com/vitejs/vite/commit/ec16a5efc04d8ab50301d184c20e7bd0c8d8f6a2,chore: fix some comments (#17495),,no,,
-46,vite,a839c14b199d,https://github.com/vitejs/vite/commit/a839c14b199d0a4731aa76ee096d27cada33c6d6,fix(css): import using imports field in CS was not resolved (#15985),Co-authored-by: Hiroshi Ogawa <hi.ogawa.zz@gmail.com>,yes,,
-47,vite,f3b195cf3344,https://github.com/vitejs/vite/commit/f3b195cf3344d1f0a3b6f8cd8600e4df7c577d62,feat(create-vite): add custom remix option for React (#15995),,no,,
+Follow up to c09e8f5fd8f977bf16e9ec5d11b370151fc81ea8.",yes,yes,
+41,express,54271f69b511,https://github.com/expressjs/express/commit/54271f69b511fea198471e6ff3400ab805d6b553,fix: don't render redirect values in anchor href,Co-authored-by: Ulises Gascón <ulisesgascongonzalez@gmail.com>,yes,yes,
+42,vite,25fe9e3b48e2,https://github.com/vitejs/vite/commit/25fe9e3b48e29d49e90d6aed5ec3825dceafec18,chore: fix moduleSideEffects in build script on Windows (#18518),,no,no,
+43,vite,1882c734b1aa,https://github.com/vitejs/vite/commit/1882c734b1aa3199d12988f06591b71ed5d5af27,feat(create-vite): allow overwrite in command line (#15808),Co-authored-by: bluwy <bjornlu.dev@gmail.com>,no,no,
+44,vue-core,5e0f6d5f8fe7,https://github.com/vuejs/core/commit/5e0f6d5f8fe7c4eb8f247357c3e2e281726f36db,fix(types/custom-element): `defineCustomElement` with required props (#11578),,yes,yes,
+45,vite,ec16a5efc04d,https://github.com/vitejs/vite/commit/ec16a5efc04d8ab50301d184c20e7bd0c8d8f6a2,chore: fix some comments (#17495),,no,no,
+46,vite,a839c14b199d,https://github.com/vitejs/vite/commit/a839c14b199d0a4731aa76ee096d27cada33c6d6,fix(css): import using imports field in CS was not resolved (#15985),Co-authored-by: Hiroshi Ogawa <hi.ogawa.zz@gmail.com>,yes,yes,
+47,vite,f3b195cf3344,https://github.com/vitejs/vite/commit/f3b195cf3344d1f0a3b6f8cd8600e4df7c577d62,feat(create-vite): add custom remix option for React (#15995),,no,no,
 48,zod,b85686ab852b,https://github.com/colinhacks/zod/commit/b85686ab852bc75919fd9d853dfca4b0968301dd,Add support for `base64url` strings (#3712),"* Add support for `base64url` strings
 
 Fixes #3711
@@ -85,52 +85,52 @@ Signed-off-by: Marvin A. Ruder <signed@mruder.dev>
 ---------
 
 Signed-off-by: Marvin A. Ruder <signed@mruder.dev>
-Co-authored-by: Colin McDonnell <colinmcd94@gmail.com>",no,,
-49,vite,e6ebc7bad710,https://github.com/vitejs/vite/commit/e6ebc7bad710e1c9d86bf8ca9e994640a86e88fe,feat(build): set `hoistTransitiveImports` to false in library builds (#15595),,no,,
-50,django,a702a0773dee,https://github.com/django/django/commit/a702a0773dee8ea74119a8e0edf7ecc5d0ee4a1a,Added test for the sendtestemail command when no recipients are given.,,no,,
-51,vite,fc2bceb09fb6,https://github.com/vitejs/vite/commit/fc2bceb09fb65cc6dc843462f51506586251a703,test: consolidate spec names in all playgrounds (#15718),,no,,
+Co-authored-by: Colin McDonnell <colinmcd94@gmail.com>",no,no,
+49,vite,e6ebc7bad710,https://github.com/vitejs/vite/commit/e6ebc7bad710e1c9d86bf8ca9e994640a86e88fe,feat(build): set `hoistTransitiveImports` to false in library builds (#15595),,no,no,
+50,django,a702a0773dee,https://github.com/django/django/commit/a702a0773dee8ea74119a8e0edf7ecc5d0ee4a1a,Added test for the sendtestemail command when no recipients are given.,,no,no,
+51,vite,fc2bceb09fb6,https://github.com/vitejs/vite/commit/fc2bceb09fb65cc6dc843462f51506586251a703,test: consolidate spec names in all playgrounds (#15718),,no,no,
 52,django,719a42b589d7,https://github.com/django/django/commit/719a42b589d7551fc84708044b9e984ce723c8a2,Fixed #34789 -- Prevented updateRelatedSelectsOptions from,"adding entries to filter_horizontal chosen box.
 
-Co-authored-by: yokeshwaran1 <yokesh440@yahoo.com>",yes,,
-53,django,ec7d69035a40,https://github.com/django/django/commit/ec7d69035a408b357f1803ca05a7c991cc358cfa,Fixed #35782 -- Allowed overriding password validation error messages.,,no,,
-54,vue-core,a959781dd6f6,https://github.com/vuejs/core/commit/a959781dd6f609dcb6f16dd7fa47d3b16895e5ca,"fix(runtime-core): update devtool __vnode on patch, avoid memory leak during dev",close #11192,yes,,
+Co-authored-by: yokeshwaran1 <yokesh440@yahoo.com>",yes,yes,
+53,django,ec7d69035a40,https://github.com/django/django/commit/ec7d69035a408b357f1803ca05a7c991cc358cfa,Fixed #35782 -- Allowed overriding password validation error messages.,,no,no,
+54,vue-core,a959781dd6f6,https://github.com/vuejs/core/commit/a959781dd6f609dcb6f16dd7fa47d3b16895e5ca,"fix(runtime-core): update devtool __vnode on patch, avoid memory leak during dev",close #11192,yes,yes,
 55,django,8dbfef469582,https://github.com/django/django/commit/8dbfef469582128c9d8487bf3f45d861b2ecfcb9,Fixed #35320 -- Removed unnecessary django.core.files.move._samefile() hook.,"os.path.samefile() uses the same implementation on Windows as all other
-platforms since Python 3.4.",no,,
-56,django,968397228fe0,https://github.com/django/django/commit/968397228fe03968bb855856532569586c8a8a1c,"Fixed #35867, Refs #2411 -- Allowed links in admindocs view details summary.",,unsure,,
-57,django,2d3bb414cfb2,https://github.com/django/django/commit/2d3bb414cfb2778cc64f22e7203102d7389f81e6,Refs #35560 -- Corrected required feature flags in GeneratedModelUniqueConstraint.,,no,,
-58,django,2bc43ccbdb28,https://github.com/django/django/commit/2bc43ccbdb28b9d87da172ef119ff3b48e6ff71a,Removed redundant RemoteTestResultTest._test_error_exc_info() test hook.,,no,,
-59,vite,db28b92caf0f,https://github.com/vitejs/vite/commit/db28b92caf0faf3c13c1add8da41e9463bbb530f,fix: init dev ssr optimizer on server init (#15561),,yes,,
+platforms since Python 3.4.",no,no,
+56,django,968397228fe0,https://github.com/django/django/commit/968397228fe03968bb855856532569586c8a8a1c,"Fixed #35867, Refs #2411 -- Allowed links in admindocs view details summary.",,unsure,unsure,
+57,django,2d3bb414cfb2,https://github.com/django/django/commit/2d3bb414cfb2778cc64f22e7203102d7389f81e6,Refs #35560 -- Corrected required feature flags in GeneratedModelUniqueConstraint.,,no,no,
+58,django,2bc43ccbdb28,https://github.com/django/django/commit/2bc43ccbdb28b9d87da172ef119ff3b48e6ff71a,Removed redundant RemoteTestResultTest._test_error_exc_info() test hook.,,no,no,
+59,vite,db28b92caf0f,https://github.com/vitejs/vite/commit/db28b92caf0faf3c13c1add8da41e9463bbb530f,fix: init dev ssr optimizer on server init (#15561),,yes,yes,
 60,gin,f5f5da8fa09d,https://github.com/gin-gonic/gin/commit/f5f5da8fa09d12a22225c493fa8191fb14bdd5bf,docs(gin): update link to dont-trust-all-proxies section (#3938) (#3945),"Update link [1] to [2] after PR #3449 was merged.
 
 [1] https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies
 [2] https://github.com/gin-gonic/gin/blob/master/docs/doc.md#dont-trust-all-proxies
 
-Closes",no,,
+Closes",no,no,
 61,django,cbf1e87398a5,https://github.com/django/django/commit/cbf1e87398a58737e27e1b680283903caf661f90,Fixed #35294 -- Fixed TEXT format of QuerySet.explain() for long plans.,"co-authored-by: Gordon <gordon.wrigley@gmail.com>
-co-authored-by: Simon Charette <charette.s@gmail.com>",yes,,
-62,vite,55461b43329d,https://github.com/vitejs/vite/commit/55461b43329db6a5e737eab591163a8681ba9230,fix(html): externalize `rollup.external` scripts correctly (#18618),,yes,,
+co-authored-by: Simon Charette <charette.s@gmail.com>",yes,yes,
+62,vite,55461b43329d,https://github.com/vitejs/vite/commit/55461b43329db6a5e737eab591163a8681ba9230,fix(html): externalize `rollup.external` scripts correctly (#18618),,yes,yes,
 63,zod,1d0a4b95300a,https://github.com/colinhacks/zod/commit/1d0a4b95300a2c470b175ed4524fe3cf04ef9b19,fix: bigint coerce crash (#3822),"* fix: cast invalid bigint inputs to undefined
 
 * fix: cast invalid bigint values to undefined
 
-* refactor: return invalid type on coerce error",yes,,
-64,django,ef8ae06c2acd,https://github.com/django/django/commit/ef8ae06c2acd7b3673fee15b379213169153c7b0,"Fixed #35903 -- Made admin's ""view on site"" URL accept non-integer ContentType pks.",,yes,,
-65,express,c5addb9a17c5,https://github.com/expressjs/express/commit/c5addb9a17c5b4c9fccdd2c04153a30595e03385,deps: path-to-regexp@0.1.8 (#5603),,no,,
-66,vite,9eab231c7baa,https://github.com/vitejs/vite/commit/9eab231c7baaa8e91e4e6aefaca4e58cec538143,test: run css sourcemap playground for legacy sass (#18636),,no,,
-67,vue-core,6930e60787e4,https://github.com/vuejs/core/commit/6930e60787e4905a50417190263ae7dd46cf5409,fix(runtime-core): fix regression for $attrs tracking in slots,close #10710,yes,,
-68,cobra,4fb0a66a3436,https://github.com/spf13/cobra/commit/4fb0a66a3436bd34b03b858c729404e99cd3124f,flags: clarify documentation that LocalFlags related function do not modify the state (#2064),,no,,
+* refactor: return invalid type on coerce error",yes,yes,
+64,django,ef8ae06c2acd,https://github.com/django/django/commit/ef8ae06c2acd7b3673fee15b379213169153c7b0,"Fixed #35903 -- Made admin's ""view on site"" URL accept non-integer ContentType pks.",,yes,yes,
+65,express,c5addb9a17c5,https://github.com/expressjs/express/commit/c5addb9a17c5b4c9fccdd2c04153a30595e03385,deps: path-to-regexp@0.1.8 (#5603),,no,no,
+66,vite,9eab231c7baa,https://github.com/vitejs/vite/commit/9eab231c7baaa8e91e4e6aefaca4e58cec538143,test: run css sourcemap playground for legacy sass (#18636),,no,no,
+67,vue-core,6930e60787e4,https://github.com/vuejs/core/commit/6930e60787e4905a50417190263ae7dd46cf5409,fix(runtime-core): fix regression for $attrs tracking in slots,close #10710,yes,yes,
+68,cobra,4fb0a66a3436,https://github.com/spf13/cobra/commit/4fb0a66a3436bd34b03b858c729404e99cd3124f,flags: clarify documentation that LocalFlags related function do not modify the state (#2064),,no,no,
 69,vue-core,9eca65ee9871,https://github.com/vuejs/core/commit/9eca65ee9871d1ac878755afa9a3eb1b02030350,fix(types): correct type inference of all-optional props (#11644),"fix #11733
-fix vuejs/language-tools#4704",yes,,
+fix vuejs/language-tools#4704",yes,yes,
 70,django,34066d6cf3d6,https://github.com/django/django/commit/34066d6cf3d66b8a3c7fac86912455dbb2ed0ed6,Refs #35844 -- Fixed tests for test --parallel option on Python 3.14+.,"""forkserver"" is the new default on POSIX systems, and Django doesn't
 support parallel tests with ""forkserver"":
 
-https://github.com/python/cpython/commit/b65f2cdfa77d8d12c213aec663ddaaa30d75a4b2",no,,
-71,vite,b916ab601d2e,https://github.com/vitejs/vite/commit/b916ab601d2ec1c842ea0c6139bf216166010e56,chore(optimizer): fix typo in comment (#18239),,no,,
-72,django,f72bbd448084,https://github.com/django/django/commit/f72bbd44808452f4a70be5f7b9d35e46dee32e2d,Fixed #35689 -- Handled custom labels in LabelCommand.missing_args_message.,,yes,,
-73,vite,644d120248bb,https://github.com/vitejs/vite/commit/644d120248bbde6ed594b798092a7b5f6d7e58c5,perf: simplify isHtmlProxy regex (#15590),,no,,
-74,django,3d508ececbd3,https://github.com/django/django/commit/3d508ececbd3b7b652aedc66b0d3d2c7baa4795a,Refs #21286 -- Fixed serializers tests if Pillow isn't installed.,,no,,
-75,vue-core,8d042050411f,https://github.com/vuejs/core/commit/8d042050411fdf04d9d1d6c153287164b12e0255,fix(reactivity): correct dirty assign in render function (#10091),close #10082,yes,,
-76,vue-core,fe03b2f8bfb2,https://github.com/vuejs/core/commit/fe03b2f8bfb2d3d24e0c9c39a13cf561260c461a,chore(apiWatch): constraint deep passes boolean (#9952),,no,,
+https://github.com/python/cpython/commit/b65f2cdfa77d8d12c213aec663ddaaa30d75a4b2",no,no,
+71,vite,b916ab601d2e,https://github.com/vitejs/vite/commit/b916ab601d2ec1c842ea0c6139bf216166010e56,chore(optimizer): fix typo in comment (#18239),,no,no,
+72,django,f72bbd448084,https://github.com/django/django/commit/f72bbd44808452f4a70be5f7b9d35e46dee32e2d,Fixed #35689 -- Handled custom labels in LabelCommand.missing_args_message.,,yes,yes,
+73,vite,644d120248bb,https://github.com/vitejs/vite/commit/644d120248bbde6ed594b798092a7b5f6d7e58c5,perf: simplify isHtmlProxy regex (#15590),,no,no,
+74,django,3d508ececbd3,https://github.com/django/django/commit/3d508ececbd3b7b652aedc66b0d3d2c7baa4795a,Refs #21286 -- Fixed serializers tests if Pillow isn't installed.,,no,no,
+75,vue-core,8d042050411f,https://github.com/vuejs/core/commit/8d042050411fdf04d9d1d6c153287164b12e0255,fix(reactivity): correct dirty assign in render function (#10091),close #10082,yes,yes,
+76,vue-core,fe03b2f8bfb2,https://github.com/vuejs/core/commit/fe03b2f8bfb2d3d24e0c9c39a13cf561260c461a,chore(apiWatch): constraint deep passes boolean (#9952),,no,no,
 77,django,11393ab1316f,https://github.com/django/django/commit/11393ab1316f973c5fbb534305750740d909b4e4,Fixed #35059 -- Ensured that ASGIHandler always sends the request_finished signal.,"Prior to this work, when async tasks that process the request are cancelled due
 to receiving an early ""http.disconnect"" ASGI message, the request_finished
 signal was not being sent, potentially leading to resource leaks (such as
@@ -142,55 +142,55 @@ of early termination of the response.
 Regression in 64cea1e48f285ea2162c669208d95188b32bbc82.
 
 Co-authored-by: Natalia <124304+nessita@users.noreply.github.com>
-Co-authored-by: Carlton Gibson <carlton.gibson@noumenal.es>",no,,
-78,django,d4e4520efb55,https://github.com/django/django/commit/d4e4520efb553d2bfcc68ac8cf007c0c402d4845,Fixed #35792 -- Simplified ModelBackend._get_group_permissions().,,no,,
-79,django,2ff00251f929,https://github.com/django/django/commit/2ff00251f929cc3e014dd447f6847196e66e69b8,Fixed #35669 -- Improved max post-process passes exceeded error message in HashedFilesMixin.,Signed-off-by: SaJH <wogur981208@gmail.com>,no,,
-80,vue-core,f26d56601ca0,https://github.com/vuejs/core/commit/f26d56601ca0d2726ad4350e1ddb7b95fbb1c31a,chore: improve event value validation message,,no,,
-81,vue-core,e94b01bd8a1e,https://github.com/vuejs/core/commit/e94b01bd8a1ec740eddc823839ab2627b307c1b0,fix(types/custome-element): `defineCustomElement` props inference with array emits (#11384),close #11353,yes,,
-82,vue-core,c9c9dff805e3,https://github.com/vuejs/core/commit/c9c9dff805e346a88b02a9c5edb386242e49b8f1,refactor(perf): assign value in `if` block (#10836),,no,,
-83,django,d876be794f59,https://github.com/django/django/commit/d876be794f59fd37c8edc33ecde4577d820a9c75,Fixed #35807 -- Mentioned async case for internal get/set urlconf helpers.,,no,,
-84,vue-core,5df67e367566,https://github.com/vuejs/core/commit/5df67e36756639ea7b923d1b139d6cb14450123b,fix(runtime-dom): handle undefined values in v-html (#11403),,yes,,
-85,vue-core,c146186396d0,https://github.com/vuejs/core/commit/c146186396d0c1a65423b8c9a21251c5a6467336,fix(types): fix compat with generated types that rely on CreateComponentPublicInstance,close #10842,yes,,
-86,vite,947001157050,https://github.com/vitejs/vite/commit/9470011570503a917021915c47e6a2f36aae16b5,fix: require serialization for `HMRConnection.send` on implementation side (#18186),,yes,,
-87,vite,dc3c14f39fcd,https://github.com/vitejs/vite/commit/dc3c14f39fcd57867c8ae81b75ae768b53b4b880,fix: cjs warning respect the logLevel flag (#17993),,yes,,
-88,vue-core,3a56315f94bc,https://github.com/vuejs/core/commit/3a56315f94bc0e11cfbb288b65482ea8fc3a39b4,"fix: Revert ""fix(types/ref): correct type inference for nested refs (#11536)""",This reverts commit 536f62332c455ba82ef2979ba634b831f91928ba.,yes,,
-89,requests,bf24b7d8d17d,https://github.com/psf/requests/commit/bf24b7d8d17da34be720c19e5978b2d3bf94a53b,Use an invalid URI that will not cause httpbin to throw 500,,no,,
-90,vue-core,c2b274a887f6,https://github.com/vuejs/core/commit/c2b274a887f61deb7e0185d1bef3b77d31e991cc,fix(reactivity): re-fix #10114 (#10123),,yes,,
-91,django,7e39ae5c8cf4,https://github.com/django/django/commit/7e39ae5c8cf4c6601a4f47b72914349481c5331b,Fixed #35472 -- Used temporary directory in test_imagefield.NoReadTests.,,no,,
-92,vue-core,8296e19855e3,https://github.com/vuejs/core/commit/8296e19855e369a7826f5ea26540a6da01dc7093,fix(reactivity): avoid infinite loop when render access a side effect computed (#11135),close #11121,yes,,
-93,django,0bfaa55708d4,https://github.com/django/django/commit/0bfaa55708d402432d44882d9a8e4cb85011472c,Fixed #35752 -- Fixed crash when using In() lookup in filters.,,yes,,
-94,vue-core,3d6f01571b3f,https://github.com/vuejs/core/commit/3d6f01571b3fb61b32da599d0419eff4e3ebb231,fix(compiler-sfc): fix prefixIdentifier default value,,yes,,
-95,ky,08f912d44a80,https://github.com/sindresorhus/ky/commit/08f912d44a809876efabd05078d4c250715e48af,Fix `exactOptionalPropertyTypes` and compatibility with TypeScript 5.4 (#565),,yes,,
-96,requests,970e8cec9884,https://github.com/psf/requests/commit/970e8cec988421bd43da57350723b05c8ce8dc7e,v2.32.1,,no,,
-97,vite,81b3bd09cff9,https://github.com/vitejs/vite/commit/81b3bd09cff926534ea667edfa5417b944cdf01c,fix: srcSet with optional descriptor (#15905),Co-authored-by: patak <matias.capeletto@gmail.com>,yes,,
-98,vue-core,ea494af99365,https://github.com/vuejs/core/commit/ea494af9936531b51a5fbf22cc4123998ab12d1b,chore: update to ESLint 9 (#10705),,no,,
-99,django,5dc17177c386,https://github.com/django/django/commit/5dc17177c38662d6f4408258ee117cd80e0cb933,Refs #10941 -- Renamed test file test_query_string.py to test_querystring.py.,This follows previous renames made in 27043bde5b795eb4a605aeca1d3bc4345d2ca478.,no,,
-100,vite,56b71768f3ee,https://github.com/vitejs/vite/commit/56b71768f3ee498962fba898804086299382bb59,fix(dev): prevent double URL encoding in server.open on macOS (#18443),,yes,,
+Co-authored-by: Carlton Gibson <carlton.gibson@noumenal.es>",no,no,
+78,django,d4e4520efb55,https://github.com/django/django/commit/d4e4520efb553d2bfcc68ac8cf007c0c402d4845,Fixed #35792 -- Simplified ModelBackend._get_group_permissions().,,no,no,
+79,django,2ff00251f929,https://github.com/django/django/commit/2ff00251f929cc3e014dd447f6847196e66e69b8,Fixed #35669 -- Improved max post-process passes exceeded error message in HashedFilesMixin.,Signed-off-by: SaJH <wogur981208@gmail.com>,no,no,
+80,vue-core,f26d56601ca0,https://github.com/vuejs/core/commit/f26d56601ca0d2726ad4350e1ddb7b95fbb1c31a,chore: improve event value validation message,,no,no,
+81,vue-core,e94b01bd8a1e,https://github.com/vuejs/core/commit/e94b01bd8a1ec740eddc823839ab2627b307c1b0,fix(types/custome-element): `defineCustomElement` props inference with array emits (#11384),close #11353,yes,yes,
+82,vue-core,c9c9dff805e3,https://github.com/vuejs/core/commit/c9c9dff805e346a88b02a9c5edb386242e49b8f1,refactor(perf): assign value in `if` block (#10836),,no,no,
+83,django,d876be794f59,https://github.com/django/django/commit/d876be794f59fd37c8edc33ecde4577d820a9c75,Fixed #35807 -- Mentioned async case for internal get/set urlconf helpers.,,no,no,
+84,vue-core,5df67e367566,https://github.com/vuejs/core/commit/5df67e36756639ea7b923d1b139d6cb14450123b,fix(runtime-dom): handle undefined values in v-html (#11403),,yes,yes,
+85,vue-core,c146186396d0,https://github.com/vuejs/core/commit/c146186396d0c1a65423b8c9a21251c5a6467336,fix(types): fix compat with generated types that rely on CreateComponentPublicInstance,close #10842,yes,yes,
+86,vite,947001157050,https://github.com/vitejs/vite/commit/9470011570503a917021915c47e6a2f36aae16b5,fix: require serialization for `HMRConnection.send` on implementation side (#18186),,yes,yes,
+87,vite,dc3c14f39fcd,https://github.com/vitejs/vite/commit/dc3c14f39fcd57867c8ae81b75ae768b53b4b880,fix: cjs warning respect the logLevel flag (#17993),,yes,yes,
+88,vue-core,3a56315f94bc,https://github.com/vuejs/core/commit/3a56315f94bc0e11cfbb288b65482ea8fc3a39b4,"fix: Revert ""fix(types/ref): correct type inference for nested refs (#11536)""",This reverts commit 536f62332c455ba82ef2979ba634b831f91928ba.,yes,yes,
+89,requests,bf24b7d8d17d,https://github.com/psf/requests/commit/bf24b7d8d17da34be720c19e5978b2d3bf94a53b,Use an invalid URI that will not cause httpbin to throw 500,,no,no,
+90,vue-core,c2b274a887f6,https://github.com/vuejs/core/commit/c2b274a887f61deb7e0185d1bef3b77d31e991cc,fix(reactivity): re-fix #10114 (#10123),,yes,yes,
+91,django,7e39ae5c8cf4,https://github.com/django/django/commit/7e39ae5c8cf4c6601a4f47b72914349481c5331b,Fixed #35472 -- Used temporary directory in test_imagefield.NoReadTests.,,no,no,
+92,vue-core,8296e19855e3,https://github.com/vuejs/core/commit/8296e19855e369a7826f5ea26540a6da01dc7093,fix(reactivity): avoid infinite loop when render access a side effect computed (#11135),close #11121,yes,yes,
+93,django,0bfaa55708d4,https://github.com/django/django/commit/0bfaa55708d402432d44882d9a8e4cb85011472c,Fixed #35752 -- Fixed crash when using In() lookup in filters.,,yes,yes,
+94,vue-core,3d6f01571b3f,https://github.com/vuejs/core/commit/3d6f01571b3fb61b32da599d0419eff4e3ebb231,fix(compiler-sfc): fix prefixIdentifier default value,,yes,yes,
+95,ky,08f912d44a80,https://github.com/sindresorhus/ky/commit/08f912d44a809876efabd05078d4c250715e48af,Fix `exactOptionalPropertyTypes` and compatibility with TypeScript 5.4 (#565),,yes,yes,
+96,requests,970e8cec9884,https://github.com/psf/requests/commit/970e8cec988421bd43da57350723b05c8ce8dc7e,v2.32.1,,no,no,
+97,vite,81b3bd09cff9,https://github.com/vitejs/vite/commit/81b3bd09cff926534ea667edfa5417b944cdf01c,fix: srcSet with optional descriptor (#15905),Co-authored-by: patak <matias.capeletto@gmail.com>,yes,yes,
+98,vue-core,ea494af99365,https://github.com/vuejs/core/commit/ea494af9936531b51a5fbf22cc4123998ab12d1b,chore: update to ESLint 9 (#10705),,no,no,
+99,django,5dc17177c386,https://github.com/django/django/commit/5dc17177c38662d6f4408258ee117cd80e0cb933,Refs #10941 -- Renamed test file test_query_string.py to test_querystring.py.,This follows previous renames made in 27043bde5b795eb4a605aeca1d3bc4345d2ca478.,no,no,
+100,vite,56b71768f3ee,https://github.com/vitejs/vite/commit/56b71768f3ee498962fba898804086299382bb59,fix(dev): prevent double URL encoding in server.open on macOS (#18443),,yes,yes,
 101,django,c8df2f994130,https://github.com/django/django/commit/c8df2f994130d74ec35d32a36e30aad7d6ea8e3a,Fixed #35339 -- Fixed PostgreSQL aggregate's filter and order_by params order.,"Updated OrderableAggMixin.as_sql() to separate the order_by parameters
 from the filter parameters. Previously, the parameters and SQL were
 calculated by the Aggregate parent class, resulting in a mixture of
 order_by and filter parameters.
 
-Thanks Simon Charette for the review.",yes,,
-102,vite,cf5028d4bf0a,https://github.com/vitejs/vite/commit/cf5028d4bf0a0d59b4a98323beaadc268204056b,feat: support `module-sync` condition when loading config if enabled (#18650),,no,,
-103,django,b82f80906a56,https://github.com/django/django/commit/b82f80906a563741e34aecac537b53c19945a44f,Fixed #35038 -- Created AlterConstraint operation.,,no,,
-104,vite,a1f80822eae3,https://github.com/vitejs/vite/commit/a1f80822eae3e2179e0114adf7534631e5dcbf6b,chore: use eslint-plugin-i (#15569),,no,,
-105,vite,f2957c84f69c,https://github.com/vitejs/vite/commit/f2957c84f69c14c882809889fbd0fc66b97ca3e9,refactor: use `originalFileNames`/`names` (#18240),,no,,
-106,vue-core,506c4c53fdf9,https://github.com/vuejs/core/commit/506c4c53fdf9766c2ce9517ad58d501ef6b1b9de,fix(custom-element): delete prop on attribute removal,close #11276,yes,,
+Thanks Simon Charette for the review.",yes,yes,
+102,vite,cf5028d4bf0a,https://github.com/vitejs/vite/commit/cf5028d4bf0a0d59b4a98323beaadc268204056b,feat: support `module-sync` condition when loading config if enabled (#18650),,no,no,
+103,django,b82f80906a56,https://github.com/django/django/commit/b82f80906a563741e34aecac537b53c19945a44f,Fixed #35038 -- Created AlterConstraint operation.,,no,no,
+104,vite,a1f80822eae3,https://github.com/vitejs/vite/commit/a1f80822eae3e2179e0114adf7534631e5dcbf6b,chore: use eslint-plugin-i (#15569),,no,no,
+105,vite,f2957c84f69c,https://github.com/vitejs/vite/commit/f2957c84f69c14c882809889fbd0fc66b97ca3e9,refactor: use `originalFileNames`/`names` (#18240),,no,no,
+106,vue-core,506c4c53fdf9,https://github.com/vuejs/core/commit/506c4c53fdf9766c2ce9517ad58d501ef6b1b9de,fix(custom-element): delete prop on attribute removal,close #11276,yes,yes,
 107,vue-core,d343a0dc0166,https://github.com/vuejs/core/commit/d343a0dc01663f91db42b4ddb693e6fffcb45873,fix(v-once): properly unmount v-once cached trees,"close #5154
-close #8809",yes,,
-108,vite,f377a840ad79,https://github.com/vitejs/vite/commit/f377a840ad79e1f9b5a5aa3251c41d6c3445fef6,fix: `sideEffects: []` should work as `sideEffects: false` (#16152),,yes,,
+close #8809",yes,yes,
+108,vite,f377a840ad79,https://github.com/vitejs/vite/commit/f377a840ad79e1f9b5a5aa3251c41d6c3445fef6,fix: `sideEffects: []` should work as `sideEffects: false` (#16152),,yes,yes,
 109,vue-core,cd0ea0d479a2,https://github.com/vuejs/core/commit/cd0ea0d479a276583fa181d8ecbc97fb0e4a9dce,fix(compiler-core): change node hoisting to caching per instance (#11067),"close #5256
 close #9219
-close #10959",yes,,
-110,django,2a32b2338226,https://github.com/django/django/commit/2a32b233822683c51e59722b7c9aa0789fc4ab1b,Fixed #35417 -- Updated BaseContext.new() with values to create a context that can be flattened.,,yes,,
-111,django,36a000858b5e,https://github.com/django/django/commit/36a000858b5eee13b039aaad490c33b037a1dc05,Refs #33996 -- Updated CheckConstraint validation on NULL values on Oracle 23c+.,Oracle 23c supports comparing boolean expressions.,unsure,,
-112,vue-core,a2f6edeb02fa,https://github.com/vuejs/core/commit/a2f6edeb02faedbb673c4bc5c6a59d9a79a37d07,fix(ssr): don't render comments in TransitionGroup (#11961),close #11958,yes,,
-113,django,c87bfaacf8fb,https://github.com/django/django/commit/c87bfaacf8fb84984243b5055dc70f97996cb115,Fixed CVE-2024-42005 -- Mitigated QuerySet.values() SQL injection attacks against JSON fields.,Thanks Eyal (eyalgabay) for the report.,yes,,
-114,vite,cc55e36dd39f,https://github.com/vitejs/vite/commit/cc55e36dd39fef134568f53acc66514cbb7175ea,fix: exit code on `SIGTERM` (#18741),,yes,,
-115,django,4b1cd8edc10b,https://github.com/django/django/commit/4b1cd8edc10bb6c3da3a270180d028670a6f2110,Corrected cache_page()'s timeout value in tests.generic_views.urls.,,no,,
-116,vite,472732057cb2,https://github.com/vitejs/vite/commit/472732057cb2273908e1fca8aa7dc18a7e1f7c74,fix: `this.resolve` skipSelf should not skip for different `id` or `import` (#18903),,yes,,
-117,vite,9b4c410dddb8,https://github.com/vitejs/vite/commit/9b4c410dddb80c8858549355e175735976a82134,fix(server): close _ssrCompatModuleRunner on server close (#18784),,yes,,
+close #10959",yes,yes,
+110,django,2a32b2338226,https://github.com/django/django/commit/2a32b233822683c51e59722b7c9aa0789fc4ab1b,Fixed #35417 -- Updated BaseContext.new() with values to create a context that can be flattened.,,yes,yes,
+111,django,36a000858b5e,https://github.com/django/django/commit/36a000858b5eee13b039aaad490c33b037a1dc05,Refs #33996 -- Updated CheckConstraint validation on NULL values on Oracle 23c+.,Oracle 23c supports comparing boolean expressions.,unsure,unsure,
+112,vue-core,a2f6edeb02fa,https://github.com/vuejs/core/commit/a2f6edeb02faedbb673c4bc5c6a59d9a79a37d07,fix(ssr): don't render comments in TransitionGroup (#11961),close #11958,yes,yes,
+113,django,c87bfaacf8fb,https://github.com/django/django/commit/c87bfaacf8fb84984243b5055dc70f97996cb115,Fixed CVE-2024-42005 -- Mitigated QuerySet.values() SQL injection attacks against JSON fields.,Thanks Eyal (eyalgabay) for the report.,yes,yes,
+114,vite,cc55e36dd39f,https://github.com/vitejs/vite/commit/cc55e36dd39fef134568f53acc66514cbb7175ea,fix: exit code on `SIGTERM` (#18741),,yes,yes,
+115,django,4b1cd8edc10b,https://github.com/django/django/commit/4b1cd8edc10bb6c3da3a270180d028670a6f2110,Corrected cache_page()'s timeout value in tests.generic_views.urls.,,no,no,
+116,vite,472732057cb2,https://github.com/vitejs/vite/commit/472732057cb2273908e1fca8aa7dc18a7e1f7c74,fix: `this.resolve` skipSelf should not skip for different `id` or `import` (#18903),,yes,yes,
+117,vite,9b4c410dddb8,https://github.com/vitejs/vite/commit/9b4c410dddb80c8858549355e175735976a82134,fix(server): close _ssrCompatModuleRunner on server close (#18784),,yes,yes,
 118,django,bddd35cb1a45,https://github.com/django/django/commit/bddd35cb1a45593935d28dcb08dd69e0bf7c0d2c,Refs #35581 -- Improved reporting for failing tests in mail tests.,"'- Converted HeadersCheckMixin to MailTestsMixin for all shared helpers:
   - Hoisted assertStartsWith() from BaseEmailBackendTests.
   - Added matching assertEndsWith().
@@ -198,58 +198,58 @@ close #10959",yes,,
   - Improved failure reporting in assertMessageHasHeaders().
 - Used unittest subTest() to improve handling of compound test cases.
 - Replaced `assertTrue(test on string)` with custom assertions,
-  so that failure reporting is more informative than `True != False`.",no,,
-119,vite,a03bb0e2ba35,https://github.com/vitejs/vite/commit/a03bb0e2ba35af314c57fc98600bb76566592239,fix(hmr): don't try to rewrite imports for direct CSS soft invalidation (#18252),,yes,,
-120,vite,653a48cda62d,https://github.com/vitejs/vite/commit/653a48cda62de6a63f038822c466bdb93d56449b,fix: resolvedUrls is null in plugin's configureServer after server restart (#15450),,yes,,
+  so that failure reporting is more informative than `True != False`.",no,no,
+119,vite,a03bb0e2ba35,https://github.com/vitejs/vite/commit/a03bb0e2ba35af314c57fc98600bb76566592239,fix(hmr): don't try to rewrite imports for direct CSS soft invalidation (#18252),,yes,yes,
+120,vite,653a48cda62d,https://github.com/vitejs/vite/commit/653a48cda62de6a63f038822c466bdb93d56449b,fix: resolvedUrls is null in plugin's configureServer after server restart (#15450),,yes,yes,
 121,django,d12184fedcd5,https://github.com/django/django/commit/d12184fedcd586e2c399ea40abe4bf865ebc87a6,Fixed #35424 -- Checked order_with_respect_to is available when migrating _order fields.,"Migrations would crash following the removal of an order_with_respect_to
-field from a model and the addition of an _order field.",yes,,
-122,django,1eac690d25dd,https://github.com/django/django/commit/1eac690d25dd49088256954d4046813daa37dc95,Refs #373 -- Added tuple lookups.,,no,,
-123,vite,af2aa0957522,https://github.com/vitejs/vite/commit/af2aa09575229462635b7cbb6d248ca853057ba2,fix(ssr): externalize network imports during `ssrLoadModule` (#15599),,yes,,
-124,vue-core,04729ba2163d,https://github.com/vuejs/core/commit/04729ba2163d840f0ca7866bc964696eb5557804,fix(compat): only warn ATTR_FALSE_VALUE when enabled,close #11126,yes,,
-125,flask,f49dbfd3e451,https://github.com/pallets/flask/commit/f49dbfd3e451006a485e81ebce030495131c4454,use generic bases for session,,no,,
-126,vite,a621de8dc5e1,https://github.com/vitejs/vite/commit/a621de8dc5e11ab30e5b13e9a05618b4cdaf3478,fix: update javascript mime type to text/javascript (#15427),,yes,,
-127,vue-core,46c3ab1d7140,https://github.com/vuejs/core/commit/46c3ab1d714024894fa1d33e495d5d35c7817d4d,fix(reactivity): make toRaw work on proxies created by proxyRef,,yes,,
-128,vite,60dfa9e15c5c,https://github.com/vitejs/vite/commit/60dfa9e15c5cb052db45356c574ae724d86ca73b,"fix(worker): hide ""The emitted file overwrites"" warning if the content is same (#16094)",,yes,,
-129,django,338ec052b482,https://github.com/django/django/commit/338ec052b4824d3f621629b3bf0f344c7a43c3dc,Refs #35361 -- Added test for Email line length checks when dealing with surrogate pairs.,"Refs #33173, #34118 and #34900.",no,,
+field from a model and the addition of an _order field.",yes,yes,
+122,django,1eac690d25dd,https://github.com/django/django/commit/1eac690d25dd49088256954d4046813daa37dc95,Refs #373 -- Added tuple lookups.,,no,no,
+123,vite,af2aa0957522,https://github.com/vitejs/vite/commit/af2aa09575229462635b7cbb6d248ca853057ba2,fix(ssr): externalize network imports during `ssrLoadModule` (#15599),,yes,yes,
+124,vue-core,04729ba2163d,https://github.com/vuejs/core/commit/04729ba2163d840f0ca7866bc964696eb5557804,fix(compat): only warn ATTR_FALSE_VALUE when enabled,close #11126,yes,yes,
+125,flask,f49dbfd3e451,https://github.com/pallets/flask/commit/f49dbfd3e451006a485e81ebce030495131c4454,use generic bases for session,,no,no,
+126,vite,a621de8dc5e1,https://github.com/vitejs/vite/commit/a621de8dc5e11ab30e5b13e9a05618b4cdaf3478,fix: update javascript mime type to text/javascript (#15427),,yes,yes,
+127,vue-core,46c3ab1d7140,https://github.com/vuejs/core/commit/46c3ab1d714024894fa1d33e495d5d35c7817d4d,fix(reactivity): make toRaw work on proxies created by proxyRef,,yes,yes,
+128,vite,60dfa9e15c5c,https://github.com/vitejs/vite/commit/60dfa9e15c5cb052db45356c574ae724d86ca73b,"fix(worker): hide ""The emitted file overwrites"" warning if the content is same (#16094)",,yes,yes,
+129,django,338ec052b482,https://github.com/django/django/commit/338ec052b4824d3f621629b3bf0f344c7a43c3dc,Refs #35361 -- Added test for Email line length checks when dealing with surrogate pairs.,"Refs #33173, #34118 and #34900.",no,no,
 130,vue-core,accf8396ae1c,https://github.com/vuejs/core/commit/accf8396ae1c9dd49759ba0546483f1d2c70c9bc,fix(Transition): re-fix #10620 (#10832),"revert #10632
 re-fix #10620
-close #10827",yes,,
-131,vite,08ff23319964,https://github.com/vitejs/vite/commit/08ff23319964903b9f380859c216b10e577ddb6f,"refactor: remove the need for ""processSourceMap"" (#18187)",,no,,
-132,vue-core,13834c81ea71,https://github.com/vuejs/core/commit/13834c81ea7187f93b7472ed398fb9fc108e6062,workflow: fix release script error handling,,no,,
-133,django,509763c79952,https://github.com/django/django/commit/509763c79952cde02d9f5b584af4278bdbed77b2,Fixed #35638 -- Updated validate_constraints to consider db_default.,,yes,,
-134,vite,ad1376018a94,https://github.com/vitejs/vite/commit/ad1376018a94b42540a8488d897cc520849e1228,fix: waitForRequestIdle locked (#17982),,yes,,
-135,vue-core,ef2e737577de,https://github.com/vuejs/core/commit/ef2e737577de42ea38771403f8a4dee8c892daa5,fix(runtime-core): fix Transition for components with root-level v-if  (#7678),close #7649,yes,,
-136,django,c201014e85f3,https://github.com/django/django/commit/c201014e85f321173a018914e148734f29f1e28b,Removed hardcoded docs version in csrf template.,,unsure,,
+close #10827",yes,yes,
+131,vite,08ff23319964,https://github.com/vitejs/vite/commit/08ff23319964903b9f380859c216b10e577ddb6f,"refactor: remove the need for ""processSourceMap"" (#18187)",,no,no,
+132,vue-core,13834c81ea71,https://github.com/vuejs/core/commit/13834c81ea7187f93b7472ed398fb9fc108e6062,workflow: fix release script error handling,,no,no,
+133,django,509763c79952,https://github.com/django/django/commit/509763c79952cde02d9f5b584af4278bdbed77b2,Fixed #35638 -- Updated validate_constraints to consider db_default.,,yes,yes,
+134,vite,ad1376018a94,https://github.com/vitejs/vite/commit/ad1376018a94b42540a8488d897cc520849e1228,fix: waitForRequestIdle locked (#17982),,yes,yes,
+135,vue-core,ef2e737577de,https://github.com/vuejs/core/commit/ef2e737577de42ea38771403f8a4dee8c892daa5,fix(runtime-core): fix Transition for components with root-level v-if  (#7678),close #7649,yes,yes,
+136,django,c201014e85f3,https://github.com/django/django/commit/c201014e85f321173a018914e148734f29f1e28b,Removed hardcoded docs version in csrf template.,,unsure,unsure,
 137,django,b9e2a3fc63e6,https://github.com/django/django/commit/b9e2a3fc63e68d248d528c73736275ca2746872d,Fixed #35143 -- Improved accessibility of 404/500 debug pages.,"This:
 - changes the header, main, and footer content areas to be rendered
   in a <header>, <main>, and <footer> tags,
 - adds scope attributes to <th>,
 - uses <code> for a patterns list,
-- uses <small> instead of <span>.",no,,
-138,vite,ea091853e04b,https://github.com/vitejs/vite/commit/ea091853e04b2e53d220e8a4d138177bcd6d8ed9,test: remove unnecessary NODE_ENV override (#15738),,no,,
-139,django,228128618bd8,https://github.com/django/django/commit/228128618bd895ecad235d2215f4ad4e3232595d,Fixed #35575 -- Added support for constraint validation on GeneratedFields.,,no,,
-140,vite,6ff80091f9d4,https://github.com/vitejs/vite/commit/6ff80091f9d4002d554fe77afd25353ed542f512,test: skip ssr-html build tests (#18694),,no,,
-141,django,f92ac845a9c7,https://github.com/django/django/commit/f92ac845a9c75992120a5b5b219e607c19d3f0aa,Fixed #35436 -- Fixed displaying Unicode chars in forms.HStoreField.,,yes,,
-142,vite,e012f296df58,https://github.com/vitejs/vite/commit/e012f296df583bd133d26399397bd4ae49de1497,chore: remove stale TODOs (#17866),,no,,
-143,vite,19ce525b9743,https://github.com/vitejs/vite/commit/19ce525b974328e4668ad8c6540c2a5ea652795b,refactor!: bump minimal terser version to 5.16.0 (#18209),,no,,
-144,vite,8e54bbd74d86,https://github.com/vitejs/vite/commit/8e54bbd74d86537b449641a6623b1bc3800e82b2,feat: write cspNonce to style tags (#16419),,no,,
-145,vite,ec8b4206ac36,https://github.com/vitejs/vite/commit/ec8b4206ac3650eb5e4b54fe795258d09a86e9e4,fix: handle namespace import and dynamic import interop consistently (#15619),,yes,,
-146,vite,659b7206930d,https://github.com/vitejs/vite/commit/659b7206930d660779ad504beef89744fb97d339,fix(build): handle invalid JSON in import.meta.env (#17648),Co-authored-by: bluwy <bjornlu.dev@gmail.com>,yes,,
-147,vue-core,2d854414facc,https://github.com/vuejs/core/commit/2d854414facc1e872d00bfab4291ac39aa8abb28,test(runtime-core): test effectscope instance null (#8397),,no,,
-148,vite,34fdb6bef558,https://github.com/vitejs/vite/commit/34fdb6bef558724330d2411b9666facef669b3a0,perf(css): skip style.css extraction if code-split css (#18470),,no,,
+- uses <small> instead of <span>.",no,no,
+138,vite,ea091853e04b,https://github.com/vitejs/vite/commit/ea091853e04b2e53d220e8a4d138177bcd6d8ed9,test: remove unnecessary NODE_ENV override (#15738),,no,no,
+139,django,228128618bd8,https://github.com/django/django/commit/228128618bd895ecad235d2215f4ad4e3232595d,Fixed #35575 -- Added support for constraint validation on GeneratedFields.,,no,no,
+140,vite,6ff80091f9d4,https://github.com/vitejs/vite/commit/6ff80091f9d4002d554fe77afd25353ed542f512,test: skip ssr-html build tests (#18694),,no,no,
+141,django,f92ac845a9c7,https://github.com/django/django/commit/f92ac845a9c75992120a5b5b219e607c19d3f0aa,Fixed #35436 -- Fixed displaying Unicode chars in forms.HStoreField.,,yes,yes,
+142,vite,e012f296df58,https://github.com/vitejs/vite/commit/e012f296df583bd133d26399397bd4ae49de1497,chore: remove stale TODOs (#17866),,no,no,
+143,vite,19ce525b9743,https://github.com/vitejs/vite/commit/19ce525b974328e4668ad8c6540c2a5ea652795b,refactor!: bump minimal terser version to 5.16.0 (#18209),,no,no,
+144,vite,8e54bbd74d86,https://github.com/vitejs/vite/commit/8e54bbd74d86537b449641a6623b1bc3800e82b2,feat: write cspNonce to style tags (#16419),,no,no,
+145,vite,ec8b4206ac36,https://github.com/vitejs/vite/commit/ec8b4206ac3650eb5e4b54fe795258d09a86e9e4,fix: handle namespace import and dynamic import interop consistently (#15619),,yes,yes,
+146,vite,659b7206930d,https://github.com/vitejs/vite/commit/659b7206930d660779ad504beef89744fb97d339,fix(build): handle invalid JSON in import.meta.env (#17648),Co-authored-by: bluwy <bjornlu.dev@gmail.com>,yes,yes,
+147,vue-core,2d854414facc,https://github.com/vuejs/core/commit/2d854414facc1e872d00bfab4291ac39aa8abb28,test(runtime-core): test effectscope instance null (#8397),,no,no,
+148,vite,34fdb6bef558,https://github.com/vitejs/vite/commit/34fdb6bef558724330d2411b9666facef669b3a0,perf(css): skip style.css extraction if code-split css (#18470),,no,no,
 149,django,4879907223d7,https://github.com/django/django/commit/4879907223d70ee1a82474d9286ccfa5dae96971,Fixed #35127 -- Made Model.full_clean() ignore GeneratedFields.,"Thanks Claude Paroz for the report.
 
-Regression in f333e3513e8bdf5ffeb6eeb63021c230082e6f95.",yes,,
-150,vite,21680bdf9ca7,https://github.com/vitejs/vite/commit/21680bdf9ca7c12f677136b56e47f46469db8be2,fix(css): skip non css in custom sass importer (#18970),Co-authored-by: 翠 / green <green@sapphi.red>,yes,,
-151,django,85c154da2f07,https://github.com/django/django/commit/85c154da2f07485a1cdc4d886eee4c1a1ef56137,Fixed #35412 -- Dropped support for SQLite < 3.31.,,no,,
-152,vue-core,1022eabaa1aa,https://github.com/vuejs/core/commit/1022eabaa1aaf8436876f5ec5573cb1e4b3959a6,fix(types): defineEmits w/ interface declaration (#12343),close #8457,yes,,
-153,django,7abe5112f4cb,https://github.com/django/django/commit/7abe5112f4cb50c15b79a2afd4c1b68f0767b243,Fixed #35407 -- Cached model's Options.swapped.,,no,,
-154,vite,687c38be8695,https://github.com/vitejs/vite/commit/687c38be8695481d905abe678e00e24a6fb011f5,fix(ssr): resolve interlocking circular dependency issues (#15395),Co-authored-by: bluwy <bjornlu.dev@gmail.com>,yes,,
-155,django,28a3fbe00488,https://github.com/django/django/commit/28a3fbe0048883fdd5cefd6ffecb88e351121891,Fixed #35229 -- Made URL custom error handler check run once.,,yes,,
-156,django,22285d366c90,https://github.com/django/django/commit/22285d366c9061a668003638613685f5a135a4c3,"Fixed #33037 -- Fixed Trunc() with offset timezones on MySQL, SQLite, Oracle.",,yes,,
-157,django,175b04942afa,https://github.com/django/django/commit/175b04942afaff978013db61495f3b39ea12989b,Fixed #35295 -- Used INSERT with multiple rows on Oracle 23c.,,no,,
-158,django,7264d7f7509f,https://github.com/django/django/commit/7264d7f7509f875d2676e40924092c71b5c5b411,Fixed syntax of CSS file used in tests.,,no,,
-159,vue-core,c3ce9fe3d8fc,https://github.com/vuejs/core/commit/c3ce9fe3d8fc27d864ce7148cd36da882cfc21ab,fix(runtime-dom): avoid unnecessary prop patch for checkbox (#11657),close #11647,yes,,
+Regression in f333e3513e8bdf5ffeb6eeb63021c230082e6f95.",yes,yes,
+150,vite,21680bdf9ca7,https://github.com/vitejs/vite/commit/21680bdf9ca7c12f677136b56e47f46469db8be2,fix(css): skip non css in custom sass importer (#18970),Co-authored-by: 翠 / green <green@sapphi.red>,yes,yes,
+151,django,85c154da2f07,https://github.com/django/django/commit/85c154da2f07485a1cdc4d886eee4c1a1ef56137,Fixed #35412 -- Dropped support for SQLite < 3.31.,,no,no,
+152,vue-core,1022eabaa1aa,https://github.com/vuejs/core/commit/1022eabaa1aaf8436876f5ec5573cb1e4b3959a6,fix(types): defineEmits w/ interface declaration (#12343),close #8457,yes,yes,
+153,django,7abe5112f4cb,https://github.com/django/django/commit/7abe5112f4cb50c15b79a2afd4c1b68f0767b243,Fixed #35407 -- Cached model's Options.swapped.,,no,no,
+154,vite,687c38be8695,https://github.com/vitejs/vite/commit/687c38be8695481d905abe678e00e24a6fb011f5,fix(ssr): resolve interlocking circular dependency issues (#15395),Co-authored-by: bluwy <bjornlu.dev@gmail.com>,yes,yes,
+155,django,28a3fbe00488,https://github.com/django/django/commit/28a3fbe0048883fdd5cefd6ffecb88e351121891,Fixed #35229 -- Made URL custom error handler check run once.,,yes,yes,
+156,django,22285d366c90,https://github.com/django/django/commit/22285d366c9061a668003638613685f5a135a4c3,"Fixed #33037 -- Fixed Trunc() with offset timezones on MySQL, SQLite, Oracle.",,yes,yes,
+157,django,175b04942afa,https://github.com/django/django/commit/175b04942afaff978013db61495f3b39ea12989b,Fixed #35295 -- Used INSERT with multiple rows on Oracle 23c.,,no,no,
+158,django,7264d7f7509f,https://github.com/django/django/commit/7264d7f7509f875d2676e40924092c71b5c5b411,Fixed syntax of CSS file used in tests.,,no,no,
+159,vue-core,c3ce9fe3d8fc,https://github.com/vuejs/core/commit/c3ce9fe3d8fc27d864ce7148cd36da882cfc21ab,fix(runtime-dom): avoid unnecessary prop patch for checkbox (#11657),close #11647,yes,yes,
 160,gin,7a865dcf1dbe,https://github.com/gin-gonic/gin/commit/7a865dcf1dbe6ec52e074b1ddce830d278eb72cf,feat(bind): ShouldBindBodyWith shortcut and change doc (#3871),"* feat: ShouldBindBodyWith shortcut and change doc
 
 * fix: yaml can parse json test case
@@ -258,7 +258,7 @@ Regression in f333e3513e8bdf5ffeb6eeb63021c230082e6f95.",yes,,
 
 * chore: modify the code style to specify binding type
 
-* chroe: gofmt modifies the code format",no,,
+* chroe: gofmt modifies the code format",no,no,
 161,vue-core,e181bff6dc39,https://github.com/vuejs/core/commit/e181bff6dc39d5cef92000c10291243c7d6e4d08,feat(custom-element): support emit with options,"In a custom element created via `defineCustomElement`, if the first
 event argument is an object, it will be used as the options object
 for the emitted CustomEvent. The entire argument list is still exposed
@@ -268,46 +268,46 @@ via the CustomEvent's `detail` property.
 emit('event', { bubbles: true })
 ```
 
-close #7605",no,,
+close #7605",no,no,
 162,django,3d4fe39bac08,https://github.com/django/django/commit/3d4fe39bac082b835a2d82b717b6ae88ea70ea15,Refs #21286 -- Removed invalid commented out models and tests from serializer tests.,"FileField/ImageField cannot be primary keys, so serialization support
 for this case will not be implemented.
 
-XMLField was removed in d1290b5b43485c7018ba92981d34c1f96614924e.",no,,
-163,vue-core,189573dcee2a,https://github.com/vuejs/core/commit/189573dcee2a16bd3ed36ff5589d43f535e5e733,feat(types): export more emit related types (#11017),Co-authored-by: Evan You <yyx990803@gmail.com>,no,,
-164,vite,b3f5bd17e20a,https://github.com/vitejs/vite/commit/b3f5bd17e20aeb3a8072ca8a7ce2d5d40e1f80ff,fix(css): handle lightningcss minification in Deno (#17372),,yes,,
-165,vite,913c0403a5de,https://github.com/vitejs/vite/commit/913c0403a5de13a09dd37dac71f59db3339012ce,fix(sourcemap): improve sourcemap compatibility for vue2 (#16594),,yes,,
-166,gin,e46bd521859f,https://github.com/gin-gonic/gin/commit/e46bd521859fdfc83c508f1d42c92cb7f91e9fcb,refactor(context): add an optional permission parameter to the SaveUploadedFile method (#4068) (#4088),Co-authored-by: hso <hso@trinitysoft.co.kr>,no,,
-167,vite,eccf663e35a1,https://github.com/vitejs/vite/commit/eccf663e35a17458425860895bb30b3b0613ea96,fix(css)!: remove default import in ssr dev (#17922),Co-authored-by: patak <583075+patak-dev@users.noreply.github.com>,unsure,,
-168,zod,907e5f2e4bbe,https://github.com/colinhacks/zod/commit/907e5f2e4bbe93e1cb5720b9f6e2f829f237e7f0,Fix regex in cuid2 validation to be what cuid2 library expects (#2961),,yes,,
-169,vite,1d263d39d328,https://github.com/vitejs/vite/commit/1d263d39d32838cf5b77eeb44426ae81e969309c,fix(watch): build watch fails when outDir is empty string (#15979),,yes,,
-170,django,4787972c941b,https://github.com/django/django/commit/4787972c941b0d090cf083e84a98c1791bb2ae4b,Refs #28404 -- Made displaying property values in admin respect non-None empty values.,,yes,,
+XMLField was removed in d1290b5b43485c7018ba92981d34c1f96614924e.",no,no,
+163,vue-core,189573dcee2a,https://github.com/vuejs/core/commit/189573dcee2a16bd3ed36ff5589d43f535e5e733,feat(types): export more emit related types (#11017),Co-authored-by: Evan You <yyx990803@gmail.com>,no,no,
+164,vite,b3f5bd17e20a,https://github.com/vitejs/vite/commit/b3f5bd17e20aeb3a8072ca8a7ce2d5d40e1f80ff,fix(css): handle lightningcss minification in Deno (#17372),,yes,yes,
+165,vite,913c0403a5de,https://github.com/vitejs/vite/commit/913c0403a5de13a09dd37dac71f59db3339012ce,fix(sourcemap): improve sourcemap compatibility for vue2 (#16594),,yes,yes,
+166,gin,e46bd521859f,https://github.com/gin-gonic/gin/commit/e46bd521859fdfc83c508f1d42c92cb7f91e9fcb,refactor(context): add an optional permission parameter to the SaveUploadedFile method (#4068) (#4088),Co-authored-by: hso <hso@trinitysoft.co.kr>,no,no,
+167,vite,eccf663e35a1,https://github.com/vitejs/vite/commit/eccf663e35a17458425860895bb30b3b0613ea96,fix(css)!: remove default import in ssr dev (#17922),Co-authored-by: patak <583075+patak-dev@users.noreply.github.com>,unsure,unsure,
+168,zod,907e5f2e4bbe,https://github.com/colinhacks/zod/commit/907e5f2e4bbe93e1cb5720b9f6e2f829f237e7f0,Fix regex in cuid2 validation to be what cuid2 library expects (#2961),,yes,yes,
+169,vite,1d263d39d328,https://github.com/vitejs/vite/commit/1d263d39d32838cf5b77eeb44426ae81e969309c,fix(watch): build watch fails when outDir is empty string (#15979),,yes,yes,
+170,django,4787972c941b,https://github.com/django/django/commit/4787972c941b0d090cf083e84a98c1791bb2ae4b,Refs #28404 -- Made displaying property values in admin respect non-None empty values.,,yes,yes,
 171,django,f3d10546a850,https://github.com/django/django/commit/f3d10546a850df4fe3796f972d5b7e16adf52f54,Refs #35102 -- Optimized replace_expressions()/relabelling aliases by adding early return.,"This avoids costly hashing.
 
 Thanks Anthony Shaw for the report.
 
-Co-Authored-By: Simon Charette <charette.s@gmail.com>",no,,
-172,django,ded485464214,https://github.com/django/django/commit/ded485464214a3f69b64402b7d82221279f80008,Fixed #35944 -- Handled serialization of Unicode values in ArrayField and HStoreField.,,yes,,
-173,django,20d44abb41b3,https://github.com/django/django/commit/20d44abb41b3dde7f7edc556b784aef48c5ceddf,Fixed #35700 -- Added AlterModelTable and AlterModelTableComment reductions.,,no,,
-174,vite,466f94aa6465,https://github.com/vitejs/vite/commit/466f94aa6465f0a3b932f55e93660f7cf6cd936e,test: test optimized dep as ssr entry (#18301),,no,,
-175,vue-core,aa9ef2386a0c,https://github.com/vuejs/core/commit/aa9ef2386a0cd39a174e5a887ec2b1a3525034fc,fix(reactivity): only clear notified flags for computed in first batch iteration,close #12045,yes,,
-176,vite,37af8a7be417,https://github.com/vitejs/vite/commit/37af8a7be417f1fb2cf9a0d5e9ad90b76ff211b4,fix(plugin-legacy): replace `esbuild-plugin-browserslist` with `browserslist-to-esbuild` (#15988),,no,,
-177,vue-core,7976f7044e66,https://github.com/vuejs/core/commit/7976f7044e66b3b7adac4c72a392935704658b10,refactor(runtime-core): safer currentInstance reset,,no,,
-178,vue-core,3724693a25c3,https://github.com/vuejs/core/commit/3724693a25c3f2dd13d70a8a1af760b03a4fb783,fix(runtime-core): properly get keepAlive child (#10772),close #10771,yes,,
-179,django,d9ae7f5b580a,https://github.com/django/django/commit/d9ae7f5b580a0e8475bbfe84a86e1bd0fd404663,Fixed #35686 -- Added table headers to app list tables for screen readers.,,no,,
-180,django,f22ff4561ada,https://github.com/django/django/commit/f22ff4561ada77be98ca4db3ce117caca897696e,Fixed #35734 -- Used JSONB_BUILD_OBJECT database function on PostgreSQL when using server-side bindings.,Regression in 81ccf92f154c6d9eac3e30bac0aa67574d0ace15.,yes,,
-181,zod,8a5075e20953,https://github.com/colinhacks/zod/commit/8a5075e20953b4a2960b73fb6d508a4ecebef408,Clear playground,,no,,
-182,django,595738296fae,https://github.com/django/django/commit/595738296faec582ce90f1cffef90fbb9b18384b,Refs #26431 -- Added more test for translated path().,,no,,
-183,vue-core,79602f9ecd95,https://github.com/vuejs/core/commit/79602f9ecd9559954f844774a90286305b13e056,fix(ssr): respect textContent/innerHTML from getSSRProps in optimized SSR output,close #8112,yes,,
-184,gin,f75144a356e5,https://github.com/gin-gonic/gin/commit/f75144a356e57c95bd21a048f0a40492dcdb33c5,docs: fix typo in comment (#3868),Signed-off-by: guoguangwu <guoguangwug@gmail.com>,no,,
-185,vue-core,93324b2ec06b,https://github.com/vuejs/core/commit/93324b2ec06b26662b77abc2a75d21ecbe8913db,chore: refactor scripts to reduce dependencies,,no,,
-186,vue-core,eae0ccb8e0d2,https://github.com/vuejs/core/commit/eae0ccb8e0d2772e34e9f6c48ce8be9e9e990452,chore: re-export deprecated component options types,,no,,
-187,ky,fbe0ec68b052,https://github.com/sindresorhus/ky/commit/fbe0ec68b052a9df6221a3531553783860925289,Remove unnecessary setting of `credentials` option (#616),"The `input.credentials` will be used automatically by `fetch()` if `options.credentials` is not defined, so copying it over manually is unnecessary.",no,,
-188,django,c4614b53d355,https://github.com/django/django/commit/c4614b53d355561d426b0fed903e96c3c198e10d,Fixed #35815 -- Made system check accept db_default literals when DatabaseFeatures.supports_expression_defaults = False.,,yes,,
-189,django,e6fa74f02068,https://github.com/django/django/commit/e6fa74f02068b2c112de41e9c785f31041668a64,Fixed #35179 -- Made admindocs detect positional/keyword-only arguments.,,yes,,
+Co-Authored-By: Simon Charette <charette.s@gmail.com>",no,no,
+172,django,ded485464214,https://github.com/django/django/commit/ded485464214a3f69b64402b7d82221279f80008,Fixed #35944 -- Handled serialization of Unicode values in ArrayField and HStoreField.,,yes,yes,
+173,django,20d44abb41b3,https://github.com/django/django/commit/20d44abb41b3dde7f7edc556b784aef48c5ceddf,Fixed #35700 -- Added AlterModelTable and AlterModelTableComment reductions.,,no,no,
+174,vite,466f94aa6465,https://github.com/vitejs/vite/commit/466f94aa6465f0a3b932f55e93660f7cf6cd936e,test: test optimized dep as ssr entry (#18301),,no,no,
+175,vue-core,aa9ef2386a0c,https://github.com/vuejs/core/commit/aa9ef2386a0cd39a174e5a887ec2b1a3525034fc,fix(reactivity): only clear notified flags for computed in first batch iteration,close #12045,yes,yes,
+176,vite,37af8a7be417,https://github.com/vitejs/vite/commit/37af8a7be417f1fb2cf9a0d5e9ad90b76ff211b4,fix(plugin-legacy): replace `esbuild-plugin-browserslist` with `browserslist-to-esbuild` (#15988),,no,no,
+177,vue-core,7976f7044e66,https://github.com/vuejs/core/commit/7976f7044e66b3b7adac4c72a392935704658b10,refactor(runtime-core): safer currentInstance reset,,no,no,
+178,vue-core,3724693a25c3,https://github.com/vuejs/core/commit/3724693a25c3f2dd13d70a8a1af760b03a4fb783,fix(runtime-core): properly get keepAlive child (#10772),close #10771,yes,yes,
+179,django,d9ae7f5b580a,https://github.com/django/django/commit/d9ae7f5b580a0e8475bbfe84a86e1bd0fd404663,Fixed #35686 -- Added table headers to app list tables for screen readers.,,no,no,
+180,django,f22ff4561ada,https://github.com/django/django/commit/f22ff4561ada77be98ca4db3ce117caca897696e,Fixed #35734 -- Used JSONB_BUILD_OBJECT database function on PostgreSQL when using server-side bindings.,Regression in 81ccf92f154c6d9eac3e30bac0aa67574d0ace15.,yes,yes,
+181,zod,8a5075e20953,https://github.com/colinhacks/zod/commit/8a5075e20953b4a2960b73fb6d508a4ecebef408,Clear playground,,no,no,
+182,django,595738296fae,https://github.com/django/django/commit/595738296faec582ce90f1cffef90fbb9b18384b,Refs #26431 -- Added more test for translated path().,,no,no,
+183,vue-core,79602f9ecd95,https://github.com/vuejs/core/commit/79602f9ecd9559954f844774a90286305b13e056,fix(ssr): respect textContent/innerHTML from getSSRProps in optimized SSR output,close #8112,yes,yes,
+184,gin,f75144a356e5,https://github.com/gin-gonic/gin/commit/f75144a356e57c95bd21a048f0a40492dcdb33c5,docs: fix typo in comment (#3868),Signed-off-by: guoguangwu <guoguangwug@gmail.com>,no,no,
+185,vue-core,93324b2ec06b,https://github.com/vuejs/core/commit/93324b2ec06b26662b77abc2a75d21ecbe8913db,chore: refactor scripts to reduce dependencies,,no,no,
+186,vue-core,eae0ccb8e0d2,https://github.com/vuejs/core/commit/eae0ccb8e0d2772e34e9f6c48ce8be9e9e990452,chore: re-export deprecated component options types,,no,no,
+187,ky,fbe0ec68b052,https://github.com/sindresorhus/ky/commit/fbe0ec68b052a9df6221a3531553783860925289,Remove unnecessary setting of `credentials` option (#616),"The `input.credentials` will be used automatically by `fetch()` if `options.credentials` is not defined, so copying it over manually is unnecessary.",no,no,
+188,django,c4614b53d355,https://github.com/django/django/commit/c4614b53d355561d426b0fed903e96c3c198e10d,Fixed #35815 -- Made system check accept db_default literals when DatabaseFeatures.supports_expression_defaults = False.,,yes,yes,
+189,django,e6fa74f02068,https://github.com/django/django/commit/e6fa74f02068b2c112de41e9c785f31041668a64,Fixed #35179 -- Made admindocs detect positional/keyword-only arguments.,,yes,yes,
 190,vite,a0336bd5197b,https://github.com/vitejs/vite/commit/a0336bd5197bb4427251be4c975e30fb596c658f,fix: consider URLs with any protocol to be external (#17369),"Co-authored-by: patak-dev <matias.capeletto@gmail.com>
 Co-authored-by: bluwy <bjornlu.dev@gmail.com>
-Co-authored-by: sapphi-red <49056869+sapphi-red@users.noreply.github.com>",yes,,
-191,vite,8e4e932b4979,https://github.com/vitejs/vite/commit/8e4e932b4979bc40a03b0ffb65b960df62226def,fix(css): handle lightningcss compiled css in Deno (#17301),Co-authored-by: Михаил Авдеев <mikhail.avdeev@vk.team>,yes,,
+Co-authored-by: sapphi-red <49056869+sapphi-red@users.noreply.github.com>",yes,yes,
+191,vite,8e4e932b4979,https://github.com/vitejs/vite/commit/8e4e932b4979bc40a03b0ffb65b960df62226def,fix(css): handle lightningcss compiled css in Deno (#17301),Co-authored-by: Михаил Авдеев <mikhail.avdeev@vk.team>,yes,yes,
 192,django,e4a693f50a83,https://github.com/django/django/commit/e4a693f50a8342ed1a54b74e1a202b44c8e62981,Fixed #35189 -- Improved admin collapsible fieldsets by using <details> elements.,"This work improves the accessibility of the add and change pages in the
 admin site by adding <details> and <summary> elements to the collapsible
 fieldsets. This has the nice side effect of no longer requiring custom
@@ -317,31 +317,31 @@ Thanks to James Scholes for the accessibility advice, and to Sarah Boyce
 and Tom Carrick for reviews.
 
 Co-authored-by: Natalia <124304+nessita@users.noreply.github.com>
-Co-authored-by: Sarah Boyce <42296566+sarahboyce@users.noreply.github.com>",no,,
-193,vue-core,73fa91fabd43,https://github.com/vuejs/core/commit/73fa91fabd43d842c2a65b186a78ecebecfb67dd,refactor: remove unnecessary check as filter is always non-null (#11599),,no,,
-194,vite,052799e8939c,https://github.com/vitejs/vite/commit/052799e8939cfcdd7a7ff48daf45a766bf6cc546,fix: `define` in environment config was not working (#18515),,yes,,
-195,vite,f8c6a341fb4f,https://github.com/vitejs/vite/commit/f8c6a341fb4fd920e6aaed47d863606c38ad1291,fix(sourcemap): sourcemap is incorrect when sourcemap has `sources: [null]` (#14588),Co-authored-by: 翠 / green <green@sapphi.red>,yes,,
-196,vue-core,3634f7a4c164,https://github.com/vuejs/core/commit/3634f7a4c1649ad2e7e969eb4512512868c61d01,fix(types): add HTMLDialogElement missing close event (#11811),Co-authored-by: Evan You <evan@vuejs.org>,yes,,
-197,vite,2017a330f557,https://github.com/vitejs/vite/commit/2017a330f5576dfc9db1538e0b899a1776cd100a,fix(resolve): fix resolve cache to consider `conditions` and more (#18302),,yes,,
+Co-authored-by: Sarah Boyce <42296566+sarahboyce@users.noreply.github.com>",no,no,
+193,vue-core,73fa91fabd43,https://github.com/vuejs/core/commit/73fa91fabd43d842c2a65b186a78ecebecfb67dd,refactor: remove unnecessary check as filter is always non-null (#11599),,no,no,
+194,vite,052799e8939c,https://github.com/vitejs/vite/commit/052799e8939cfcdd7a7ff48daf45a766bf6cc546,fix: `define` in environment config was not working (#18515),,yes,yes,
+195,vite,f8c6a341fb4f,https://github.com/vitejs/vite/commit/f8c6a341fb4fd920e6aaed47d863606c38ad1291,fix(sourcemap): sourcemap is incorrect when sourcemap has `sources: [null]` (#14588),Co-authored-by: 翠 / green <green@sapphi.red>,yes,yes,
+196,vue-core,3634f7a4c164,https://github.com/vuejs/core/commit/3634f7a4c1649ad2e7e969eb4512512868c61d01,fix(types): add HTMLDialogElement missing close event (#11811),Co-authored-by: Evan You <evan@vuejs.org>,yes,yes,
+197,vite,2017a330f557,https://github.com/vitejs/vite/commit/2017a330f5576dfc9db1538e0b899a1776cd100a,fix(resolve): fix resolve cache to consider `conditions` and more (#18302),,yes,yes,
 198,vue-core,638a79f64a7e,https://github.com/vuejs/core/commit/638a79f64a7e184f2a2c65e21d764703f4bda561,fix(runtime-core): properly handle inherit transition during clone VNode (#10809),"close #3716
 close #10497
-close #4091",yes,,
-199,vue-core,aef807746a17,https://github.com/vuejs/core/commit/aef807746a178b3ce187bb30b60ff965f01569df,refactor(compiler): move patchFlag text generation to codegen phase,,no,,
-200,vite,47b12706ce2d,https://github.com/vitejs/vite/commit/47b12706ce2d0c009d6078a61e16e81a04c9f49c,fix: more robust plugin.sharedDuringBuild (#18351),,yes,,
-201,vite,4d83eb58cdea,https://github.com/vitejs/vite/commit/4d83eb58cdea0d2e4ec4f0da6e1dd6b72014e67e,fix(dev): watch publicDir explicitly to include it outside the root (#16502),,yes,,
+close #4091",yes,yes,
+199,vue-core,aef807746a17,https://github.com/vuejs/core/commit/aef807746a178b3ce187bb30b60ff965f01569df,refactor(compiler): move patchFlag text generation to codegen phase,,no,no,
+200,vite,47b12706ce2d,https://github.com/vitejs/vite/commit/47b12706ce2d0c009d6078a61e16e81a04c9f49c,fix: more robust plugin.sharedDuringBuild (#18351),,yes,yes,
+201,vite,4d83eb58cdea,https://github.com/vitejs/vite/commit/4d83eb58cdea0d2e4ec4f0da6e1dd6b72014e67e,fix(dev): watch publicDir explicitly to include it outside the root (#16502),,yes,yes,
 202,vue-core,8655ced480ea,https://github.com/vuejs/core/commit/8655ced480ea0fe453ff5fe445cecf97b91ec260,fix(teleport): skip teleported nodes when locating patch anchor,"close #9071
 close #9134
 close #9313
 
-Tests reused from #9313",yes,,
-203,vue-core,1ffd5a601b95,https://github.com/vuejs/core/commit/1ffd5a601b95354c6025648a1c8b8566e2084d54,chore(types): added `getSSRProps` type argument (#5691),,no,,
-204,django,4806c42efac7,https://github.com/django/django/commit/4806c42efac790dd65bc890b85904df7bdeb1309,Fixed #35987 -- Made ErrorList.copy() copy the renderer attribute.,,yes,,
-205,vite,561b940f6f96,https://github.com/vitejs/vite/commit/561b940f6f963fbb78058a6e23b4adad53a2edb9,fix(css): fix sass `file://` reference (#17909),Co-authored-by: patak <583075+patak-dev@users.noreply.github.com>,yes,,
+Tests reused from #9313",yes,yes,
+203,vue-core,1ffd5a601b95,https://github.com/vuejs/core/commit/1ffd5a601b95354c6025648a1c8b8566e2084d54,chore(types): added `getSSRProps` type argument (#5691),,no,no,
+204,django,4806c42efac7,https://github.com/django/django/commit/4806c42efac790dd65bc890b85904df7bdeb1309,Fixed #35987 -- Made ErrorList.copy() copy the renderer attribute.,,yes,yes,
+205,vite,561b940f6f96,https://github.com/vitejs/vite/commit/561b940f6f963fbb78058a6e23b4adad53a2edb9,fix(css): fix sass `file://` reference (#17909),Co-authored-by: patak <583075+patak-dev@users.noreply.github.com>,yes,yes,
 206,zod,cb94d301f601,https://github.com/colinhacks/zod/commit/cb94d301f6017e4a6121ae27fa64897506db8091,Add types to `ZodFirstPartySchemaTypes` (#3247),"* Add `ZodSymbol` and `ZodReadonly` to  `ZodFirstPartySchemaTypes`
 
-* Test `ZodFirstPartySchemaTypes` in sync with `ZodFirstPartyTypeKind`",no,,
-207,django,c2c544cf0110,https://github.com/django/django/commit/c2c544cf01107da158cb8c0c539555eafa0628db,Fixed #27409 -- Made admindocs support custom link text in docstrings.,,no,,
-208,zod,c1910bdfc987,https://github.com/colinhacks/zod/commit/c1910bdfc98709b8f14231e2cefc5a3be401e3ee,Made ZodEnum take readonly string array (#3444),,yes,,
+* Test `ZodFirstPartySchemaTypes` in sync with `ZodFirstPartyTypeKind`",no,no,
+207,django,c2c544cf0110,https://github.com/django/django/commit/c2c544cf01107da158cb8c0c539555eafa0628db,Fixed #27409 -- Made admindocs support custom link text in docstrings.,,no,no,
+208,zod,c1910bdfc987,https://github.com/colinhacks/zod/commit/c1910bdfc98709b8f14231e2cefc5a3be401e3ee,Made ZodEnum take readonly string array (#3444),,yes,yes,
 209,zod,c54e1099a287,https://github.com/colinhacks/zod/commit/c54e1099a28793368ef6302cdcc1f95201b49c69,Adds base64 string validation (#3047),"* Add base64 string validation
 
 * Build deno
@@ -350,109 +350,109 @@ Tests reused from #9313",yes,,
 
 ---------
 
-Co-authored-by: Colin McDonnell <colinmcd94@gmail.com>",no,,
-210,vue-core,28841fee43a4,https://github.com/vuejs/core/commit/28841fee43a45c37905c2c1ed9ace23067539045,fix(reactivity): fix call sequence of ontrigger in effect (#10501),,yes,,
+Co-authored-by: Colin McDonnell <colinmcd94@gmail.com>",no,no,
+210,vue-core,28841fee43a4,https://github.com/vuejs/core/commit/28841fee43a45c37905c2c1ed9ace23067539045,fix(reactivity): fix call sequence of ontrigger in effect (#10501),,yes,yes,
 211,django,daf7d482dbaa,https://github.com/django/django/commit/daf7d482dbaaa2604241a994c49f442fa15142c1,Refs #35234 -- Deprecated CheckConstraint.check in favor of .condition.,"Once the deprecation period ends CheckConstraint.check() can become the
 documented method that performs system checks for BaseConstraint
-subclasses.",no,,
-212,django,289f48c71b0f,https://github.com/django/django/commit/289f48c71b0fdd058defb29879368897fb837021,Fixed typo in source file linking Sphinx extension.,,no,,
-213,vue-core,f6d99262364b,https://github.com/vuejs/core/commit/f6d99262364b7444ebab8742158599e8cdd79eaa,fix(compiler-dom): avoid stringify option with null value (#12096),close #12093,yes,,
-214,vite,1f60647885df,https://github.com/vitejs/vite/commit/1f60647885df0d74bcaa671da332fd02f3a757ae,fix: prevent unhandledRejection if `--open` fails (#16726),,yes,,
-215,django,af84bcc8d1b1,https://github.com/django/django/commit/af84bcc8d1b129bd2dc35fae6bb42a175143661f,Fixed #35580 -- Allowed related fields referencing auto-created through models.,,yes,,
-216,vue-core,3bf34b767e4d,https://github.com/vuejs/core/commit/3bf34b767e4dd3cf6a974301ecf0363ae4dda4ec,fix(runtime-core): handle fragment with null children (#10010),close #10007,yes,,
+subclasses.",no,no,
+212,django,289f48c71b0f,https://github.com/django/django/commit/289f48c71b0fdd058defb29879368897fb837021,Fixed typo in source file linking Sphinx extension.,,no,no,
+213,vue-core,f6d99262364b,https://github.com/vuejs/core/commit/f6d99262364b7444ebab8742158599e8cdd79eaa,fix(compiler-dom): avoid stringify option with null value (#12096),close #12093,yes,yes,
+214,vite,1f60647885df,https://github.com/vitejs/vite/commit/1f60647885df0d74bcaa671da332fd02f3a757ae,fix: prevent unhandledRejection if `--open` fails (#16726),,yes,yes,
+215,django,af84bcc8d1b1,https://github.com/django/django/commit/af84bcc8d1b129bd2dc35fae6bb42a175143661f,Fixed #35580 -- Allowed related fields referencing auto-created through models.,,yes,yes,
+216,vue-core,3bf34b767e4d,https://github.com/vuejs/core/commit/3bf34b767e4dd3cf6a974301ecf0363ae4dda4ec,fix(runtime-core): handle fragment with null children (#10010),close #10007,yes,yes,
 217,gin,09f8224593e3,https://github.com/gin-gonic/gin/commit/09f8224593e31edf3c58ab3f13bc31ef53473733,fix(route): Add fullPath in context copy (#3784),"* fix: Add fullPath in context copy
 
 * Update context.go
 
 ---------
 
-Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>",yes,,
-218,vite,9f10261e7609,https://github.com/vitejs/vite/commit/9f10261e7609098b832fd0fb23a64840b3a0d1a0,fix: replace runner-side path normalization with `fetchModule`-side resolve (#18361),,yes,,
+Co-authored-by: Bo-Yi Wu <appleboy.tw@gmail.com>",yes,yes,
+218,vite,9f10261e7609,https://github.com/vitejs/vite/commit/9f10261e7609098b832fd0fb23a64840b3a0d1a0,fix: replace runner-side path normalization with `fetchModule`-side resolve (#18361),,yes,yes,
 219,django,c12bc980e5b2,https://github.com/django/django/commit/c12bc980e5b2bb25e447cd8dee550cad767f1ad2,Fixed #17905 -- Restricted access to model pages in admindocs.,"Only users with view or change model permissions can access.
-Thank you to Sarah Boyce for the review.",yes,,
-220,vue-core,1bad606eb379,https://github.com/vuejs/core/commit/1bad606eb37903ae1ca430f2e4bc2f3e35c44ca8,types: improve app.directive type generics (#11926),,no,,
-221,vite,646319cc845f,https://github.com/vitejs/vite/commit/646319cc845f24a12ac5f8f6d176597a5bf66fd3,fix: do not access document in `/@vite/client` when not defined (#16318),Co-authored-by: sapphi-red <49056869+sapphi-red@users.noreply.github.com>,yes,,
+Thank you to Sarah Boyce for the review.",yes,yes,
+220,vue-core,1bad606eb379,https://github.com/vuejs/core/commit/1bad606eb37903ae1ca430f2e4bc2f3e35c44ca8,types: improve app.directive type generics (#11926),,no,no,
+221,vite,646319cc845f,https://github.com/vitejs/vite/commit/646319cc845f24a12ac5f8f6d176597a5bf66fd3,fix: do not access document in `/@vite/client` when not defined (#16318),Co-authored-by: sapphi-red <49056869+sapphi-red@users.noreply.github.com>,yes,yes,
 222,vue-core,f44c3b37d446,https://github.com/vuejs/core/commit/f44c3b37d446d5f8e34539029dae0d806b25bb47,fix(hydration): handle consectuvie text nodes during hydration,"close #7285
-close #7301",yes,,
-223,vue-core,ac2a410e4639,https://github.com/vuejs/core/commit/ac2a410e46392db63ca4ed2db3c0fa71ebe1e855,fix(runtime-core): ensure suspense content inherit scopeId (#10652),close #5148,yes,,
-224,django,1df8983aa3b5,https://github.com/django/django/commit/1df8983aa3b51bd37a5b9acf92475ad3a9180fe4,Refs #35058 -- Added support for measured geometries to GDAL LineString.,,no,,
-225,vite,1166a9072866,https://github.com/vitejs/vite/commit/1166a90728666a76a1e0d5f3e365d5d50a7dcd0c,test: misc fixes (#18200),,no,,
-226,vue-core,98b83e86d16c,https://github.com/vuejs/core/commit/98b83e86d16c635547a1e735e5fb675aea2f0f1b,fix(ssr): apply ssr props to the the fallback vnode-based branch in ssr (#7247),close #6123,yes,,
-227,django,d2c5a30e5a85,https://github.com/django/django/commit/d2c5a30e5a8595d06c4a70ff0f66032fee0d3c8e,Fixed #35408 -- Optimized post-migrate permission creation.,co-authored-by: Mariusz Felisiak <felisiak.mariusz@gmail.com>,no,,
+close #7301",yes,yes,
+223,vue-core,ac2a410e4639,https://github.com/vuejs/core/commit/ac2a410e46392db63ca4ed2db3c0fa71ebe1e855,fix(runtime-core): ensure suspense content inherit scopeId (#10652),close #5148,yes,yes,
+224,django,1df8983aa3b5,https://github.com/django/django/commit/1df8983aa3b51bd37a5b9acf92475ad3a9180fe4,Refs #35058 -- Added support for measured geometries to GDAL LineString.,,no,no,
+225,vite,1166a9072866,https://github.com/vitejs/vite/commit/1166a90728666a76a1e0d5f3e365d5d50a7dcd0c,test: misc fixes (#18200),,no,no,
+226,vue-core,98b83e86d16c,https://github.com/vuejs/core/commit/98b83e86d16c635547a1e735e5fb675aea2f0f1b,fix(ssr): apply ssr props to the the fallback vnode-based branch in ssr (#7247),close #6123,yes,yes,
+227,django,d2c5a30e5a85,https://github.com/django/django/commit/d2c5a30e5a8595d06c4a70ff0f66032fee0d3c8e,Fixed #35408 -- Optimized post-migrate permission creation.,co-authored-by: Mariusz Felisiak <felisiak.mariusz@gmail.com>,no,no,
 228,django,d1be05b3e920,https://github.com/django/django/commit/d1be05b3e9209fd0787841c71a95819d81061187,Fixed #35187 -- Fixed @sensitive_variables/sensitive_post_parameters decorators crash with .pyc-only builds.,"Thanks Jon Janzen for the implementation idea.
 
 Thanks Marcus Hoffmann for the report.
 
-Regression in 38e391e95fe5258bc6d2467332dc9cd44ce6ba52.",yes,,
-229,vite,7d97a9b2ba11,https://github.com/vitejs/vite/commit/7d97a9b2ba11ab566865dcf9ee0350a9e479dfca,chore: tiny typo (#18374),,no,,
-230,django,66e47ac69a7e,https://github.com/django/django/commit/66e47ac69a7e71cf32eee312d05668d8f1ba24bb,Fixed #29725 -- Removed unnecessary join in QuerySet.count() and exists() on a many to many relation.,Co-Authored-By: Shiwei Chen <april.chen.0615@gmail.com>,no,,
-231,vue-core,e84c4a608e9d,https://github.com/vuejs/core/commit/e84c4a608e9dc96fb2a4a29d538bcc64f26103a2,fix(reactivity): self-referencing computed should refresh,ref: https://github.com/vuejs/core/pull/11797#issuecomment-2330738633,yes,,
+Regression in 38e391e95fe5258bc6d2467332dc9cd44ce6ba52.",yes,yes,
+229,vite,7d97a9b2ba11,https://github.com/vitejs/vite/commit/7d97a9b2ba11ab566865dcf9ee0350a9e479dfca,chore: tiny typo (#18374),,no,no,
+230,django,66e47ac69a7e,https://github.com/django/django/commit/66e47ac69a7e71cf32eee312d05668d8f1ba24bb,Fixed #29725 -- Removed unnecessary join in QuerySet.count() and exists() on a many to many relation.,Co-Authored-By: Shiwei Chen <april.chen.0615@gmail.com>,no,no,
+231,vue-core,e84c4a608e9d,https://github.com/vuejs/core/commit/e84c4a608e9dc96fb2a4a29d538bcc64f26103a2,fix(reactivity): self-referencing computed should refresh,ref: https://github.com/vuejs/core/pull/11797#issuecomment-2330738633,yes,yes,
 232,zod,04e1f379f698,https://github.com/colinhacks/zod/commit/04e1f379f6989d23dd45660fcabc78f76d7834f8,Fixed freezing async ZodReadonly results (#3457),"* docs: Corrected typo in readme
 
 * test: result freezing after async parse
 
-* fix: result freezing after async parse",yes,,
-233,vite,b723a753ced0,https://github.com/vitejs/vite/commit/b723a753ced0667470e72b4853ecda27b17f546a,fix: update Terser type definitions (fix #17668) (#17669),,yes,,
-234,vite,fdbe04d3d7c4,https://github.com/vitejs/vite/commit/fdbe04d3d7c4fa6994fa17601201b3a6d2092fea,fix: set correct `isSsrBuild` value in dev (#15536),,yes,,
-235,vue-core,716275d1b1d2,https://github.com/vuejs/core/commit/716275d1b1d2383d8ef0306fcd94558d4d9170f2,fix(reactivity): prevent endless recursion in computed getters (#11797),,yes,,
-236,django,857b1048d53e,https://github.com/django/django/commit/857b1048d53ebf5fc5581c110e85c212b81ca83a,Fixed #34619 -- Associated FilteredSelectMultiple elements to their label and help text.,,yes,,
-237,ky,d8ee60282f84,https://github.com/sindresorhus/ky/commit/d8ee60282f84820089a4dd50a28642a0155805f8,Fix compatibility with Cloudflare Workers (#559),,yes,,
-238,vue-core,d637bd6c0164,https://github.com/vuejs/core/commit/d637bd6c0164c2883e6eabd3c2f1f8c258dedfb1,perf(reactivity): do not track inner key `__v_skip`` (#11690),,no,,
-239,vite,70813c7f05fc,https://github.com/vitejs/vite/commit/70813c7f05fc9a45d102a53514ecac23831e6d6b,fix: asset import should skip handling data URIs (#18163),,yes,,
+* fix: result freezing after async parse",yes,yes,
+233,vite,b723a753ced0,https://github.com/vitejs/vite/commit/b723a753ced0667470e72b4853ecda27b17f546a,fix: update Terser type definitions (fix #17668) (#17669),,yes,yes,
+234,vite,fdbe04d3d7c4,https://github.com/vitejs/vite/commit/fdbe04d3d7c4fa6994fa17601201b3a6d2092fea,fix: set correct `isSsrBuild` value in dev (#15536),,yes,yes,
+235,vue-core,716275d1b1d2,https://github.com/vuejs/core/commit/716275d1b1d2383d8ef0306fcd94558d4d9170f2,fix(reactivity): prevent endless recursion in computed getters (#11797),,yes,yes,
+236,django,857b1048d53e,https://github.com/django/django/commit/857b1048d53ebf5fc5581c110e85c212b81ca83a,Fixed #34619 -- Associated FilteredSelectMultiple elements to their label and help text.,,yes,yes,
+237,ky,d8ee60282f84,https://github.com/sindresorhus/ky/commit/d8ee60282f84820089a4dd50a28642a0155805f8,Fix compatibility with Cloudflare Workers (#559),,yes,yes,
+238,vue-core,d637bd6c0164,https://github.com/vuejs/core/commit/d637bd6c0164c2883e6eabd3c2f1f8c258dedfb1,perf(reactivity): do not track inner key `__v_skip`` (#11690),,no,no,
+239,vite,70813c7f05fc,https://github.com/vitejs/vite/commit/70813c7f05fc9a45d102a53514ecac23831e6d6b,fix: asset import should skip handling data URIs (#18163),,yes,yes,
 240,vue-core,293cf4e131b6,https://github.com/vuejs/core/commit/293cf4e131b6d4606e1de2cd7ea87814e2544952,fix(compiler-sfc): improve type resolving for the keyof operator (#10921),"close #10920 
-close #11002",yes,,
-241,vue-core,4da688141d9e,https://github.com/vuejs/core/commit/4da688141d9e7c15b622c289deaa81b11845b2c7,fix(types): correct type inference of union event names (#12022),,yes,,
-242,vue-core,b3bd3a210aec,https://github.com/vuejs/core/commit/b3bd3a210aec72d5253c50b27c621d608d2b7a07,build: disable reexportProtoFromExternal in rollup config,,no,,
-243,vite,6c4bf266a0bc,https://github.com/vitejs/vite/commit/6c4bf266a0bcae8512f6daf99dff57a73ae7bcf6,fix(node): remove timestamp query of `staticImportedUrls` (#15663),,yes,,
+close #11002",yes,yes,
+241,vue-core,4da688141d9e,https://github.com/vuejs/core/commit/4da688141d9e7c15b622c289deaa81b11845b2c7,fix(types): correct type inference of union event names (#12022),,yes,yes,
+242,vue-core,b3bd3a210aec,https://github.com/vuejs/core/commit/b3bd3a210aec72d5253c50b27c621d608d2b7a07,build: disable reexportProtoFromExternal in rollup config,,no,no,
+243,vite,6c4bf266a0bc,https://github.com/vitejs/vite/commit/6c4bf266a0bcae8512f6daf99dff57a73ae7bcf6,fix(node): remove timestamp query of `staticImportedUrls` (#15663),,yes,yes,
 244,vite,5552583a2272,https://github.com/vitejs/vite/commit/5552583a2272cd4208b30ad60e99d984e34645f0,fix(deps): update all non-major dependencies (#18345),"Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
-Co-authored-by: sapphi-red <49056869+sapphi-red@users.noreply.github.com>",no,,
-245,vue-core,e16e9a7341e7,https://github.com/vuejs/core/commit/e16e9a7341e7cfb3c443da4e5e5b06e8158712c3,fix(custom-element): properly remove hyphenated attribute (#12143),close #12139,yes,,
-246,vue-core,3ee7b4c7b137,https://github.com/vuejs/core/commit/3ee7b4c7b1374c5bdc50a579b49f6bc15022b085,fix(runtime-core): avoid recursive warning,close #8074,yes,,
-247,vite,1bda84732902,https://github.com/vitejs/vite/commit/1bda847329022d5279cfa2b51719dd19a161fd64,fix: align CorsOptions.origin type with @types/cors (#17836),,yes,,
-248,django,5fa4ccab7e42,https://github.com/django/django/commit/5fa4ccab7e42e86fa4a0681d21bd1326c9c5eac3,Refs #26001 -- Handled relationship exact lookups in ModelAdmin.search_fields.,,yes,,
-249,django,6ee37ada3241,https://github.com/django/django/commit/6ee37ada3241ed263d8d1c2901b030d964cbd161,Fixed #30686 -- Used Python HTMLParser in utils.text.Truncator.,,no,,
-250,vue-core,f476b7f030f2,https://github.com/vuejs/core/commit/f476b7f030f2dd427ca655fcea36f4933a4b4da0,feat(runtime-core): add app.config.throwUnhandledErrorInProduction,close #7876,no,,
-251,vue-core,b1be9bd64f2c,https://github.com/vuejs/core/commit/b1be9bd64f2c7c4286fecb25bad5d5edd49efce9,fix(runtime-dom): prevent unnecessary DOM update from v-model (#11656),close #11647,yes,,
-252,vue-core,7f2c505f9202,https://github.com/vuejs/core/commit/7f2c505f92026408a8262ba9b5104a465be19446,fix(custom-element): ignore scoped id,,yes,,
-253,vite,e51dc40b5907,https://github.com/vitejs/vite/commit/e51dc40b5907cf14d7aefaaf01fb8865a852ef15,feat: read `sec-fetch-dest` header to detect JS in transform (#9981),Co-authored-by: bluwy <bjornlu.dev@gmail.com>,no,,
-254,vite,d5fb653c1590,https://github.com/vitejs/vite/commit/d5fb653c15903ccf84a093f212da86f0327a9a6f,fix: handle postcss load unhandled rejections (#18886),,yes,,
-255,vue-core,4eee630b3122,https://github.com/vuejs/core/commit/4eee630b3122a10d0baf9b91358cfffa92d6fd81,fix(build): improve built-in components treeshakability,,no,,
-256,vite,afff05c03266,https://github.com/vitejs/vite/commit/afff05c03266fc76d5ab8928215c89f5992f40f8,fix(css): resolve style tags in HTML files correctly for lightningcss (#19001),,yes,,
-257,vite,d9be92187cb1,https://github.com/vitejs/vite/commit/d9be92187cb17d740856af27d0ab60c84e04d58c,fix(ssr): format `ssrTransform` parse error  (#18644),Co-authored-by: Bjorn Lu <bjornlu.dev@gmail.com>,no,,
-258,vue-core,1e42f24d8f21,https://github.com/vuejs/core/commit/1e42f24d8f212efdcc9dbdbe5b66b899f690c255,workflow: improve release script ci status check,,no,,
-259,vue-core,b557d3fb8ae1,https://github.com/vuejs/core/commit/b557d3fb8ae1e4e926c4ad0fbb2fa7abe50fd661,fix(runtime-core): avoid traversing static children for vnodes w/ PatchFlags.BAIL (#11115),close #10547,yes,,
+Co-authored-by: sapphi-red <49056869+sapphi-red@users.noreply.github.com>",no,no,
+245,vue-core,e16e9a7341e7,https://github.com/vuejs/core/commit/e16e9a7341e7cfb3c443da4e5e5b06e8158712c3,fix(custom-element): properly remove hyphenated attribute (#12143),close #12139,yes,yes,
+246,vue-core,3ee7b4c7b137,https://github.com/vuejs/core/commit/3ee7b4c7b1374c5bdc50a579b49f6bc15022b085,fix(runtime-core): avoid recursive warning,close #8074,yes,yes,
+247,vite,1bda84732902,https://github.com/vitejs/vite/commit/1bda847329022d5279cfa2b51719dd19a161fd64,fix: align CorsOptions.origin type with @types/cors (#17836),,yes,yes,
+248,django,5fa4ccab7e42,https://github.com/django/django/commit/5fa4ccab7e42e86fa4a0681d21bd1326c9c5eac3,Refs #26001 -- Handled relationship exact lookups in ModelAdmin.search_fields.,,yes,yes,
+249,django,6ee37ada3241,https://github.com/django/django/commit/6ee37ada3241ed263d8d1c2901b030d964cbd161,Fixed #30686 -- Used Python HTMLParser in utils.text.Truncator.,,no,no,
+250,vue-core,f476b7f030f2,https://github.com/vuejs/core/commit/f476b7f030f2dd427ca655fcea36f4933a4b4da0,feat(runtime-core): add app.config.throwUnhandledErrorInProduction,close #7876,no,no,
+251,vue-core,b1be9bd64f2c,https://github.com/vuejs/core/commit/b1be9bd64f2c7c4286fecb25bad5d5edd49efce9,fix(runtime-dom): prevent unnecessary DOM update from v-model (#11656),close #11647,yes,yes,
+252,vue-core,7f2c505f9202,https://github.com/vuejs/core/commit/7f2c505f92026408a8262ba9b5104a465be19446,fix(custom-element): ignore scoped id,,yes,yes,
+253,vite,e51dc40b5907,https://github.com/vitejs/vite/commit/e51dc40b5907cf14d7aefaaf01fb8865a852ef15,feat: read `sec-fetch-dest` header to detect JS in transform (#9981),Co-authored-by: bluwy <bjornlu.dev@gmail.com>,no,no,
+254,vite,d5fb653c1590,https://github.com/vitejs/vite/commit/d5fb653c15903ccf84a093f212da86f0327a9a6f,fix: handle postcss load unhandled rejections (#18886),,yes,yes,
+255,vue-core,4eee630b3122,https://github.com/vuejs/core/commit/4eee630b3122a10d0baf9b91358cfffa92d6fd81,fix(build): improve built-in components treeshakability,,no,no,
+256,vite,afff05c03266,https://github.com/vitejs/vite/commit/afff05c03266fc76d5ab8928215c89f5992f40f8,fix(css): resolve style tags in HTML files correctly for lightningcss (#19001),,yes,yes,
+257,vite,d9be92187cb1,https://github.com/vitejs/vite/commit/d9be92187cb17d740856af27d0ab60c84e04d58c,fix(ssr): format `ssrTransform` parse error  (#18644),Co-authored-by: Bjorn Lu <bjornlu.dev@gmail.com>,no,no,
+258,vue-core,1e42f24d8f21,https://github.com/vuejs/core/commit/1e42f24d8f212efdcc9dbdbe5b66b899f690c255,workflow: improve release script ci status check,,no,no,
+259,vue-core,b557d3fb8ae1,https://github.com/vuejs/core/commit/b557d3fb8ae1e4e926c4ad0fbb2fa7abe50fd661,fix(runtime-core): avoid traversing static children for vnodes w/ PatchFlags.BAIL (#11115),close #10547,yes,yes,
 260,vue-core,f31d782e4668,https://github.com/vuejs/core/commit/f31d782e4668050a188ac0f11ba8d5b861b913ca,fix(runtime-dom): fix option selected update failed (#10200),"close #10194
-close #10267",yes,,
+close #10267",yes,yes,
 261,vue-core,660cadc7aadb,https://github.com/vuejs/core/commit/660cadc7aadb909ef33a6055c4374902a82607a4,fix(compiler-sfc): :is() and :where() in compound selectors (#10522),"Co-authored-by: Haoqun Jiang <haoqunjiang@gmail.com>
 
-Closes #10511",yes,,
-262,django,b6ad8b687adf,https://github.com/django/django/commit/b6ad8b687adf011245270df17a38c1a42792e3d7,Added missing skips in constraint tests.,,no,,
-263,vite,bea0272decd9,https://github.com/vitejs/vite/commit/bea0272decd908cd04ac0a2c87dd0a676f218a1a,refactor: remove `_onCrawlEnd` (#18207),,no,,
-264,django,a417c0efb4b3,https://github.com/django/django/commit/a417c0efb4b37fe9f59d7b982b2ecf276bf2e306,Fixed #35449 -- Fixed validation of array items in SplitArrayField when remove_trailing_nulls=True.,,yes,,
+Closes #10511",yes,yes,
+262,django,b6ad8b687adf,https://github.com/django/django/commit/b6ad8b687adf011245270df17a38c1a42792e3d7,Added missing skips in constraint tests.,,no,no,
+263,vite,bea0272decd9,https://github.com/vitejs/vite/commit/bea0272decd908cd04ac0a2c87dd0a676f218a1a,refactor: remove `_onCrawlEnd` (#18207),,no,no,
+264,django,a417c0efb4b3,https://github.com/django/django/commit/a417c0efb4b37fe9f59d7b982b2ecf276bf2e306,Fixed #35449 -- Fixed validation of array items in SplitArrayField when remove_trailing_nulls=True.,,yes,yes,
 265,vue-core,de174e1aa756,https://github.com/vuejs/core/commit/de174e1aa756508c7542605a448e55a373afb1ed,fix(defineModel): force local update when setter results in same emitted value,"fix #10279
-fix #10301",yes,,
-266,vue-core,c4684d316150,https://github.com/vuejs/core/commit/c4684d3161505d15c585a5dd0f095cdd527d45b5,chore: amend test case name [ci skip],,no,,
-267,vite,c2b75292f48b,https://github.com/vitejs/vite/commit/c2b75292f48be0371e337193c3b37a67b8212f97,fix(create-vite): change create-app prompt to not remove existing files by default (#18710),,no,,
-268,vite,eef9da13d002,https://github.com/vitejs/vite/commit/eef9da13d0028161eacc0ea699988814f29a56e4,fix(worker): throw error when circular worker import is detected and support self referencing worker (#16103),,yes,,
+fix #10301",yes,yes,
+266,vue-core,c4684d316150,https://github.com/vuejs/core/commit/c4684d3161505d15c585a5dd0f095cdd527d45b5,chore: amend test case name [ci skip],,no,no,
+267,vite,c2b75292f48b,https://github.com/vitejs/vite/commit/c2b75292f48be0371e337193c3b37a67b8212f97,fix(create-vite): change create-app prompt to not remove existing files by default (#18710),,no,no,
+268,vite,eef9da13d002,https://github.com/vitejs/vite/commit/eef9da13d0028161eacc0ea699988814f29a56e4,fix(worker): throw error when circular worker import is detected and support self referencing worker (#16103),,yes,yes,
 269,vite,8fa70cdfa65c,https://github.com/vitejs/vite/commit/8fa70cdfa65ce8254ab8da8be0d92614126764c0,feat: extended applyToEnvironment and perEnvironmentPlugin (#18544),"Co-authored-by: 翠 / green <green@sapphi.red>
-Co-authored-by: Bjorn Lu <bjornlu.dev@gmail.com>",no,,
-270,vite,09248795ca79,https://github.com/vitejs/vite/commit/09248795ca79a7053b803af8977c3422f5cd5824,feat(optimizer): allow users to specify their esbuild `platform` option (#18611),Co-authored-by: 翠 / green <green@sapphi.red>,no,,
-271,gin,d4e413648824,https://github.com/gin-gonic/gin/commit/d4e413648824333726ef65de5defc457e9dbf095,"Revert ""fix(uri): query binding bug (#3236)"" (#3899)",This reverts commit 8790d08909fc4d193c6c787c9c72f3089168f411.,yes,,
-272,vite,564c8f45f542,https://github.com/vitejs/vite/commit/564c8f45f5429bd149b441d7dca4f44347dedfb1,chore: add `create-preact` recommendation to Preact templates (#17649),,no,,
-273,vite,889bfc0ada6d,https://github.com/vitejs/vite/commit/889bfc0ada6d6cd356bb7a92efdce96298f82fef,fix(css): dont remove JS chunk for pure CSS chunk when the export is used (#18307),,yes,,
-274,vite,ade1d89660e1,https://github.com/vitejs/vite/commit/ade1d89660e17eedfd35652165b0c26905259fad,fix: avoid DOM Clobbering gadget in `getRelativeUrlFromDocument` (#18115),,yes,,
-275,vue-core,42e8df62030e,https://github.com/vuejs/core/commit/42e8df62030e7f2c287d9103f045e67b34a63e3b,fix(types): GlobalDirective / GlobalComponents should not be records,,yes,,
-276,django,5e998d717f7b,https://github.com/django/django/commit/5e998d717f7b4220a1728bd49b66ca0162e2a6cb,Refs #35987 -- Added extra tests for ErrorList and ErrorDict copy methods.,,no,,
-277,django,549320946dfd,https://github.com/django/django/commit/549320946dfdaac6ccb6c0d3150c46db92637187,Fixed #35030 -- Made django.contrib.auth decorators to work with async functions.,,unsure,,
+Co-authored-by: Bjorn Lu <bjornlu.dev@gmail.com>",no,no,
+270,vite,09248795ca79,https://github.com/vitejs/vite/commit/09248795ca79a7053b803af8977c3422f5cd5824,feat(optimizer): allow users to specify their esbuild `platform` option (#18611),Co-authored-by: 翠 / green <green@sapphi.red>,no,no,
+271,gin,d4e413648824,https://github.com/gin-gonic/gin/commit/d4e413648824333726ef65de5defc457e9dbf095,"Revert ""fix(uri): query binding bug (#3236)"" (#3899)",This reverts commit 8790d08909fc4d193c6c787c9c72f3089168f411.,yes,yes,
+272,vite,564c8f45f542,https://github.com/vitejs/vite/commit/564c8f45f5429bd149b441d7dca4f44347dedfb1,chore: add `create-preact` recommendation to Preact templates (#17649),,no,no,
+273,vite,889bfc0ada6d,https://github.com/vitejs/vite/commit/889bfc0ada6d6cd356bb7a92efdce96298f82fef,fix(css): dont remove JS chunk for pure CSS chunk when the export is used (#18307),,yes,yes,
+274,vite,ade1d89660e1,https://github.com/vitejs/vite/commit/ade1d89660e17eedfd35652165b0c26905259fad,fix: avoid DOM Clobbering gadget in `getRelativeUrlFromDocument` (#18115),,yes,yes,
+275,vue-core,42e8df62030e,https://github.com/vuejs/core/commit/42e8df62030e7f2c287d9103f045e67b34a63e3b,fix(types): GlobalDirective / GlobalComponents should not be records,,yes,yes,
+276,django,5e998d717f7b,https://github.com/django/django/commit/5e998d717f7b4220a1728bd49b66ca0162e2a6cb,Refs #35987 -- Added extra tests for ErrorList and ErrorDict copy methods.,,no,no,
+277,django,549320946dfd,https://github.com/django/django/commit/549320946dfdaac6ccb6c0d3150c46db92637187,Fixed #35030 -- Made django.contrib.auth decorators to work with async functions.,,unsure,unsure,
 278,vue-core,37d2ce5d8e0f,https://github.com/vuejs/core/commit/37d2ce5d8e0fac4a00064f02b05f91f69b2d5d5e,feat(custom-element): support shadowRoot: false in defineCustomElement(),"close #4314
-close #4404",no,,
-279,zod,4f2f0efac027,https://github.com/colinhacks/zod/commit/4f2f0efac0279aa640a6a3310902e895c01ad844,feature: allow falsy error message (#3178),,no,,
-280,vue-core,e102670bde00,https://github.com/vuejs/core/commit/e102670bde00417c3a5b0262c855b297c0e4169e,fix(compiler-core): should not remove slot node with `v-else` (#11150),,yes,,
-281,vite,db5ab1dfc4fb,https://github.com/vitejs/vite/commit/db5ab1dfc4fb55c6387136ee31fed35910a046b0,fix: show error if vite client cannot be loaded (#17419),Co-authored-by: bluwy <bjornlu.dev@gmail.com>,no,,
-282,vue-core,8bcaad4a32cf,https://github.com/vuejs/core/commit/8bcaad4a32cf0f1f89e0259f6a53036620b7fe9f,fix(watch): handle errors in computed used as watch source (#11626),close #11624,yes,,
-283,vite,bfbb130fccef,https://github.com/vitejs/vite/commit/bfbb130fccefbe7e3880f09defb4fceacce39481,test: test output hash changes (#18898),,no,,
-284,vue-core,3107b57e2e97,https://github.com/vuejs/core/commit/3107b57e2e9726985adef8fe56281988c89d5cdb,refactor: isVNode -> isVOnce,,no,,
-285,vue-core,d16a2138a33b,https://github.com/vuejs/core/commit/d16a2138a33b106b9e1499bbb9e1c67790370c97,fix(hydration): fix incorect mismatch warning for option with non-string value and inner text,close 10140,yes,,
+close #4404",no,no,
+279,zod,4f2f0efac027,https://github.com/colinhacks/zod/commit/4f2f0efac0279aa640a6a3310902e895c01ad844,feature: allow falsy error message (#3178),,no,no,
+280,vue-core,e102670bde00,https://github.com/vuejs/core/commit/e102670bde00417c3a5b0262c855b297c0e4169e,fix(compiler-core): should not remove slot node with `v-else` (#11150),,yes,yes,
+281,vite,db5ab1dfc4fb,https://github.com/vitejs/vite/commit/db5ab1dfc4fb55c6387136ee31fed35910a046b0,fix: show error if vite client cannot be loaded (#17419),Co-authored-by: bluwy <bjornlu.dev@gmail.com>,no,no,
+282,vue-core,8bcaad4a32cf,https://github.com/vuejs/core/commit/8bcaad4a32cf0f1f89e0259f6a53036620b7fe9f,fix(watch): handle errors in computed used as watch source (#11626),close #11624,yes,yes,
+283,vite,bfbb130fccef,https://github.com/vitejs/vite/commit/bfbb130fccefbe7e3880f09defb4fceacce39481,test: test output hash changes (#18898),,no,no,
+284,vue-core,3107b57e2e97,https://github.com/vuejs/core/commit/3107b57e2e9726985adef8fe56281988c89d5cdb,refactor: isVNode -> isVOnce,,no,no,
+285,vue-core,d16a2138a33b,https://github.com/vuejs/core/commit/d16a2138a33b106b9e1499bbb9e1c67790370c97,fix(hydration): fix incorect mismatch warning for option with non-string value and inner text,close 10140,yes,yes,
 286,django,8d6a20b656ff,https://github.com/django/django/commit/8d6a20b656ff3fa18e36954668a44a831c2f6ddd,"Fixed #35604, Refs #35326 -- Made FileSystemStorage.exists() behaviour independent from allow_overwrite.","Partially reverts 0b33a3abc2ca7d68a24f6d0772bc2b9fa603744e.
 
 Storage.exists(name) was documented to ""return False if
@@ -461,28 +461,28 @@ the file exists. This is ambiguous in the overwrite file
 case. It will now always return whether the file exists.
 
 Thank you to Natalia Bidart and Josh Schneier for the
-review.",yes,,
-287,vite,818cf3e7bf1b,https://github.com/vitejs/vite/commit/818cf3e7bf1b6c2dc56e7cd8f056bc1d185c2cd7,fix(optimizer): detect npm / yarn / pnpm dependency changes correctly (#17336) (#18560),,yes,,
-288,django,1857b6663b66,https://github.com/django/django/commit/1857b6663b664847a426e8c79b8aec42994660ba,Fixed #35776 -- Dropped support for GDAL 3.0.,,no,,
-289,vue-core,917c0631ccff,https://github.com/vuejs/core/commit/917c0631ccffa5d95b6ff3212f0f7dc43641aa2d,chore: fix typo (#11522),,no,,
-290,vue-core,2fd390573866,https://github.com/vuejs/core/commit/2fd39057386644c8bfee426c60a51f2b07a79b09,"revert: ""dx(computed): warn incorrect use of getCurrentInstance inside computed""",This reverts commit 324e817ef8d00c091e5d1537789542241c876d66.,no,,
+review.",yes,yes,
+287,vite,818cf3e7bf1b,https://github.com/vitejs/vite/commit/818cf3e7bf1b6c2dc56e7cd8f056bc1d185c2cd7,fix(optimizer): detect npm / yarn / pnpm dependency changes correctly (#17336) (#18560),,yes,yes,
+288,django,1857b6663b66,https://github.com/django/django/commit/1857b6663b664847a426e8c79b8aec42994660ba,Fixed #35776 -- Dropped support for GDAL 3.0.,,no,no,
+289,vue-core,917c0631ccff,https://github.com/vuejs/core/commit/917c0631ccffa5d95b6ff3212f0f7dc43641aa2d,chore: fix typo (#11522),,no,no,
+290,vue-core,2fd390573866,https://github.com/vuejs/core/commit/2fd39057386644c8bfee426c60a51f2b07a79b09,"revert: ""dx(computed): warn incorrect use of getCurrentInstance inside computed""",This reverts commit 324e817ef8d00c091e5d1537789542241c876d66.,no,no,
 291,vue-core,5d258502a0fa,https://github.com/vuejs/core/commit/5d258502a0faffc8a451b8701f13a31b2566d068,fix(compiler-core): emit TS-compatible function declaration when requested (#9363),"Co-authored-by: autofix-ci[bot] <114827586+autofix-ci[bot]@users.noreply.github.com>
-Co-authored-by: Haoqun Jiang <haoqunjiang@gmail.com>",yes,,
-292,vue-core,fe07f7073617,https://github.com/vuejs/core/commit/fe07f7073617df358c2f8cbc3de433359e873c96,fix(types/defineModel): allow getter and setter types to be unrelated (#11699),close #11697,yes,,
-293,vue-core,173ec65cd46f,https://github.com/vuejs/core/commit/173ec65cd46f22cb1e91914923fcf75a75cd340d,test: revert to threads,vmThreads mode swallows console.logs during test debugging,no,,
-294,vue-core,364f8902c865,https://github.com/vuejs/core/commit/364f8902c8657faec7c3a4d70a5b2c856567e92d,fix(runtime-dom): fix nested v-show priority regression,close #10338,yes,,
+Co-authored-by: Haoqun Jiang <haoqunjiang@gmail.com>",yes,yes,
+292,vue-core,fe07f7073617,https://github.com/vuejs/core/commit/fe07f7073617df358c2f8cbc3de433359e873c96,fix(types/defineModel): allow getter and setter types to be unrelated (#11699),close #11697,yes,yes,
+293,vue-core,173ec65cd46f,https://github.com/vuejs/core/commit/173ec65cd46f22cb1e91914923fcf75a75cd340d,test: revert to threads,vmThreads mode swallows console.logs during test debugging,no,no,
+294,vue-core,364f8902c865,https://github.com/vuejs/core/commit/364f8902c8657faec7c3a4d70a5b2c856567e92d,fix(runtime-dom): fix nested v-show priority regression,close #10338,yes,yes,
 295,django,3dac3271d286,https://github.com/django/django/commit/3dac3271d286f2790780e89d31ddbb7197f8defa,"Reverted ""Fixed #28646 -- Prevented duplicate index when unique is set to True on PostgreSQL.""","This reverts commit 9cf9c796be8dd53bc3b11355ff39d65c81d7be6d due to a crash on Oracle
-as it didn't allow multiple indexes on the same field.",yes,,
+as it didn't allow multiple indexes on the same field.",yes,yes,
 296,vite,7eeb6f2f97ab,https://github.com/vitejs/vite/commit/7eeb6f2f97abf5dfc71c225b9cff9779baf2ed2f,fix: add typing to `CSSOptions.preprocessorOptions` (#18001),"Co-authored-by: sapphi-red <49056869+sapphi-red@users.noreply.github.com>
-Co-authored-by: bluwy <bjornlu.dev@gmail.com>",no,,
+Co-authored-by: bluwy <bjornlu.dev@gmail.com>",no,no,
 297,django,ff308a06047c,https://github.com/django/django/commit/ff308a06047cd60806d604a7cf612e5656ee2ac9,Fixed 35467 -- Replaced urlparse with urlsplit where appropriate.,"This work should not generate any change of functionality, and
 `urlsplit` is approximately 6x faster.
 
 Most use cases of `urlparse` didn't touch the path, so they can be
 converted to `urlsplit` without any issue. Most of those which do use
 `.path`, simply parse the URL, mutate the querystring, then put them
-back together, which is also fine (so long as urlunsplit is used).",no,,
+back together, which is also fine (so long as urlunsplit is used).",no,no,
 298,django,4d76adfacde5,https://github.com/django/django/commit/4d76adfacde5594c5735a5e76b3d5478cb4ba8de,Refs #35581 -- Verified attachments in the generated message in mail tests.,"This also removed send() calls, as this doesn't check the serialized content, and
-the backend tests cover sending.",no,,
-299,vue-core,cd419aec3cb6,https://github.com/vuejs/core/commit/cd419aec3cb615eaea8b2324356f38f4c0ff1fcc,fix(runtime-dom): unify behavior for v-show + style display binding (#10075),close #10074,yes,,
-300,django,f835787f714c,https://github.com/django/django/commit/f835787f714cf000603516188b5516f87aa348b1,Refs #32114 -- Fixed RemoteTestResultTest.test_unpicklable_subtest test without tblib.,Follow up to c09e8f5fd8f977bf16e9ec5d11b370151fc81ea8.,no,,
+the backend tests cover sending.",no,no,
+299,vue-core,cd419aec3cb6,https://github.com/vuejs/core/commit/cd419aec3cb615eaea8b2324356f38f4c0ff1fcc,fix(runtime-dom): unify behavior for v-show + style display binding (#10075),close #10074,yes,yes,
+300,django,f835787f714c,https://github.com/django/django/commit/f835787f714cf000603516188b5516f87aa348b1,Refs #32114 -- Fixed RemoteTestResultTest.test_unpicklable_subtest test without tblib.,Follow up to c09e8f5fd8f977bf16e9ec5d11b370151fc81ea8.,no,no,
