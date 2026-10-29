@@ -39,8 +39,8 @@ describe("renderTerminal", () => {
         commits read
       Bands: High 0 · Elevated 0 · Moderate 2 · Low 2 · Insufficient evidence 1
 
-      Highest estimated risk
-        SCORE  BAND        CONF  FILE
+      Highest attention index
+        INDEX  BAND        CONF  FILE
          44.6  Moderate    0.71  src/core/parser.ts
                100% of lines changed in the last 365 days came from a single contributor.
          37.8  Moderate    0.47* src/core/tokens.ts
@@ -52,8 +52,10 @@ describe("renderTerminal", () => {
         * limited evidence: treat this estimate with extra caution.
         1 file(s) have insufficient evidence and are not ranked.
 
-      Note: Scores estimate comprehension risk relative to other files in this repository. They are not
-            comparable across repositories and are not a measure of any developer.
+      Note: The attention index sorts files by complexity, change pressure, knowledge concentration and
+            impact relative to other files in this repository. In Blindspot's validation study it ranked
+            files that later received bug fixes below file size alone, so it is not a prediction of
+            defects. It is not comparable across repositories and is not a measure of any developer.
       Note: Review evidence is not available in local mode, so it is reported as missing rather than
             counted against any file.
       "

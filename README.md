@@ -2,9 +2,11 @@
 
 **Know the code. Own the risk.**
 
-Blindspot estimates file-level _comprehension risk_: which files in a repository are likely to be hard to understand, modify safely and maintain. Every score comes with the evidence behind it, a confidence level, and a list of what it could not observe. It measures files, never developers.
+Blindspot maps every file in a repository by the things that make code hard to understand and change: complexity, change pressure, how concentrated or stale the knowledge of it is, explicit AI provenance and how much depends on it. It combines them into an _attention index_ for sorting files to review. Every value comes with the evidence behind it, a confidence level, and a list of what it could not observe. It measures files, never developers.
 
-> **Status:** Stage 1 (local CLI). It is not yet published to npm, so run it from a clone as shown below. The scoring model's weights are uncalibrated priors until Stage 2. Treat scores as prompts for investigation, not verdicts.
+> **What the index is not.** It is not a prediction of defects. In a registered validation study on 10 open-source repositories, the index ranked files that later received bug fixes below file size alone (AUC 0.62 against 0.82). See the [research report](docs/research-report.md) and [ADR 0008](docs/decisions/0008-descriptive-not-predictive.md).
+
+> **Status:** local CLI (Stages 1–2). It is not yet published to npm, so run it from a clone as shown below. Treat the index as a way to choose where to look, not as a verdict.
 
 ## Quick start
 

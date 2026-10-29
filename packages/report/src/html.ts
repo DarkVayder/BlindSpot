@@ -203,7 +203,7 @@ ${ranked.length > shown.length ? `<p class="muted">Showing ${shown.length} of ${
 </section>
 </main>
 <footer>
-<p>Scores estimate how hard each file is likely to be to understand and change safely, relative to other files in this repository. They are not a measure of code quality or of any developer.</p>
+<p>The attention index sorts files by complexity, change pressure, knowledge concentration and impact, relative to other files in this repository. In Blindspot's validation study it ranked files that later received bug fixes below file size alone, so it is not a prediction of defects. It is not a measure of code quality or of any developer.</p>
 </footer>
 <script>${SCRIPT}</script>
 </body>
@@ -237,10 +237,10 @@ ${BAND_ORDER.map((b) => `<option value="${b}">${e(BAND_LABEL[b])}</option>`).joi
 </div>
 <div class="table-wrap">
 <table id="files-table">
-<caption>Files ordered by estimated comprehension risk. Files with insufficient evidence are listed last and are not ranked.</caption>
+<caption>Files ordered by attention index. Files with insufficient evidence are listed last and are not ranked.</caption>
 <thead><tr>
 <th scope="col" aria-sort="none"><button type="button" data-sort="path">File</button></th>
-<th scope="col" class="num" aria-sort="none"><button type="button" data-sort="score">Score</button></th>
+<th scope="col" class="num" aria-sort="none"><button type="button" data-sort="score">Index</button></th>
 <th scope="col">Band</th>
 <th scope="col" class="num" aria-sort="none"><button type="button" data-sort="confidence">Confidence</button></th>
 </tr></thead>

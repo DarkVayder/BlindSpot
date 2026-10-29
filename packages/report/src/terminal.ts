@@ -61,11 +61,11 @@ export function renderTerminal(result: AnalysisResult, options: TerminalOptions)
   }
 
   const ranked = rankFiles(result.files).filter(isRanked);
-  out.push("", paint("bold", "Highest estimated risk"));
+  out.push("", paint("bold", "Highest attention index"));
   if (ranked.length === 0) {
     out.push("  No file has enough evidence to be ranked yet.");
   } else {
-    out.push(paint("dim", "  SCORE  BAND        CONF  FILE"));
+    out.push(paint("dim", "  INDEX  BAND        CONF  FILE"));
     const pathWidth = width - 28;
     for (const f of ranked.slice(0, limit)) {
       const score = (f.score ?? 0).toFixed(1).padStart(5);

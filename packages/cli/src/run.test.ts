@@ -77,7 +77,7 @@ describe("analyze", () => {
   it("prints the summary and exits 0, and is the default command", async () => {
     const explicit = await cli(["analyze", goldenRepo().root, "--no-color"]);
     expect(explicit.code).toBe(EXIT.ok);
-    expect(explicit.stdout).toContain("Highest estimated risk");
+    expect(explicit.stdout).toContain("Highest attention index");
     expect(explicit.stdout).toContain("src/core/parser.ts");
     const implicit = await cli([goldenRepo().root, "--no-color"]);
     expect(implicit.stdout).toBe(explicit.stdout);
@@ -97,7 +97,7 @@ describe("analyze", () => {
     const result = JSON.parse(r.stdout) as AnalysisResult;
     expect(result.schemaVersion).toBe(1);
     expect(result.toolVersion).toBe(toolVersion());
-    expect(r.stderr).toContain("Highest estimated risk");
+    expect(r.stderr).toContain("Highest attention index");
   });
 
   it("writes JSON and HTML files, creating parent directories", async () => {

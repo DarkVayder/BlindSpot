@@ -54,3 +54,64 @@ describe("repository hygiene", () => {
     expect(findings).toEqual([]);
   });
 });
+
+// ADR 0008: the score is a descriptive attention index. Stage 2 found no predictive signal
+// beyond file size and churn, so no product copy may claim one. Research docs are exempt
+// because they report the study itself.
+const PRODUCT_DOCS = [
+  "README.md",
+  "docs/cli.md",
+  "docs/configuration.md",
+  "docs/scoring-model.md",
+  "docs/architecture.md",
+];
+const PRODUCT_PACKAGES = ["core", "engine", "report", "cli"];
+const CLAIMS = [
+  /\bpredict(s|ive|ively)\b/i,
+  /\bpredicted to\b/i,
+  /\b(accurately|accuracy)\b/i,
+  /\bproven\b/i,
+  /\bguarantee[sd]?\b/i,
+  /\b(bug|defect|error)-prone\b/i,
+  /\blikely to (contain|have|introduce|cause) (bugs|defects|errors)\b/i,
+  /\brisk of (bugs|defects)\b/i,
+];
+
+// Markdown link targets are file names, not prose a reader sees.
+export function claimsIn(text: string): string[] {
+  const prose = text.replace(/\]\([^)]*\)/g, "]");
+  return CLAIMS.filter((claim) => claim.test(prose)).map(String);
+}
+
+function productCopyFiles(): string[] {
+  const sources = PRODUCT_PACKAGES.flatMap((name) =>
+    files(path.join(ROOT, "packages", name, "src")).filter(
+      (file) =>
+        file.endsWith(".ts") && !file.endsWith(".test.ts") && !file.includes(`${path.sep}test${path.sep}`),
+    ),
+  );
+  return [...PRODUCT_DOCS.map((doc) => path.join(ROOT, doc)), ...sources];
+}
+
+describe("product copy", () => {
+  it("makes no claim of predictive accuracy", () => {
+    const findings: string[] = [];
+    for (const file of productCopyFiles()) {
+      readFileSync(file, "utf8")
+        .split("\n")
+        .forEach((line, i) => {
+          for (const claim of claimsIn(line)) findings.push(`${path.relative(ROOT, file)}:${i + 1} ${claim}`);
+        });
+    }
+    expect(findings).toEqual([]);
+  });
+
+  it("recognizes the claims it is meant to block", () => {
+    expect(claimsIn("Blindspot predicts which files will break.")).toHaveLength(1);
+    expect(claimsIn("A proven, accurate way to find bug-prone files")).toHaveLength(2);
+    expect(claimsIn("These files are likely to contain bugs.")).toHaveLength(1);
+    expect(claimsIn("It is not a prediction of defects.")).toEqual([]);
+    expect(claimsIn("See [ADR 0008](decisions/0008-descriptive-not-predictive.md).")).toEqual([]);
+    expect(claimsIn("[It predicts bugs](x.md)")).toHaveLength(1);
+  });
+});

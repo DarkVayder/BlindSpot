@@ -33,7 +33,7 @@ export async function resolveRepositoryRoot(directory: string): Promise<string> 
 }
 
 export const RUN_NOTES = [
-  "Scores estimate comprehension risk relative to other files in this repository. They are not comparable across repositories and are not a measure of any developer.",
+  "The attention index sorts files by complexity, change pressure, knowledge concentration and impact relative to other files in this repository. In Blindspot's validation study it ranked files that later received bug fixes below file size alone, so it is not a prediction of defects. It is not comparable across repositories and is not a measure of any developer.",
   "Review evidence is not available in local mode, so it is reported as missing rather than counted against any file.",
 ] as const;
 

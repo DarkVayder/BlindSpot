@@ -1,13 +1,15 @@
-# Comprehension Risk Model — v0.1.0 (draft)
+# Attention Index Model — v0.1.0
 
-Status: Stage 0 draft. It is implemented in Stage 1 and calibrated in Stage 2.
+Status: implemented in Stage 1 and validated in Stage 2, which found no signal beyond file
+size and churn ([research report](research-report.md), [ADR 0008](decisions/0008-descriptive-not-predictive.md)).
 Model id: `bs-risk@0.1.0`
 
-> **What the score means.** It is an _estimate_ of how hard a file is likely to be to
-> understand and to change safely, relative to other files in the same repository. It is
-> **not** a measure of code quality, a claim that anyone misunderstands the code, a
-> judgement about any developer, or a validated predictor of defects. Predictive
-> validity is studied in Stage 2, and nothing may be claimed before then.
+> **What the score means.** The score is the _attention index_: a descriptive summary of
+> complexity, change pressure, knowledge concentration and impact, relative to other files
+> in the same repository, for choosing where to look. It is **not** a measure of code
+> quality, a claim that anyone misunderstands the code, a judgement about any developer, or
+> a prediction of defects. Stage 2 found that it ranked files that later received bug fixes
+> below file size alone.
 
 ## 1. Design rules
 

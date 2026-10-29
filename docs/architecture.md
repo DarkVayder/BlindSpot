@@ -2,8 +2,10 @@
 
 Status: Stage 0 draft · Last updated: 2026-10-24
 
-Blindspot estimates **file-level comprehension risk**: how hard a file is likely to be to
-understand, safely modify and maintain. It never measures individual developers.
+Blindspot describes each file by the signals that make code hard to understand and change,
+and sorts files by a descriptive **attention index**. The index is not a prediction of
+defects ([ADR 0008](decisions/0008-descriptive-not-predictive.md)). It never measures
+individual developers.
 
 ## 1. Starting point (Stage 0 audit)
 

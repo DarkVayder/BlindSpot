@@ -75,10 +75,15 @@ Work order:
 Gate:
 
 - [ ] Re-running the pipeline on the pinned dataset reproduces identical aggregates.
-- [ ] At least 6 repositories covering at least 3 languages, small/medium/large sizes, and both active and dormant projects.
+- [x] At least 6 repositories covering at least 3 languages, small/medium/large sizes, and both active and dormant projects.
+      10 repositories in TypeScript, JavaScript, Python and Go: 7 small, 2 medium and 1 large, with both active and dormant projects.
 - [ ] Missing-data handling verified (shallow history, unsupported languages).
-- [ ] Product copy contains no claim of predictive accuracy unless the report supports it. A grep-based CI check flags forbidden phrases.
-- [ ] Decision recorded: keep, recalibrate or rethink the model, with a model version bump if anything changed.
+- [x] Product copy contains no claim of predictive accuracy unless the report supports it. A grep-based CI check flags forbidden phrases.
+      The report does not support any such claim. `packages/core/src/hygiene.test.ts` fails the build on predictive wording in the README, user docs and the core, engine, report and CLI sources.
+- [x] Decision recorded: keep, recalibrate or rethink the model, with a model version bump if anything changed.
+      Rethink ([ADR 0008](decisions/0008-descriptive-not-predictive.md)). The score is kept unchanged as a descriptive attention index, so no output value changed and the model version stays `bs-risk@0.1.0`. Results are in [research-report.md](research-report.md).
+
+> **Stages 3–8 are paused** ([ADR 0008](decisions/0008-descriptive-not-predictive.md)). Stage 2 found no signal beyond file size and churn, and ADR 0006 made the hosted work depend on one. They resume only after a product direction is chosen.
 
 ## Stage 3 — Backend and data model
 

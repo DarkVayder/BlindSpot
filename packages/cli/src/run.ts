@@ -47,7 +47,7 @@ export async function run(argv: readonly string[], io: CliIO): Promise<ExitCode>
   const program = new Command()
     .name("blindspot")
     .description(
-      "Estimate which files in a git repository are hardest to understand and change safely. Runs locally; source code never leaves your machine.",
+      "Map the complexity, change pressure and knowledge concentration of every file in a git repository. Runs locally; source code never leaves your machine.",
     )
     .version(version, "-V, --version")
     .configureOutput({ writeOut: (s) => io.stdout.write(s), writeErr: (s) => io.stderr.write(s) })
@@ -57,7 +57,7 @@ export async function run(argv: readonly string[], io: CliIO): Promise<ExitCode>
 
   program
     .command("analyze", { isDefault: true })
-    .description("analyze a repository and print a risk summary")
+    .description("analyze a repository and print a summary")
     .argument("[path]", "repository or any directory inside it", ".")
     .option(
       "-c, --config <file>",
