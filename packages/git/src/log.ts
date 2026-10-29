@@ -24,16 +24,30 @@ export interface CommitRecord {
   authorEmail: string;
   authorName: string;
   trailers: Trailer[];
+  message?: string;
   changes: FileChange[];
 }
 
 export interface Sentinel {
   start: string;
   end: string;
+  message?: string;
   format: string;
 }
 
-export function createSentinel(id = randomBytes(12).toString("hex")): Sentinel {
+const GROUP_SEPARATOR = String.fromCharCode(0x1d);
+
+// Commit messages are read only when asked for (the research pipeline labels outcomes from
+// them) and never reach a report.
+export function createSentinel(id = randomBytes(12).toString("hex"), withMessage = false): Sentinel {
+  if (withMessage) {
+    const base = createSentinel(id);
+    return {
+      ...base,
+      message: `${GROUP_SEPARATOR}${id}${GROUP_SEPARATOR}`,
+      format: base.format.replace(`%x1f${id}%x1e`, `%x1d${id}%x1d%B%x1f${id}%x1e`),
+    };
+  }
   return {
     start: `\u001e${id}\u001f`,
     end: `\u001f${id}\u001e`,
@@ -128,13 +142,21 @@ export class LogParser {
 
   private parseHeader(token: string): Omit<CommitRecord, "changes"> {
     if (!token.endsWith(this.sentinel.end)) throw parseError("unterminated commit header");
-    const body = token.slice(this.sentinel.start.length, token.length - this.sentinel.end.length);
+    let body = token.slice(this.sentinel.start.length, token.length - this.sentinel.end.length);
+    let message: string | undefined;
+    if (this.sentinel.message) {
+      const at = body.indexOf(this.sentinel.message);
+      if (at < 0) throw parseError("commit header without a message");
+      message = body.slice(at + this.sentinel.message.length).trimEnd();
+      body = body.slice(0, at);
+    }
     const lines = body.split("\n");
     const [hash = "", committed = "", authorEmail = "", authorName = "", ...rest] = lines;
     if (!HASH.test(hash)) throw parseError("invalid commit hash");
     const committedAt = Number(committed);
     if (!Number.isInteger(committedAt)) throw parseError("invalid commit time");
-    return { hash, committedAt, authorEmail, authorName, trailers: parseTrailers(rest) };
+    const header = { hash, committedAt, authorEmail, authorName, trailers: parseTrailers(rest) };
+    return message === undefined ? header : { ...header, message };
   }
 
   private flush(): void {
@@ -184,6 +206,10 @@ function parseError(detail: string): GitError {
 export interface ReadLogOptions {
   maxCommits: number;
   timeoutMs: number;
+  exclude?: string;
+  withMessage?: boolean;
+  noMerges?: boolean;
+  mailmapRevision?: string;
 }
 
 export interface ReadLogResult {
@@ -198,7 +224,11 @@ export async function readLog(
 ): Promise<ReadLogResult> {
   if (!repo.head) return { commitsRead: 0, truncated: false };
 
-  const sentinel = createSentinel();
+  for (const hash of [options.exclude, options.mailmapRevision]) {
+    if (hash !== undefined && !HASH.test(hash))
+      throw new GitError("bad_revision", "Expected a full commit hash.");
+  }
+  const sentinel = createSentinel(undefined, options.withMessage === true);
   let commitsRead = 0;
   let truncated = false;
   const parser = new LogParser(sentinel, (commit) => {
@@ -222,6 +252,7 @@ export async function readLog(
       "-M",
       "--topo-order",
       "--diff-merges=off",
+      ...(options.noMerges ? ["--no-merges"] : []),
       "--no-ext-diff",
       "--no-textconv",
       "--use-mailmap",
@@ -229,9 +260,14 @@ export async function readLog(
       `--max-count=${options.maxCommits + 1}`,
       `--format=${sentinel.format}`,
       repo.head,
+      ...(options.exclude === undefined ? [] : [`^${options.exclude}`]),
       "--",
     ],
-    { cwd: repo.root, timeoutMs: options.timeoutMs },
+    {
+      cwd: repo.root,
+      timeoutMs: options.timeoutMs,
+      ...(options.mailmapRevision === undefined ? {} : { mailmapRevision: options.mailmapRevision }),
+    },
     (chunk) => {
       splitter.push(chunk);
     },

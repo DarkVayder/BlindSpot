@@ -1,10 +1,11 @@
-import { writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { Command, CommanderError, InvalidArgumentError } from "commander";
 import { GitError } from "@blindspot/git";
 import { DatasetError, loadDataset, serializeDataset, type DatasetRepository } from "./dataset.js";
 import { fetchRepository, repositoryDir } from "./fetch.js";
 import { pinRepository } from "./pin.js";
+import { serializeSnapshot, takeSnapshot } from "./snapshot.js";
 
 export interface ResearchIO {
   stdout: { write(chunk: string): unknown };
@@ -17,6 +18,14 @@ type ExitCode = (typeof EXIT)[keyof typeof EXIT];
 
 const DEFAULT_DATASET = "research/datasets/v1.json";
 const DEFAULT_CACHE = "research/cache";
+const DEFAULT_OUTPUT = "research/output";
+
+function toolVersion(): string {
+  const pkg = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf8")) as {
+    version?: unknown;
+  };
+  return typeof pkg.version === "string" ? pkg.version : "0.0.0";
+}
 
 interface CommonFlags {
   dataset: string;
@@ -105,6 +114,41 @@ export async function run(argv: readonly string[], io: ResearchIO): Promise<Exit
     }
     writeFileSync(file, serializeDataset({ ...dataset, repositories }));
     log(`Updated ${flags.dataset}.`);
+  });
+
+  common(
+    program
+      .command("snapshot")
+      .description("score each pinned snapshot and label its outcome window")
+      .option(
+        "--out <dir>",
+        "directory for per-file snapshot outputs (contains paths; not committed)",
+        DEFAULT_OUTPUT,
+      ),
+  ).action(async (flags: CommonFlags & { out: string }) => {
+    const { dataset, sha256 } = loadDataset(resolve(flags.dataset));
+    const outDir = path.join(resolve(flags.out), dataset.id, "snapshots");
+    mkdirSync(outDir, { recursive: true });
+    const version = toolVersion();
+    for (const repo of selected(dataset.repositories, flags.only)) {
+      for (const id of ["T1", "T2"] as const) {
+        const started = Date.now();
+        const snapshot = await takeSnapshot(repositoryDir(resolve(flags.cache), repo), repo, id, {
+          dataset,
+          datasetSha256: sha256,
+          toolVersion: version,
+          timeoutMs: flags.timeoutMinutes * 60_000,
+        });
+        writeFileSync(path.join(outDir, `${repo.id}.${id}.json`), serializeSnapshot(snapshot));
+        const ranked = snapshot.files.filter((f) => f.ranked);
+        const positives = ranked.filter((f) => f.bugfixCount > 0).length;
+        log(
+          `${repo.id} ${id}: ${snapshot.files.length} files (${ranked.length} ranked, ${positives} with a bug fix) · ` +
+            `${snapshot.window.commits} window commits, ${snapshot.window.bugfixCommits} bug fixes, ` +
+            `${snapshot.window.revertCommits} reverts · ${((Date.now() - started) / 1000).toFixed(1)}s`,
+        );
+      }
+    }
   });
 
   try {

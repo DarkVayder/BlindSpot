@@ -35,6 +35,7 @@ export interface RunOptions {
   maxOutputBytes?: number;
   input?: string;
   allowHttps?: boolean;
+  mailmapRevision?: string;
 }
 
 const STDERR_LIMIT = 64 * 1024;
@@ -133,7 +134,13 @@ export function streamGit(
   const executable = resolveGitExecutable();
   return new Promise((resolve, reject) => {
     const network = options.allowHttps ? ["-c", "protocol.https.allow=always"] : [];
-    const child = spawn(executable, [...HARDENING_ARGS, ...network, ...args], {
+    // Identities are merged with the .mailmap committed at a pinned revision instead of
+    // whatever file is in the working tree or the user's configuration.
+    const mailmap =
+      options.mailmapRevision === undefined
+        ? []
+        : ["-c", "mailmap.file=", "-c", `mailmap.blob=${options.mailmapRevision}:.mailmap`];
+    const child = spawn(executable, [...HARDENING_ARGS, ...network, ...mailmap, ...args], {
       cwd: options.cwd,
       env: gitEnv(),
       shell: false,

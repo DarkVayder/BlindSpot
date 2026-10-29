@@ -123,17 +123,7 @@ describe("windows and authorship", () => {
     r.write("f.ts", r.git("show", "HEAD:f.ts") + "feature\n").commit("feature edit", "2026-02-01T00:00:00Z");
     r.git("switch", "-q", "main");
     r.lines("g.ts", 1).commit("main edit", "2026-02-02T00:00:00Z");
-    execFileSync("git", ["merge", "-q", "--no-ff", "--no-edit", "feature"], {
-      cwd: r.root,
-      env: testEnv({
-        GIT_AUTHOR_NAME: "A",
-        GIT_AUTHOR_EMAIL: "a@x.io",
-        GIT_COMMITTER_NAME: "A",
-        GIT_COMMITTER_EMAIL: "a@x.io",
-        GIT_AUTHOR_DATE: "2026-02-03T00:00:00Z",
-        GIT_COMMITTER_DATE: "2026-02-03T00:00:00Z",
-      }),
-    });
+    r.merge("feature", "merge feature", "2026-02-03T00:00:00Z");
     expect(await historyOf(r.root, "f.ts")).toMatchObject({ totalCommits: 2, historicalChurn: 4 });
   });
 });

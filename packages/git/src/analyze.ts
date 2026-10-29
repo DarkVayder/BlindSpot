@@ -13,6 +13,7 @@ export async function collectHistory(
   repo: Repository,
   trackedPaths: readonly string[],
   config: BlindspotConfig,
+  mailmapRevision?: string,
 ): Promise<HistoryResult> {
   if (repo.shallow || !repo.head || repo.headCommittedAt === null) {
     const reason = repo.shallow ? "shallow_history" : "git_unavailable";
@@ -30,7 +31,11 @@ export async function collectHistory(
   });
   const { commitsRead, truncated } = await readLog(
     repo,
-    { maxCommits: config.limits.maxCommits, timeoutMs: config.limits.gitTimeoutMs },
+    {
+      maxCommits: config.limits.maxCommits,
+      timeoutMs: config.limits.gitTimeoutMs,
+      ...(mailmapRevision === undefined ? {} : { mailmapRevision }),
+    },
     (commit) => {
       collector.add(commit);
     },

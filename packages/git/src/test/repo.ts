@@ -74,6 +74,21 @@ export class TestRepo {
     return this.git("rev-parse", "HEAD").trim();
   }
 
+  merge(branch: string, message: string, date: string, author: Author = ALICE): string {
+    execFileSync("git", ["merge", "-q", "--no-ff", "-m", message, branch], {
+      cwd: this.root,
+      env: testEnv({
+        GIT_AUTHOR_NAME: author.name,
+        GIT_AUTHOR_EMAIL: author.email,
+        GIT_COMMITTER_NAME: author.name,
+        GIT_COMMITTER_EMAIL: author.email,
+        GIT_AUTHOR_DATE: date,
+        GIT_COMMITTER_DATE: date,
+      }),
+    });
+    return this.git("rev-parse", "HEAD").trim();
+  }
+
   path(...parts: string[]): string {
     return path.join(this.root, ...parts);
   }

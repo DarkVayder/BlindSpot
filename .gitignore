@@ -36,3 +36,4 @@ Thumbs.db
 
 # Research clones (fetched by blindspot-research fetch)
 research/cache/
+research/output/

@@ -22,6 +22,7 @@ export interface AnalyzeOptions {
   config: BlindspotConfig;
   toolVersion: string;
   revision?: string;
+  mailmapRevision?: string;
   graphBudget?: number;
   extraWarnings?: readonly string[];
 }
@@ -40,6 +41,21 @@ export const NO_PROVENANCE_NOTE =
   "No explicit AI provenance markers were found. This does not mean the code was written without AI assistance.";
 
 export async function analyzeRepository(directory: string, options: AnalyzeOptions): Promise<AnalysisResult> {
+  return (await analyzeWithEvidence(directory, options)).result;
+}
+
+export interface AnalysisWithEvidence {
+  result: AnalysisResult;
+  evidence: FileEvidence[];
+}
+
+// The research pipeline needs the evidence behind each score (line counts, prior churn,
+// file age) to compute its baselines. The evidence holds counts only, never contents or
+// author identities.
+export async function analyzeWithEvidence(
+  directory: string,
+  options: AnalyzeOptions,
+): Promise<AnalysisWithEvidence> {
   const { config, toolVersion } = options;
   const timeoutMs = config.limits.gitTimeoutMs;
   await checkGitVersion(VERSION_CHECK_TIMEOUT_MS);
@@ -57,7 +73,7 @@ export async function analyzeRepository(directory: string, options: AnalyzeOptio
   }
   if (!repo.head || repo.headCommittedAt === null) {
     warnings.push("The repository has no commits yet, so there is nothing to analyze.");
-    return finish({
+    const result = finish({
       toolVersion,
       config,
       asOf: null,
@@ -72,6 +88,7 @@ export async function analyzeRepository(directory: string, options: AnalyzeOptio
       notes: [...RUN_NOTES],
       files: [],
     });
+    return { result, evidence: [] };
   }
 
   const entries = await listTrackedFiles(repo, timeoutMs);
@@ -79,7 +96,7 @@ export async function analyzeRepository(directory: string, options: AnalyzeOptio
   warnings.push(...analysis.warnings);
 
   const paths = analysis.files.map((f) => f.path);
-  const history = await collectHistory(repo, paths, config);
+  const history = await collectHistory(repo, paths, config, options.mailmapRevision);
   if (history.truncated) {
     warnings.push(
       `Only the ${history.commitsRead} most recent commits were read (limits.maxCommits). Older history, and files touched only by it, are reported as incomplete.`,
@@ -105,7 +122,7 @@ export async function analyzeRepository(directory: string, options: AnalyzeOptio
   const excludedByReason: Record<string, number> = {};
   for (const e of analysis.excluded) excludedByReason[e.reason] = (excludedByReason[e.reason] ?? 0) + 1;
 
-  return finish({
+  const result = finish({
     toolVersion,
     config,
     asOf,
@@ -120,6 +137,7 @@ export async function analyzeRepository(directory: string, options: AnalyzeOptio
     notes: anyProvenance ? [...RUN_NOTES] : [...RUN_NOTES, NO_PROVENANCE_NOTE],
     files,
   });
+  return { result, evidence };
 }
 
 function mergeEvidence(file: AnalyzedFile, history: FileHistoryEvidence | undefined): FileEvidence {

@@ -2,6 +2,8 @@ export {
   NO_PROVENANCE_NOTE,
   RUN_NOTES,
   analyzeRepository,
+  analyzeWithEvidence,
+  type AnalysisWithEvidence,
   resolveRepositoryRoot,
   type AnalyzeOptions,
 } from "./analyze.js";

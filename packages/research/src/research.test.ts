@@ -7,9 +7,10 @@ import { Dataset, loadDataset, serializeDataset, type DatasetRepository } from "
 import { fetchRepository, type FetchOptions } from "./fetch.js";
 import { pinSnapshot } from "./pin.js";
 import { run } from "./run.js";
+import { cachedClone, DEMO_URL } from "./test/clone.js";
 
 const T = 20_000;
-const URL = "https://github.com/example/demo.git";
+const URL = DEMO_URL;
 const repos: TestRepo[] = [];
 afterAll(() => {
   for (const r of repos) r.cleanup();
@@ -56,15 +57,6 @@ function sourceRepo(): { repo: TestRepo; commits: string[] } {
     repo.write(`src/f${i}.ts`, `export const v = ${i};`).commit(`c${i}`, date),
   );
   return { repo, commits };
-}
-
-function cachedClone(source: TestRepo, cacheRoot: string, id = "demo", url = URL): string {
-  const dir = path.join(cacheRoot, id);
-  execFileSync("git", ["clone", "-q", "--no-checkout", `file://${source.root.replaceAll("\\", "/")}`, dir], {
-    env: testEnv(),
-  });
-  execFileSync("git", ["remote", "set-url", "origin", url], { cwd: dir, env: testEnv() });
-  return dir;
 }
 
 function fetchOptions(cacheRoot: string, log: string[]): FetchOptions {
