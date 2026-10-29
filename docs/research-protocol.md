@@ -151,4 +151,9 @@ The decision is recorded as an ADR.
 
 ## 9. Amendments
 
-None yet.
+- **2026-10-29, selection (before any outcome was computed).** Measured by analyzed files
+  at `T1`, the first eight candidates were all small except vite (935, medium), and none was
+  large. django (large) and vuejs/core (medium) were added to meet §2. No repository was
+  removed. express's default branch had no commits between March 2022 and January 2024, so
+  its `T1` snapshot is dated 2022-02-17 and is dormant with an empty outcome window. It is
+  kept and reported as such.

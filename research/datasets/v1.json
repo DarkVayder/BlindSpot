@@ -1,0 +1,250 @@
+{
+  "id": "v1",
+  "windowDays": 180,
+  "snapshotDates": {
+    "T1": "2024-01-01T00:00:00Z",
+    "T2": "2024-07-01T00:00:00Z"
+  },
+  "repositories": [
+    {
+      "id": "ky",
+      "url": "https://github.com/sindresorhus/ky.git",
+      "language": "typescript",
+      "license": "MIT",
+      "snapshots": {
+        "T1": {
+          "commit": "3cf50649ac2a9d5230ebcff94fa58b63a77781dc",
+          "committedAt": "2023-11-16T11:14:15.000Z",
+          "end": "44f97b61efa58dfc698f9fcc582fee792cb77cdc",
+          "endCommittedAt": "2024-04-23T09:25:33.000Z",
+          "commitsInWindow": 17,
+          "trackedFiles": 48
+        },
+        "T2": {
+          "commit": "4886b666ec65aec8e51e59a89d3daf130a24c878",
+          "committedAt": "2024-06-30T15:06:56.000Z",
+          "end": "4a427011ad7b4ab98bb5f02ecaa5375fba5addca",
+          "endCommittedAt": "2024-12-18T13:40:07.000Z",
+          "commitsInWindow": 23,
+          "trackedFiles": 49
+        }
+      }
+    },
+    {
+      "id": "express",
+      "url": "https://github.com/expressjs/express.git",
+      "language": "javascript",
+      "license": "MIT",
+      "snapshots": {
+        "T1": {
+          "commit": "318fd4b543ffbebf97bf0b6c49188afae45741f5",
+          "committedAt": "2022-02-17T05:27:11.000Z",
+          "end": "318fd4b543ffbebf97bf0b6c49188afae45741f5",
+          "endCommittedAt": "2022-02-17T05:27:11.000Z",
+          "commitsInWindow": 0,
+          "trackedFiles": 222
+        },
+        "T2": {
+          "commit": "ee40a881f5d8cb4ce71bc45262fde8e4b7640d05",
+          "committedAt": "2024-05-17T20:47:56.000Z",
+          "end": "9e3dbb43744620b8b490c61c9269a168e0c0e3ae",
+          "endCommittedAt": "2024-11-12T15:30:34.000Z",
+          "commitsInWindow": 62,
+          "trackedFiles": 221
+        }
+      }
+    },
+    {
+      "id": "zod",
+      "url": "https://github.com/colinhacks/zod.git",
+      "language": "typescript",
+      "license": "MIT",
+      "snapshots": {
+        "T1": {
+          "commit": "3e4f71e857e75da722bd7e735b6d657a70682df2",
+          "committedAt": "2023-12-21T08:23:57.000Z",
+          "end": "457a09524ea9c336f5fb4faaf9cab644a2daa966",
+          "endCommittedAt": "2024-06-18T01:11:51.000Z",
+          "commitsInWindow": 139,
+          "trackedFiles": 216
+        },
+        "T2": {
+          "commit": "c6bc80de5091c634a371cc81877df816a269e965",
+          "committedAt": "2024-06-29T00:50:29.000Z",
+          "end": "f7ad26147ba291cb3fb257545972a8e00e767470",
+          "endCommittedAt": "2024-12-11T01:53:29.000Z",
+          "commitsInWindow": 47,
+          "trackedFiles": 229
+        }
+      }
+    },
+    {
+      "id": "vite",
+      "url": "https://github.com/vitejs/vite.git",
+      "language": "typescript",
+      "license": "MIT",
+      "snapshots": {
+        "T1": {
+          "commit": "8de7bd2b68db27b83d9484cc8d4e26436615168e",
+          "committedAt": "2023-12-30T13:14:50.000Z",
+          "end": "24c799b121c4d72cc08a52a46f82a831b64b1e6f",
+          "endCommittedAt": "2024-06-27T10:05:20.000Z",
+          "commitsInWindow": 459,
+          "trackedFiles": 1778
+        },
+        "T2": {
+          "commit": "14e14726d11ac55c37cc2d15aaf935be18ef925b",
+          "committedAt": "2024-06-29T16:30:55.000Z",
+          "end": "f7b1964d3a93a21f80b61638fa6ae9606d0a6f4f",
+          "endCommittedAt": "2024-12-26T02:24:20.000Z",
+          "commitsInWindow": 581,
+          "trackedFiles": 2036
+        }
+      }
+    },
+    {
+      "id": "flask",
+      "url": "https://github.com/pallets/flask.git",
+      "language": "python",
+      "license": "BSD-3-Clause",
+      "snapshots": {
+        "T1": {
+          "commit": "708d62d7172a30c5b0ace1d212c5a3bc2b53b98c",
+          "committedAt": "2023-12-14T00:28:13.000Z",
+          "end": "d718ecf6d3dfc4656d262154c59672437c1ea075",
+          "endCommittedAt": "2024-06-07T19:04:18.000Z",
+          "commitsInWindow": 45,
+          "trackedFiles": 250
+        },
+        "T2": {
+          "commit": "d718ecf6d3dfc4656d262154c59672437c1ea075",
+          "committedAt": "2024-06-07T19:04:18.000Z",
+          "end": "6b054f8f3876ff4c31580b014d344c4cf491059d",
+          "endCommittedAt": "2024-11-24T01:54:29.000Z",
+          "commitsInWindow": 54,
+          "trackedFiles": 249
+        }
+      }
+    },
+    {
+      "id": "requests",
+      "url": "https://github.com/psf/requests.git",
+      "language": "python",
+      "license": "Apache-2.0",
+      "snapshots": {
+        "T1": {
+          "commit": "72eccc8dd8b7c272e520f22b0256386c80864e94",
+          "committedAt": "2023-12-23T18:33:48.000Z",
+          "end": "0e322af87745eff34caffe4df68456ebc20d9068",
+          "endCommittedAt": "2024-05-29T15:36:10.000Z",
+          "commitsInWindow": 37,
+          "trackedFiles": 103
+        },
+        "T2": {
+          "commit": "0e322af87745eff34caffe4df68456ebc20d9068",
+          "committedAt": "2024-05-29T15:36:10.000Z",
+          "end": "23540c93cac97c763fe59e843a08fa2825aa80fd",
+          "endCommittedAt": "2024-11-10T16:18:36.000Z",
+          "commitsInWindow": 16,
+          "trackedFiles": 129
+        }
+      }
+    },
+    {
+      "id": "cobra",
+      "url": "https://github.com/spf13/cobra.git",
+      "language": "go",
+      "license": "Apache-2.0",
+      "snapshots": {
+        "T1": {
+          "commit": "0dec88e7931d4c5d5583e69b12e245741d9f1353",
+          "committedAt": "2023-12-30T13:40:15.000Z",
+          "end": "e94f6d0dd9a5e5738dca6bce03c4b1207ffbc0ec",
+          "endCommittedAt": "2024-06-01T10:31:11.000Z",
+          "commitsInWindow": 14,
+          "trackedFiles": 66
+        },
+        "T2": {
+          "commit": "e94f6d0dd9a5e5738dca6bce03c4b1207ffbc0ec",
+          "committedAt": "2024-06-01T10:31:11.000Z",
+          "end": "02326d52c0704d79169819698693b0698e748f55",
+          "endCommittedAt": "2024-11-05T11:19:24.000Z",
+          "commitsInWindow": 10,
+          "trackedFiles": 66
+        }
+      }
+    },
+    {
+      "id": "gin",
+      "url": "https://github.com/gin-gonic/gin.git",
+      "language": "go",
+      "license": "MIT",
+      "snapshots": {
+        "T1": {
+          "commit": "53fbf4dbfbf465b552057e6f8d199a275151b7a1",
+          "committedAt": "2023-12-13T02:28:51.000Z",
+          "end": "64ead9e6bd924d431f4dd612349bc5e13300e6fc",
+          "endCommittedAt": "2024-06-06T09:10:03.000Z",
+          "commitsInWindow": 71,
+          "trackedFiles": 119
+        },
+        "T2": {
+          "commit": "626d55b0c02937645c21774cacc021713de88604",
+          "committedAt": "2024-06-22T14:19:04.000Z",
+          "end": "e46bd521859fdfc83c508f1d42c92cb7f91e9fcb",
+          "endCommittedAt": "2024-11-15T15:54:06.000Z",
+          "commitsInWindow": 18,
+          "trackedFiles": 119
+        }
+      }
+    },
+    {
+      "id": "vue-core",
+      "url": "https://github.com/vuejs/core.git",
+      "language": "typescript",
+      "license": "MIT",
+      "snapshots": {
+        "T1": {
+          "commit": "24d77c25ce5d5356adb5367beef1d23e6e340b35",
+          "committedAt": "2023-12-31T09:29:58.000Z",
+          "end": "912494318f692af1a69fb5f2534b8fd4f852240d",
+          "endCommittedAt": "2024-06-26T00:45:25.000Z",
+          "commitsInWindow": 469,
+          "trackedFiles": 657
+        },
+        "T2": {
+          "commit": "912494318f692af1a69fb5f2534b8fd4f852240d",
+          "committedAt": "2024-06-26T00:45:25.000Z",
+          "end": "bc688434afa1fd1800420430cf65238ecaa371f2",
+          "endCommittedAt": "2024-12-19T06:58:05.000Z",
+          "commitsInWindow": 523,
+          "trackedFiles": 666
+        }
+      }
+    },
+    {
+      "id": "django",
+      "url": "https://github.com/django/django.git",
+      "language": "python",
+      "license": "BSD-3-Clause",
+      "snapshots": {
+        "T1": {
+          "commit": "d88ec42bd0a37340c8477a6f20bf26e58bd84735",
+          "committedAt": "2023-12-31T09:01:31.000Z",
+          "end": "0fdcf1029cea2d43bd68c5270f48e0f7deab5e47",
+          "endCommittedAt": "2024-06-28T02:37:12.000Z",
+          "commitsInWindow": 425,
+          "trackedFiles": 6774
+        },
+        "T2": {
+          "commit": "a5215f9a3e9b8422678289c259e826f97e4dc63a",
+          "committedAt": "2024-06-28T13:21:21.000Z",
+          "end": "fcd9d08379a2aee3b2c49eab0d0b8db6fd66d091",
+          "endCommittedAt": "2024-12-20T13:18:10.000Z",
+          "commitsInWindow": 454,
+          "trackedFiles": 6808
+        }
+      }
+    }
+  ]
+}

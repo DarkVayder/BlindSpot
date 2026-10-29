@@ -33,3 +33,6 @@ Thumbs.db
 .idea/
 .vscode/*
 !.vscode/extensions.json
+
+# Research clones (fetched by blindspot-research fetch)
+research/cache/

@@ -34,6 +34,7 @@ export interface RunOptions {
   timeoutMs: number;
   maxOutputBytes?: number;
   input?: string;
+  allowHttps?: boolean;
 }
 
 const STDERR_LIMIT = 64 * 1024;
@@ -131,7 +132,8 @@ export function streamGit(
 ): Promise<void> {
   const executable = resolveGitExecutable();
   return new Promise((resolve, reject) => {
-    const child = spawn(executable, [...HARDENING_ARGS, ...args], {
+    const network = options.allowHttps ? ["-c", "protocol.https.allow=always"] : [];
+    const child = spawn(executable, [...HARDENING_ARGS, ...network, ...args], {
       cwd: options.cwd,
       env: gitEnv(),
       shell: false,

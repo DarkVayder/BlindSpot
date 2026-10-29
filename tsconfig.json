@@ -6,6 +6,7 @@
     { "path": "packages/analyzers" },
     { "path": "packages/engine" },
     { "path": "packages/report" },
-    { "path": "packages/cli" }
+    { "path": "packages/cli" },
+    { "path": "packages/research" }
   ]
 }

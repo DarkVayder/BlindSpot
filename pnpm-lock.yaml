@@ -93,6 +93,24 @@ importers:
         specifier: ^4.6.7
         version: 4.6.7
 
+  packages/research:
+    dependencies:
+      '@blindspot/core':
+        specifier: workspace:*
+        version: link:../core
+      '@blindspot/engine':
+        specifier: workspace:*
+        version: link:../engine
+      '@blindspot/git':
+        specifier: workspace:*
+        version: link:../git
+      commander:
+        specifier: ^15.0.0
+        version: 15.0.0
+      zod:
+        specifier: ^4.6.7
+        version: 4.6.7
+
 packages:
 
   '@cacheable/memory@2.2.0':

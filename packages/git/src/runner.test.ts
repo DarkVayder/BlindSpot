@@ -86,6 +86,27 @@ describe("runGit", () => {
     });
   });
 
+  it("allows no transport by default, and only HTTPS when asked", async () => {
+    const stderrOf = async (url: string, allowHttps: boolean) => {
+      try {
+        await runGit(["ls-remote", "--end-of-options", url], {
+          cwd: tempDir(),
+          timeoutMs: 10_000,
+          allowHttps,
+        });
+        return "";
+      } catch (error) {
+        return (error as { stderr: string }).stderr;
+      }
+    };
+    const https = "https://127.0.0.1:9/none.git";
+    const file = `file://${tempDir().replaceAll("\\", "/")}`;
+    expect(await stderrOf(https, false)).toMatch(/transport 'https' not allowed/);
+    expect(await stderrOf(https, true)).not.toMatch(/not allowed/);
+    expect(await stderrOf(file, true)).toMatch(/transport 'file' not allowed/);
+    expect(await stderrOf("ssh://127.0.0.1:9/none.git", true)).toMatch(/transport 'ssh' not allowed/);
+  });
+
   it("reports a non-repository directory with an actionable code", async () => {
     await expect(runGit(["rev-parse", "HEAD"], { cwd: tempDir(), timeoutMs: 10_000 })).rejects.toMatchObject({
       code: "not_a_repository",

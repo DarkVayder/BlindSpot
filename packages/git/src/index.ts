@@ -25,5 +25,7 @@ export {
   isSupportedVersion,
   parseGitVersion,
   resolveGitExecutable,
+  runGit,
+  type RunOptions,
   type GitErrorCode,
 } from "./runner.js";
