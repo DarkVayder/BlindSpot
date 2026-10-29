@@ -3,3 +3,7 @@ dist
 coverage
 .claude/skills
 **/__golden__/**
+
+# Generated research outputs are kept byte-for-byte as the pipeline writes them
+research/results/
+research/labels/

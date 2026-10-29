@@ -5,6 +5,7 @@ import { GitError } from "@blindspot/git";
 import { DatasetError, loadDataset, serializeDataset, type DatasetRepository } from "./dataset.js";
 import { fetchRepository, repositoryDir } from "./fetch.js";
 import { pinRepository } from "./pin.js";
+import { buildReport, loadSnapshots, repositoriesCsv } from "./report.js";
 import { labelQuality } from "./quality.js";
 import { buildSample, readJudgements, SampleKey } from "./sample.js";
 import { serializeSnapshot, takeSnapshot } from "./snapshot.js";
@@ -187,6 +188,31 @@ export async function run(argv: readonly string[], io: ResearchIO): Promise<Exit
     const positives = sample.key.rows.filter((r) => r.ruleSaysFix).length;
     log(`Wrote ${sample.key.rows.length} commits (${positives} rule positives) to ${sheetFile}.`);
   });
+
+  program
+    .command("analyze")
+    .description("run the registered analysis on the snapshot outputs (protocol §5)")
+    .option("--dataset <file>", "dataset file", DEFAULT_DATASET)
+    .option("--out <dir>", "directory for snapshot outputs", DEFAULT_OUTPUT)
+    .option("--results <dir>", "directory for aggregate results", DEFAULT_RESULTS)
+    .action((flags: { dataset: string; out: string; results: string }) => {
+      const { dataset, sha256 } = loadDataset(resolve(flags.dataset));
+      const snapshotsDir = path.join(resolve(flags.out), dataset.id, "snapshots");
+      const report = buildReport(dataset, sha256, {
+        T1: loadSnapshots(dataset, snapshotsDir, "T1"),
+        T2: loadSnapshots(dataset, snapshotsDir, "T2"),
+      });
+      const outDir = path.join(resolve(flags.results), dataset.id);
+      mkdirSync(outDir, { recursive: true });
+      writeFileSync(path.join(outDir, "analysis.json"), `${JSON.stringify(report, null, 2)}\n`);
+      writeFileSync(path.join(outDir, "repositories.csv"), repositoriesCsv(report));
+      const d = report.decisionInputs;
+      log(
+        `Success criterion on T1: ${d.successCriterionOnT1 ? "met" : "not met"}. ` +
+          `Direction on T2: ${d.directionHoldsOnT2 ? "holds" : "does not hold"}. ` +
+          `Without django: ${d.sensitivityAgreesOnT1 ? "agrees" : "disagrees"}.`,
+      );
+    });
 
   program
     .command("quality")

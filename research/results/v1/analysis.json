@@ -1,0 +1,1243 @@
+{
+  "protocol": "docs/research-protocol.md",
+  "dataset": {
+    "id": "v1",
+    "sha256": "e6211fd54c212ae8365f629c47ee84363067d61a279f1f7d1cb74bbcadab44ac"
+  },
+  "provenance": {
+    "toolVersion": "0.1.0",
+    "modelVersion": "bs-risk@0.1.0",
+    "gitVersion": "2.51.0",
+    "rules": {
+      "bugfix": "bugfix@1",
+      "revert": "revert@1"
+    },
+    "bootstrap": {
+      "seed": 20261028,
+      "replicates": 2000
+    },
+    "minClassSize": 10
+  },
+  "snapshots": {
+    "T1": {
+      "primary": {
+        "snapshot": "T1",
+        "outcome": "bugfix",
+        "repositories": [
+          {
+            "id": "cobra",
+            "language": "go",
+            "rankedFiles": 31,
+            "droppedWithoutChurn": 0,
+            "positives": 3,
+            "negatives": 28,
+            "eligible": false,
+            "auc": {
+              "score": 0.8929,
+              "lines": 0.9643,
+              "churn": 0.9405
+            },
+            "spearmanScoreCount": 0.4027
+          },
+          {
+            "id": "django",
+            "language": "python",
+            "rankedFiles": 1765,
+            "droppedWithoutChurn": 0,
+            "positives": 270,
+            "negatives": 1495,
+            "eligible": true,
+            "auc": {
+              "score": 0.5008,
+              "lines": 0.8237,
+              "churn": 0.7306
+            },
+            "spearmanScoreCount": 0.0031
+          },
+          {
+            "id": "express",
+            "language": "javascript",
+            "rankedFiles": 143,
+            "droppedWithoutChurn": 0,
+            "positives": 0,
+            "negatives": 143,
+            "eligible": false,
+            "auc": {
+              "score": null,
+              "lines": null,
+              "churn": null
+            },
+            "spearmanScoreCount": null
+          },
+          {
+            "id": "flask",
+            "language": "python",
+            "rankedFiles": 55,
+            "droppedWithoutChurn": 0,
+            "positives": 6,
+            "negatives": 49,
+            "eligible": false,
+            "auc": {
+              "score": 0.5357,
+              "lines": 0.8469,
+              "churn": 0.8129
+            },
+            "spearmanScoreCount": 0.0523
+          },
+          {
+            "id": "gin",
+            "language": "go",
+            "rankedFiles": 67,
+            "droppedWithoutChurn": 0,
+            "positives": 17,
+            "negatives": 50,
+            "eligible": true,
+            "auc": {
+              "score": 0.5482,
+              "lines": 0.8106,
+              "churn": 0.6435
+            },
+            "spearmanScoreCount": 0.0379
+          },
+          {
+            "id": "ky",
+            "language": "typescript",
+            "rankedFiles": 34,
+            "droppedWithoutChurn": 0,
+            "positives": 11,
+            "negatives": 23,
+            "eligible": true,
+            "auc": {
+              "score": 0.4901,
+              "lines": 0.7885,
+              "churn": 0.8775
+            },
+            "spearmanScoreCount": 0.0131
+          },
+          {
+            "id": "requests",
+            "language": "python",
+            "rankedFiles": 29,
+            "droppedWithoutChurn": 0,
+            "positives": 4,
+            "negatives": 25,
+            "eligible": false,
+            "auc": {
+              "score": 0.48,
+              "lines": 0.82,
+              "churn": 0.81
+            },
+            "spearmanScoreCount": -0.0234
+          },
+          {
+            "id": "vite",
+            "language": "typescript",
+            "rankedFiles": 921,
+            "droppedWithoutChurn": 0,
+            "positives": 111,
+            "negatives": 810,
+            "eligible": true,
+            "auc": {
+              "score": 0.7948,
+              "lines": 0.9156,
+              "churn": 0.8905
+            },
+            "spearmanScoreCount": 0.3385
+          },
+          {
+            "id": "vue-core",
+            "language": "typescript",
+            "rankedFiles": 498,
+            "droppedWithoutChurn": 0,
+            "positives": 153,
+            "negatives": 345,
+            "eligible": true,
+            "auc": {
+              "score": 0.7291,
+              "lines": 0.8337,
+              "churn": 0.7896
+            },
+            "spearmanScoreCount": 0.3808
+          },
+          {
+            "id": "zod",
+            "language": "typescript",
+            "rankedFiles": 162,
+            "droppedWithoutChurn": 0,
+            "positives": 22,
+            "negatives": 140,
+            "eligible": true,
+            "auc": {
+              "score": 0.6317,
+              "lines": 0.7526,
+              "churn": 0.864
+            },
+            "spearmanScoreCount": 0.1744
+          }
+        ],
+        "pooled": {
+          "repositories": [
+            "django",
+            "gin",
+            "ky",
+            "vite",
+            "vue-core",
+            "zod"
+          ],
+          "meanAuc": {
+            "score": {
+              "estimate": 0.6158,
+              "lower": 0.5115,
+              "upper": 0.7207
+            },
+            "lines": {
+              "estimate": 0.8208,
+              "lower": 0.761,
+              "upper": 0.8759
+            },
+            "churn": {
+              "estimate": 0.7993,
+              "lower": 0.7047,
+              "upper": 0.8729
+            }
+          },
+          "difference": {
+            "versusLines": {
+              "estimate": -0.205,
+              "lower": -0.3125,
+              "upper": -0.1122
+            },
+            "versusChurn": {
+              "estimate": -0.1835,
+              "lower": -0.3027,
+              "upper": -0.0705
+            }
+          },
+          "successCriterion": false
+        },
+        "regression": {
+          "repositories": [
+            "django",
+            "gin",
+            "ky",
+            "vite",
+            "vue-core",
+            "zod"
+          ],
+          "files": 3447,
+          "oddsRatioPerSd": {
+            "estimate": 1.2744,
+            "lower": 0.964,
+            "upper": 2.1628
+          },
+          "failedReplicates": 0
+        }
+      },
+      "withoutDjango": {
+        "snapshot": "T1",
+        "outcome": "bugfix",
+        "repositories": [
+          {
+            "id": "cobra",
+            "language": "go",
+            "rankedFiles": 31,
+            "droppedWithoutChurn": 0,
+            "positives": 3,
+            "negatives": 28,
+            "eligible": false,
+            "auc": {
+              "score": 0.8929,
+              "lines": 0.9643,
+              "churn": 0.9405
+            },
+            "spearmanScoreCount": 0.4027
+          },
+          {
+            "id": "express",
+            "language": "javascript",
+            "rankedFiles": 143,
+            "droppedWithoutChurn": 0,
+            "positives": 0,
+            "negatives": 143,
+            "eligible": false,
+            "auc": {
+              "score": null,
+              "lines": null,
+              "churn": null
+            },
+            "spearmanScoreCount": null
+          },
+          {
+            "id": "flask",
+            "language": "python",
+            "rankedFiles": 55,
+            "droppedWithoutChurn": 0,
+            "positives": 6,
+            "negatives": 49,
+            "eligible": false,
+            "auc": {
+              "score": 0.5357,
+              "lines": 0.8469,
+              "churn": 0.8129
+            },
+            "spearmanScoreCount": 0.0523
+          },
+          {
+            "id": "gin",
+            "language": "go",
+            "rankedFiles": 67,
+            "droppedWithoutChurn": 0,
+            "positives": 17,
+            "negatives": 50,
+            "eligible": true,
+            "auc": {
+              "score": 0.5482,
+              "lines": 0.8106,
+              "churn": 0.6435
+            },
+            "spearmanScoreCount": 0.0379
+          },
+          {
+            "id": "ky",
+            "language": "typescript",
+            "rankedFiles": 34,
+            "droppedWithoutChurn": 0,
+            "positives": 11,
+            "negatives": 23,
+            "eligible": true,
+            "auc": {
+              "score": 0.4901,
+              "lines": 0.7885,
+              "churn": 0.8775
+            },
+            "spearmanScoreCount": 0.0131
+          },
+          {
+            "id": "requests",
+            "language": "python",
+            "rankedFiles": 29,
+            "droppedWithoutChurn": 0,
+            "positives": 4,
+            "negatives": 25,
+            "eligible": false,
+            "auc": {
+              "score": 0.48,
+              "lines": 0.82,
+              "churn": 0.81
+            },
+            "spearmanScoreCount": -0.0234
+          },
+          {
+            "id": "vite",
+            "language": "typescript",
+            "rankedFiles": 921,
+            "droppedWithoutChurn": 0,
+            "positives": 111,
+            "negatives": 810,
+            "eligible": true,
+            "auc": {
+              "score": 0.7948,
+              "lines": 0.9156,
+              "churn": 0.8905
+            },
+            "spearmanScoreCount": 0.3385
+          },
+          {
+            "id": "vue-core",
+            "language": "typescript",
+            "rankedFiles": 498,
+            "droppedWithoutChurn": 0,
+            "positives": 153,
+            "negatives": 345,
+            "eligible": true,
+            "auc": {
+              "score": 0.7291,
+              "lines": 0.8337,
+              "churn": 0.7896
+            },
+            "spearmanScoreCount": 0.3808
+          },
+          {
+            "id": "zod",
+            "language": "typescript",
+            "rankedFiles": 162,
+            "droppedWithoutChurn": 0,
+            "positives": 22,
+            "negatives": 140,
+            "eligible": true,
+            "auc": {
+              "score": 0.6317,
+              "lines": 0.7526,
+              "churn": 0.864
+            },
+            "spearmanScoreCount": 0.1744
+          }
+        ],
+        "pooled": {
+          "repositories": [
+            "gin",
+            "ky",
+            "vite",
+            "vue-core",
+            "zod"
+          ],
+          "meanAuc": {
+            "score": {
+              "estimate": 0.6388,
+              "lower": 0.516,
+              "upper": 0.7442
+            },
+            "lines": {
+              "estimate": 0.8202,
+              "lower": 0.746,
+              "upper": 0.885
+            },
+            "churn": {
+              "estimate": 0.813,
+              "lower": 0.7127,
+              "upper": 0.8901
+            }
+          },
+          "difference": {
+            "versusLines": {
+              "estimate": -0.1814,
+              "lower": -0.2956,
+              "upper": -0.097
+            },
+            "versusChurn": {
+              "estimate": -0.1742,
+              "lower": -0.3127,
+              "upper": -0.057
+            }
+          },
+          "successCriterion": false
+        },
+        "regression": {
+          "repositories": [
+            "gin",
+            "ky",
+            "vite",
+            "vue-core",
+            "zod"
+          ],
+          "files": 1682,
+          "oddsRatioPerSd": {
+            "estimate": 1.5631,
+            "lower": 1.0052,
+            "upper": 3.6023
+          },
+          "failedReplicates": 0
+        }
+      },
+      "revert": {
+        "snapshot": "T1",
+        "outcome": "revert",
+        "repositories": [
+          {
+            "id": "cobra",
+            "language": "go",
+            "rankedFiles": 31,
+            "droppedWithoutChurn": 0,
+            "positives": 0,
+            "negatives": 31,
+            "eligible": false,
+            "auc": {
+              "score": null,
+              "lines": null,
+              "churn": null
+            },
+            "spearmanScoreCount": null
+          },
+          {
+            "id": "django",
+            "language": "python",
+            "rankedFiles": 1765,
+            "droppedWithoutChurn": 0,
+            "positives": 0,
+            "negatives": 1765,
+            "eligible": false,
+            "auc": {
+              "score": null,
+              "lines": null,
+              "churn": null
+            },
+            "spearmanScoreCount": null
+          },
+          {
+            "id": "express",
+            "language": "javascript",
+            "rankedFiles": 143,
+            "droppedWithoutChurn": 0,
+            "positives": 0,
+            "negatives": 143,
+            "eligible": false,
+            "auc": {
+              "score": null,
+              "lines": null,
+              "churn": null
+            },
+            "spearmanScoreCount": null
+          },
+          {
+            "id": "flask",
+            "language": "python",
+            "rankedFiles": 55,
+            "droppedWithoutChurn": 0,
+            "positives": 0,
+            "negatives": 55,
+            "eligible": false,
+            "auc": {
+              "score": null,
+              "lines": null,
+              "churn": null
+            },
+            "spearmanScoreCount": null
+          },
+          {
+            "id": "gin",
+            "language": "go",
+            "rankedFiles": 67,
+            "droppedWithoutChurn": 0,
+            "positives": 0,
+            "negatives": 67,
+            "eligible": false,
+            "auc": {
+              "score": null,
+              "lines": null,
+              "churn": null
+            },
+            "spearmanScoreCount": null
+          },
+          {
+            "id": "ky",
+            "language": "typescript",
+            "rankedFiles": 34,
+            "droppedWithoutChurn": 0,
+            "positives": 0,
+            "negatives": 34,
+            "eligible": false,
+            "auc": {
+              "score": null,
+              "lines": null,
+              "churn": null
+            },
+            "spearmanScoreCount": null
+          },
+          {
+            "id": "requests",
+            "language": "python",
+            "rankedFiles": 29,
+            "droppedWithoutChurn": 0,
+            "positives": 0,
+            "negatives": 29,
+            "eligible": false,
+            "auc": {
+              "score": null,
+              "lines": null,
+              "churn": null
+            },
+            "spearmanScoreCount": null
+          },
+          {
+            "id": "vite",
+            "language": "typescript",
+            "rankedFiles": 921,
+            "droppedWithoutChurn": 0,
+            "positives": 0,
+            "negatives": 921,
+            "eligible": false,
+            "auc": {
+              "score": null,
+              "lines": null,
+              "churn": null
+            },
+            "spearmanScoreCount": null
+          },
+          {
+            "id": "vue-core",
+            "language": "typescript",
+            "rankedFiles": 498,
+            "droppedWithoutChurn": 0,
+            "positives": 8,
+            "negatives": 490,
+            "eligible": false,
+            "auc": {
+              "score": 0.6589,
+              "lines": 0.5866,
+              "churn": 0.514
+            },
+            "spearmanScoreCount": 0.0692
+          },
+          {
+            "id": "zod",
+            "language": "typescript",
+            "rankedFiles": 162,
+            "droppedWithoutChurn": 0,
+            "positives": 0,
+            "negatives": 162,
+            "eligible": false,
+            "auc": {
+              "score": null,
+              "lines": null,
+              "churn": null
+            },
+            "spearmanScoreCount": null
+          }
+        ],
+        "pooled": null,
+        "regression": null
+      }
+    },
+    "T2": {
+      "primary": {
+        "snapshot": "T2",
+        "outcome": "bugfix",
+        "repositories": [
+          {
+            "id": "cobra",
+            "language": "go",
+            "rankedFiles": 31,
+            "droppedWithoutChurn": 0,
+            "positives": 7,
+            "negatives": 24,
+            "eligible": false,
+            "auc": {
+              "score": 0.5327,
+              "lines": 0.6012,
+              "churn": 0.5476
+            },
+            "spearmanScoreCount": 0.0345
+          },
+          {
+            "id": "django",
+            "language": "python",
+            "rankedFiles": 1768,
+            "droppedWithoutChurn": 0,
+            "positives": 260,
+            "negatives": 1508,
+            "eligible": true,
+            "auc": {
+              "score": 0.4626,
+              "lines": 0.8423,
+              "churn": 0.7825
+            },
+            "spearmanScoreCount": -0.0465
+          },
+          {
+            "id": "express",
+            "language": "javascript",
+            "rankedFiles": 142,
+            "droppedWithoutChurn": 0,
+            "positives": 19,
+            "negatives": 123,
+            "eligible": true,
+            "auc": {
+              "score": 0.6429,
+              "lines": 0.8027,
+              "churn": 0.5182
+            },
+            "spearmanScoreCount": 0.1721
+          },
+          {
+            "id": "flask",
+            "language": "python",
+            "rankedFiles": 56,
+            "droppedWithoutChurn": 0,
+            "positives": 10,
+            "negatives": 46,
+            "eligible": true,
+            "auc": {
+              "score": 0.5728,
+              "lines": 0.8554,
+              "churn": 0.8337
+            },
+            "spearmanScoreCount": 0.0875
+          },
+          {
+            "id": "gin",
+            "language": "go",
+            "rankedFiles": 67,
+            "droppedWithoutChurn": 0,
+            "positives": 4,
+            "negatives": 63,
+            "eligible": false,
+            "auc": {
+              "score": 0.5317,
+              "lines": 0.9008,
+              "churn": 0.9325
+            },
+            "spearmanScoreCount": 0.0305
+          },
+          {
+            "id": "ky",
+            "language": "typescript",
+            "rankedFiles": 34,
+            "droppedWithoutChurn": 0,
+            "positives": 8,
+            "negatives": 26,
+            "eligible": false,
+            "auc": {
+              "score": 0.5769,
+              "lines": 0.6779,
+              "churn": 0.5986
+            },
+            "spearmanScoreCount": 0.1247
+          },
+          {
+            "id": "requests",
+            "language": "python",
+            "rankedFiles": 29,
+            "droppedWithoutChurn": 0,
+            "positives": 0,
+            "negatives": 29,
+            "eligible": false,
+            "auc": {
+              "score": null,
+              "lines": null,
+              "churn": null
+            },
+            "spearmanScoreCount": null
+          },
+          {
+            "id": "vite",
+            "language": "typescript",
+            "rankedFiles": 1103,
+            "droppedWithoutChurn": 0,
+            "positives": 139,
+            "negatives": 964,
+            "eligible": true,
+            "auc": {
+              "score": 0.7797,
+              "lines": 0.943,
+              "churn": 0.909
+            },
+            "spearmanScoreCount": 0.3262
+          },
+          {
+            "id": "vue-core",
+            "language": "typescript",
+            "rankedFiles": 504,
+            "droppedWithoutChurn": 0,
+            "positives": 163,
+            "negatives": 341,
+            "eligible": true,
+            "auc": {
+              "score": 0.7492,
+              "lines": 0.8108,
+              "churn": 0.8162
+            },
+            "spearmanScoreCount": 0.4259
+          },
+          {
+            "id": "zod",
+            "language": "typescript",
+            "rankedFiles": 170,
+            "droppedWithoutChurn": 0,
+            "positives": 7,
+            "negatives": 163,
+            "eligible": false,
+            "auc": {
+              "score": 0.9211,
+              "lines": 0.8422,
+              "churn": 0.9369
+            },
+            "spearmanScoreCount": 0.2907
+          }
+        ],
+        "pooled": {
+          "repositories": [
+            "django",
+            "express",
+            "flask",
+            "vite",
+            "vue-core"
+          ],
+          "meanAuc": {
+            "score": {
+              "estimate": 0.6415,
+              "lower": 0.5229,
+              "upper": 0.7442
+            },
+            "lines": {
+              "estimate": 0.8509,
+              "lower": 0.7964,
+              "upper": 0.9101
+            },
+            "churn": {
+              "estimate": 0.7719,
+              "lower": 0.6387,
+              "upper": 0.8763
+            }
+          },
+          "difference": {
+            "versusLines": {
+              "estimate": -0.2094,
+              "lower": -0.326,
+              "upper": -0.1098
+            },
+            "versusChurn": {
+              "estimate": -0.1305,
+              "lower": -0.2738,
+              "upper": 0.0221
+            }
+          },
+          "successCriterion": false
+        },
+        "regression": {
+          "repositories": [
+            "django",
+            "express",
+            "flask",
+            "vite",
+            "vue-core"
+          ],
+          "files": 3573,
+          "oddsRatioPerSd": {
+            "estimate": 1.1822,
+            "lower": 0.788,
+            "upper": 1.8025
+          },
+          "failedReplicates": 0
+        }
+      },
+      "withoutDjango": {
+        "snapshot": "T2",
+        "outcome": "bugfix",
+        "repositories": [
+          {
+            "id": "cobra",
+            "language": "go",
+            "rankedFiles": 31,
+            "droppedWithoutChurn": 0,
+            "positives": 7,
+            "negatives": 24,
+            "eligible": false,
+            "auc": {
+              "score": 0.5327,
+              "lines": 0.6012,
+              "churn": 0.5476
+            },
+            "spearmanScoreCount": 0.0345
+          },
+          {
+            "id": "express",
+            "language": "javascript",
+            "rankedFiles": 142,
+            "droppedWithoutChurn": 0,
+            "positives": 19,
+            "negatives": 123,
+            "eligible": true,
+            "auc": {
+              "score": 0.6429,
+              "lines": 0.8027,
+              "churn": 0.5182
+            },
+            "spearmanScoreCount": 0.1721
+          },
+          {
+            "id": "flask",
+            "language": "python",
+            "rankedFiles": 56,
+            "droppedWithoutChurn": 0,
+            "positives": 10,
+            "negatives": 46,
+            "eligible": true,
+            "auc": {
+              "score": 0.5728,
+              "lines": 0.8554,
+              "churn": 0.8337
+            },
+            "spearmanScoreCount": 0.0875
+          },
+          {
+            "id": "gin",
+            "language": "go",
+            "rankedFiles": 67,
+            "droppedWithoutChurn": 0,
+            "positives": 4,
+            "negatives": 63,
+            "eligible": false,
+            "auc": {
+              "score": 0.5317,
+              "lines": 0.9008,
+              "churn": 0.9325
+            },
+            "spearmanScoreCount": 0.0305
+          },
+          {
+            "id": "ky",
+            "language": "typescript",
+            "rankedFiles": 34,
+            "droppedWithoutChurn": 0,
+            "positives": 8,
+            "negatives": 26,
+            "eligible": false,
+            "auc": {
+              "score": 0.5769,
+              "lines": 0.6779,
+              "churn": 0.5986
+            },
+            "spearmanScoreCount": 0.1247
+          },
+          {
+            "id": "requests",
+            "language": "python",
+            "rankedFiles": 29,
+            "droppedWithoutChurn": 0,
+            "positives": 0,
+            "negatives": 29,
+            "eligible": false,
+            "auc": {
+              "score": null,
+              "lines": null,
+              "churn": null
+            },
+            "spearmanScoreCount": null
+          },
+          {
+            "id": "vite",
+            "language": "typescript",
+            "rankedFiles": 1103,
+            "droppedWithoutChurn": 0,
+            "positives": 139,
+            "negatives": 964,
+            "eligible": true,
+            "auc": {
+              "score": 0.7797,
+              "lines": 0.943,
+              "churn": 0.909
+            },
+            "spearmanScoreCount": 0.3262
+          },
+          {
+            "id": "vue-core",
+            "language": "typescript",
+            "rankedFiles": 504,
+            "droppedWithoutChurn": 0,
+            "positives": 163,
+            "negatives": 341,
+            "eligible": true,
+            "auc": {
+              "score": 0.7492,
+              "lines": 0.8108,
+              "churn": 0.8162
+            },
+            "spearmanScoreCount": 0.4259
+          },
+          {
+            "id": "zod",
+            "language": "typescript",
+            "rankedFiles": 170,
+            "droppedWithoutChurn": 0,
+            "positives": 7,
+            "negatives": 163,
+            "eligible": false,
+            "auc": {
+              "score": 0.9211,
+              "lines": 0.8422,
+              "churn": 0.9369
+            },
+            "spearmanScoreCount": 0.2907
+          }
+        ],
+        "pooled": {
+          "repositories": [
+            "express",
+            "flask",
+            "vite",
+            "vue-core"
+          ],
+          "meanAuc": {
+            "score": {
+              "estimate": 0.6862,
+              "lower": 0.5739,
+              "upper": 0.7731
+            },
+            "lines": {
+              "estimate": 0.853,
+              "lower": 0.7819,
+              "upper": 0.9188
+            },
+            "churn": {
+              "estimate": 0.7693,
+              "lower": 0.5931,
+              "upper": 0.891
+            }
+          },
+          "difference": {
+            "versusLines": {
+              "estimate": -0.1668,
+              "lower": -0.2715,
+              "upper": -0.0829
+            },
+            "versusChurn": {
+              "estimate": -0.0831,
+              "lower": -0.2312,
+              "upper": 0.0784
+            }
+          },
+          "successCriterion": false
+        },
+        "regression": {
+          "repositories": [
+            "express",
+            "flask",
+            "vite",
+            "vue-core"
+          ],
+          "files": 1805,
+          "oddsRatioPerSd": {
+            "estimate": 1.5497,
+            "lower": 0.9726,
+            "upper": 2.0901
+          },
+          "failedReplicates": 0
+        }
+      },
+      "revert": {
+        "snapshot": "T2",
+        "outcome": "revert",
+        "repositories": [
+          {
+            "id": "cobra",
+            "language": "go",
+            "rankedFiles": 31,
+            "droppedWithoutChurn": 0,
+            "positives": 0,
+            "negatives": 31,
+            "eligible": false,
+            "auc": {
+              "score": null,
+              "lines": null,
+              "churn": null
+            },
+            "spearmanScoreCount": null
+          },
+          {
+            "id": "django",
+            "language": "python",
+            "rankedFiles": 1768,
+            "droppedWithoutChurn": 0,
+            "positives": 8,
+            "negatives": 1760,
+            "eligible": false,
+            "auc": {
+              "score": 0.4939,
+              "lines": 0.8719,
+              "churn": 0.8537
+            },
+            "spearmanScoreCount": -0.0014
+          },
+          {
+            "id": "express",
+            "language": "javascript",
+            "rankedFiles": 142,
+            "droppedWithoutChurn": 0,
+            "positives": 0,
+            "negatives": 142,
+            "eligible": false,
+            "auc": {
+              "score": null,
+              "lines": null,
+              "churn": null
+            },
+            "spearmanScoreCount": null
+          },
+          {
+            "id": "flask",
+            "language": "python",
+            "rankedFiles": 56,
+            "droppedWithoutChurn": 0,
+            "positives": 0,
+            "negatives": 56,
+            "eligible": false,
+            "auc": {
+              "score": null,
+              "lines": null,
+              "churn": null
+            },
+            "spearmanScoreCount": null
+          },
+          {
+            "id": "gin",
+            "language": "go",
+            "rankedFiles": 67,
+            "droppedWithoutChurn": 0,
+            "positives": 0,
+            "negatives": 67,
+            "eligible": false,
+            "auc": {
+              "score": null,
+              "lines": null,
+              "churn": null
+            },
+            "spearmanScoreCount": null
+          },
+          {
+            "id": "ky",
+            "language": "typescript",
+            "rankedFiles": 34,
+            "droppedWithoutChurn": 0,
+            "positives": 0,
+            "negatives": 34,
+            "eligible": false,
+            "auc": {
+              "score": null,
+              "lines": null,
+              "churn": null
+            },
+            "spearmanScoreCount": null
+          },
+          {
+            "id": "requests",
+            "language": "python",
+            "rankedFiles": 29,
+            "droppedWithoutChurn": 0,
+            "positives": 0,
+            "negatives": 29,
+            "eligible": false,
+            "auc": {
+              "score": null,
+              "lines": null,
+              "churn": null
+            },
+            "spearmanScoreCount": null
+          },
+          {
+            "id": "vite",
+            "language": "typescript",
+            "rankedFiles": 1103,
+            "droppedWithoutChurn": 0,
+            "positives": 0,
+            "negatives": 1103,
+            "eligible": false,
+            "auc": {
+              "score": null,
+              "lines": null,
+              "churn": null
+            },
+            "spearmanScoreCount": null
+          },
+          {
+            "id": "vue-core",
+            "language": "typescript",
+            "rankedFiles": 504,
+            "droppedWithoutChurn": 0,
+            "positives": 12,
+            "negatives": 492,
+            "eligible": true,
+            "auc": {
+              "score": 0.8012,
+              "lines": 0.7827,
+              "churn": 0.8632
+            },
+            "spearmanScoreCount": 0.1589
+          },
+          {
+            "id": "zod",
+            "language": "typescript",
+            "rankedFiles": 170,
+            "droppedWithoutChurn": 0,
+            "positives": 0,
+            "negatives": 170,
+            "eligible": false,
+            "auc": {
+              "score": null,
+              "lines": null,
+              "churn": null
+            },
+            "spearmanScoreCount": null
+          }
+        ],
+        "pooled": {
+          "repositories": [
+            "vue-core"
+          ],
+          "meanAuc": {
+            "score": {
+              "estimate": 0.8012,
+              "lower": 0.6808,
+              "upper": 0.9063
+            },
+            "lines": {
+              "estimate": 0.7827,
+              "lower": 0.6483,
+              "upper": 0.8854
+            },
+            "churn": {
+              "estimate": 0.8632,
+              "lower": 0.7922,
+              "upper": 0.9263
+            }
+          },
+          "difference": {
+            "versusLines": {
+              "estimate": 0.0185,
+              "lower": -0.1309,
+              "upper": 0.1712
+            },
+            "versusChurn": {
+              "estimate": -0.062,
+              "lower": -0.1885,
+              "upper": 0.0594
+            }
+          },
+          "successCriterion": false
+        },
+        "regression": {
+          "repositories": [
+            "vue-core"
+          ],
+          "files": 504,
+          "oddsRatioPerSd": {
+            "estimate": 2.0097,
+            "lower": 1.0703,
+            "upper": 5.8316
+          },
+          "failedReplicates": 1
+        }
+      }
+    }
+  },
+  "exploratory": {
+    "T1": {
+      "note": "Exploratory point estimates (protocol §5.3). Not used for the decision.",
+      "groupAuc": {
+        "changePressure": 0.703,
+        "knowledge": 0.332,
+        "complexity": 0.803,
+        "impact": 0.5353
+      },
+      "scoreAucByLanguage": {
+        "tsJs": 0.6614,
+        "other": 0.5245
+      },
+      "scoreAucByConfidence": {
+        "atLeast07": 0.6592,
+        "below07": 0.5514
+      }
+    },
+    "T2": {
+      "note": "Exploratory point estimates (protocol §5.3). Not used for the decision.",
+      "groupAuc": {
+        "changePressure": 0.638,
+        "knowledge": 0.3776,
+        "complexity": 0.7983,
+        "impact": 0.5574
+      },
+      "scoreAucByLanguage": {
+        "tsJs": 0.724,
+        "other": 0.5177
+      },
+      "scoreAucByConfidence": {
+        "atLeast07": 0.731,
+        "below07": 0.6129
+      }
+    }
+  },
+  "decisionInputs": {
+    "successCriterionOnT1": false,
+    "directionHoldsOnT2": false,
+    "sensitivityAgreesOnT1": true
+  }
+}

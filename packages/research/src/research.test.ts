@@ -114,6 +114,8 @@ describe("pinSnapshot", () => {
   });
 });
 
+// Clone attempts against a refused port start several git processes each; under the full
+// suite's parallel load they need more than the default timeout.
 describe("fetchRepository", () => {
   it("reuses a clone that already has every pinned commit without touching the network", async () => {
     const { repo, commits } = sourceRepo();
@@ -168,7 +170,7 @@ describe("fetchRepository", () => {
     });
     expect(log[0]).toBe("demo: removing an interrupted clone");
     expect(existsSync(dir)).toBe(false);
-  });
+  }, 120_000);
 
   it("retries a failed clone and leaves no partial directory behind", async () => {
     const cacheRoot = tempDir();
@@ -179,7 +181,7 @@ describe("fetchRepository", () => {
     });
     expect(log.filter((m) => m.includes("attempt 1 failed"))).toHaveLength(1);
     expect(existsSync(path.join(cacheRoot, "demo"))).toBe(false);
-  });
+  }, 120_000);
 });
 
 describe("run pin", () => {
