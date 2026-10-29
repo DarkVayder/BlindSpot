@@ -13,6 +13,7 @@ export interface LabelledCommit {
   changedFiles: number;
   bugfix: BugfixVerdict;
   revert: boolean;
+  touchesAnalyzedFile: boolean;
 }
 
 export interface LabelResult {
@@ -71,6 +72,7 @@ export async function labelOutcomes(dir: string, options: LabelOptions): Promise
       changedFiles,
       bugfix: classifyBugfix({ message, changedFiles }),
       revert: isRevert(message),
+      touchesAnalyzedFile: false,
     };
     commits.push(labelled);
 
@@ -78,6 +80,7 @@ export async function labelOutcomes(dir: string, options: LabelOptions): Promise
       const source = change.oldPath ?? change.path;
       const original = change.status === "C" ? undefined : current.get(source);
       if (original === undefined) continue;
+      labelled.touchesAnalyzedFile = true;
       const outcome = outcomes.get(original);
       if (outcome) {
         if (labelled.bugfix === "bugfix") outcome.bugfixCount++;

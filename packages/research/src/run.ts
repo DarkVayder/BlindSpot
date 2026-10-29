@@ -1,10 +1,12 @@
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { Command, CommanderError, InvalidArgumentError } from "commander";
 import { GitError } from "@blindspot/git";
 import { DatasetError, loadDataset, serializeDataset, type DatasetRepository } from "./dataset.js";
 import { fetchRepository, repositoryDir } from "./fetch.js";
 import { pinRepository } from "./pin.js";
+import { labelQuality } from "./quality.js";
+import { buildSample, readJudgements, SampleKey } from "./sample.js";
 import { serializeSnapshot, takeSnapshot } from "./snapshot.js";
 
 export interface ResearchIO {
@@ -19,6 +21,8 @@ type ExitCode = (typeof EXIT)[keyof typeof EXIT];
 const DEFAULT_DATASET = "research/datasets/v1.json";
 const DEFAULT_CACHE = "research/cache";
 const DEFAULT_OUTPUT = "research/output";
+const DEFAULT_LABELS = "research/labels";
+const DEFAULT_RESULTS = "research/results";
 
 function toolVersion(): string {
   const pkg = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf8")) as {
@@ -150,6 +154,69 @@ export async function run(argv: readonly string[], io: ResearchIO): Promise<Exit
       }
     }
   });
+
+  common(
+    program
+      .command("sample")
+      .description("draw the hand-labelling sample of window commits (protocol §3.4)")
+      .option("--out <dir>", "directory for snapshot outputs", DEFAULT_OUTPUT)
+      .option("--labels <dir>", "directory for the labelling sheet and its key", DEFAULT_LABELS)
+      .option("--force", "replace an existing sheet, discarding any judgements in it", false),
+  ).action(async (flags: CommonFlags & { out: string; labels: string; force: boolean }) => {
+    const { dataset, sha256 } = loadDataset(resolve(flags.dataset));
+    const labelsDir = resolve(flags.labels);
+    const sheetFile = path.join(labelsDir, `${dataset.id}-sample.csv`);
+    if (existsSync(sheetFile) && !flags.force) {
+      throw new DatasetError(
+        `${sheetFile} already exists and may hold judgements. Use --force to replace it.`,
+      );
+    }
+    const sample = await buildSample({
+      dataset,
+      datasetSha256: sha256,
+      cacheDir: (repo) => repositoryDir(resolve(flags.cache), repo),
+      snapshotsDir: path.join(resolve(flags.out), dataset.id, "snapshots"),
+      timeoutMs: flags.timeoutMinutes * 60_000,
+    });
+    mkdirSync(labelsDir, { recursive: true });
+    writeFileSync(sheetFile, sample.sheet);
+    writeFileSync(
+      path.join(labelsDir, `${dataset.id}-sample.key.json`),
+      `${JSON.stringify(sample.key, null, 2)}\n`,
+    );
+    const positives = sample.key.rows.filter((r) => r.ruleSaysFix).length;
+    log(`Wrote ${sample.key.rows.length} commits (${positives} rule positives) to ${sheetFile}.`);
+  });
+
+  program
+    .command("quality")
+    .description("measure the bug-fix rule's precision and recall from the judged sample")
+    .option("--dataset <file>", "dataset file", DEFAULT_DATASET)
+    .option("--labels <dir>", "directory for the labelling sheet and its key", DEFAULT_LABELS)
+    .option("--results <dir>", "directory for aggregate results", DEFAULT_RESULTS)
+    .requiredOption("--labelled-by <name>", "who recorded the judgements")
+    .action((flags: { dataset: string; labels: string; results: string; labelledBy: string }) => {
+      const { dataset } = loadDataset(resolve(flags.dataset));
+      const base = path.join(resolve(flags.labels), `${dataset.id}-sample`);
+      const key = SampleKey.parse(JSON.parse(readFileSync(`${base}.key.json`, "utf8")));
+      let judged;
+      try {
+        judged = readJudgements(readFileSync(`${base}.csv`, "utf8"), key);
+      } catch (error) {
+        throw new DatasetError(error instanceof Error ? error.message : String(error));
+      }
+      const quality = labelQuality(key, judged, flags.labelledBy);
+      const outDir = path.join(resolve(flags.results), dataset.id);
+      mkdirSync(outDir, { recursive: true });
+      writeFileSync(path.join(outDir, "label-quality.json"), `${JSON.stringify(quality, null, 2)}\n`);
+      const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
+      log(
+        `${quality.rule}: precision ${pct(quality.precision.estimate)} (95% CI ${pct(quality.precision.lower)}–${pct(quality.precision.upper)}), ` +
+          `recall ${pct(quality.recall.estimate)} (${pct(quality.recall.lower)}–${pct(quality.recall.upper)}). ` +
+          (quality.meetsThreshold ? "Meets" : "Below") +
+          ` the ${pct(quality.threshold)} threshold.`,
+      );
+    });
 
   try {
     await program.parseAsync(argv, { from: "user" });

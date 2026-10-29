@@ -157,3 +157,9 @@ The decision is recorded as an ADR.
   removed. express's default branch had no commits between March 2022 and January 2024, so
   its `T1` snapshot is dated 2022-02-17 and is dormant with an empty outcome window. It is
   kept and reported as such.
+- **2026-10-29, sampling details left open in §3.4 (before any judgement was recorded).**
+  The sample population is every window commit, from both snapshots, that changed at least
+  one analyzed file, because those are the commits whose labels reach the analysis. Strata
+  are allocated in proportion to each repository's population by largest remainder. The seed
+  is 20261028. `unsure` judgements are left out of the precision and recall figures and
+  counted. The 0.70 threshold applies to the point estimate.
