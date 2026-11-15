@@ -170,7 +170,7 @@ export function renderHtml(result: AnalysisResult, options: HtmlOptions = {}): s
 <a class="skip" href="#files">Skip to files</a>
 <header>
 <h1>Blindspot report</h1>
-<p class="tagline">Know the code. Own the risk.</p>
+<p class="tagline">Know the code.</p>
 <dl class="meta">
 <dt>Commit</dt><dd><code>${e(result.repository.headCommit ?? "none (no commits)")}</code></dd>
 <dt>As of</dt><dd>${e(result.asOf ?? "n/a")}</dd>

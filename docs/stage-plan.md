@@ -74,10 +74,12 @@ Work order:
 
 Gate:
 
-- [ ] Re-running the pipeline on the pinned dataset reproduces identical aggregates.
+- [x] Re-running the pipeline on the pinned dataset reproduces identical aggregates.
+      A full re-run of `snapshot`, `quality` and `analyze` on Windows reproduced all 20 snapshot files and 3 result files byte for byte. A run on Linux, with a different git version (2.39.5 against 2.51.0), matched all 23 files once the recorded git version is set aside. Both re-runs used the existing clones, so `fetch` itself was not repeated.
 - [x] At least 6 repositories covering at least 3 languages, small/medium/large sizes, and both active and dormant projects.
       10 repositories in TypeScript, JavaScript, Python and Go: 7 small, 2 medium and 1 large, with both active and dormant projects.
-- [ ] Missing-data handling verified (shallow history, unsupported languages).
+- [x] Missing-data handling verified (shallow history, unsupported languages).
+      An end-to-end test covers both: a shallow clone reports every file as unranked with a warning, and the analysis leaves it out of pooling without failing. Unsupported languages report complexity as missing and are scored from history. In the real `T1` data, all 3,015 Python and Go files report complexity as missing, and all but one still have a score.
 - [x] Product copy contains no claim of predictive accuracy unless the report supports it. A grep-based CI check flags forbidden phrases.
       The report does not support any such claim. `packages/core/src/hygiene.test.ts` fails the build on predictive wording in the README, user docs and the core, engine, report and CLI sources.
 - [x] Decision recorded: keep, recalibrate or rethink the model, with a model version bump if anything changed.

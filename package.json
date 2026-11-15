@@ -13,16 +13,20 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "vitest run",
-    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm build && pnpm test"
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm build && pnpm test",
+    "release:pack": "pnpm build && node scripts/release.js",
+    "release:smoke": "node scripts/smoke-test.js"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/node": "^24.19.2",
+    "esbuild": "0.28.2",
     "eslint": "^10.13.0",
     "fast-check": "^4.10.2",
     "prettier": "^3.9.10",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.72.0",
     "vitest": "^5.0.5"
-  }
+  },
+  "license": "MIT"
 }

@@ -1,6 +1,6 @@
 # Blindspot
 
-**Know the code. Own the risk.**
+**Know the code.**
 
 Blindspot maps every file in a repository by the things that make code hard to understand and change: complexity, change pressure, how concentrated or stale the knowledge of it is, explicit AI provenance and how much depends on it. It combines them into an _attention index_ for sorting files to review. Every value comes with the evidence behind it, a confidence level, and a list of what it could not observe. It measures files, never developers.
 

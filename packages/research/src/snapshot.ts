@@ -1,4 +1,4 @@
-import { defaultConfig, GROUP_IDS, MODEL_VERSION } from "@blindspot/core";
+import { defaultConfig, GROUP_IDS, MODEL_VERSION, type BlindspotConfig } from "@blindspot/core";
 import { analyzeWithEvidence } from "@blindspot/engine";
 import { checkGitVersion } from "@blindspot/git";
 import { z } from "zod";
@@ -7,6 +7,7 @@ import { labelOutcomes } from "./label.js";
 import { BUGFIX_RULE, REVERT_RULE } from "./rules.js";
 
 const DAY_SECONDS = 86_400;
+const MAX_GIT_TIMEOUT_MS = 3_600_000;
 const nullableCount = z.number().int().nonnegative().nullable();
 
 export const SnapshotFileRow = z.strictObject({
@@ -68,6 +69,16 @@ export interface SnapshotOptions {
   timeoutMs: number;
 }
 
+// The default configuration, as the protocol requires, except that git's time limit follows
+// --timeout-minutes. It cannot change a score, only whether a slow machine finishes.
+export function snapshotConfig(timeoutMs: number): BlindspotConfig {
+  const config = defaultConfig();
+  return {
+    ...config,
+    limits: { ...config.limits, gitTimeoutMs: Math.min(timeoutMs, MAX_GIT_TIMEOUT_MS) },
+  };
+}
+
 export async function takeSnapshot(
   dir: string,
   repo: DatasetRepository,
@@ -79,7 +90,7 @@ export async function takeSnapshot(
 
   const gitVersion = await checkGitVersion(options.timeoutMs);
   const { result, evidence } = await analyzeWithEvidence(dir, {
-    config: defaultConfig(),
+    config: snapshotConfig(options.timeoutMs),
     toolVersion: options.toolVersion,
     revision: pinned.commit,
     mailmapRevision: pinned.end,

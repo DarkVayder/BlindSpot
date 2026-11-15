@@ -33,8 +33,8 @@ Recalibrating could at best rebuild file size and churn under another name.
 
 - The CLI remains a useful, honest code-health explorer. The knowledge-concentration view
   still supports bus-factor and onboarding conversations, but not defect claims.
-- The brand line "Know the code. Own the risk." stays for now. It is a slogan, not a claim
-  about the score, and it can be revisited with the product direction.
+- The brand line was shortened from "Know the code. Own the risk." to "Know the code." when
+  the CLI release was prepared, so it no longer refers to risk.
 - If the comprehension-risk thesis is to be tested again, it needs a new registered study
   with fresh snapshots and an outcome adjusted for exposure (fixes per change, not fixes per
   file). Re-analysing this dataset with a new outcome would not be valid evidence.

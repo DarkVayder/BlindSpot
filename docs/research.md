@@ -23,7 +23,8 @@ node packages/research/dist/bin.js analyze
 | `analyze`  | Runs the registered analysis (protocol §5 and its amendments) on the snapshot outputs. It computes per-repository AUCs and Spearman correlations, the pooled mean AUC of the score and both baselines with a two-stage bootstrap, the regression with repository fixed effects, the django sensitivity run, the revert outcome and the exploratory splits. It writes `research/results/<dataset>/analysis.json` and `repositories.csv`, which hold aggregates only, with no paths. A re-run produces identical bytes. The statistics are checked against scikit-learn, SciPy, NumPy and statsmodels (`packages/research/reference/`). |
 
 Common options: `--dataset <file>` (default `research/datasets/v1.json`), `--cache <dir>`
-(default `research/cache`), `--only <ids...>` and `--timeout-minutes <n>` (default 30).
+(default `research/cache`), `--only <ids...>` and `--timeout-minutes <n>` (default 30, up to
+60 while scoring). The time limit applies to each git command and cannot change a result.
 
 Exit codes: 0 success, 2 usage or dataset error, 3 git or network failure, 4 internal error.
 

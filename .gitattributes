@@ -3,3 +3,6 @@
 *.png binary
 *.ico binary
 *.woff2 binary
+
+# Research outputs are compared byte for byte, and the pipeline writes CSV with CRLF (RFC 4180).
+research/**/*.csv -text

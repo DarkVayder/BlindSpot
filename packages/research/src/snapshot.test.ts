@@ -1,10 +1,12 @@
+import { execFileSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { afterAll, describe, expect, it } from "vitest";
-import { tempDir, TestRepo } from "../../git/src/test/repo.js";
+import { tempDir, testEnv, TestRepo } from "../../git/src/test/repo.js";
+import { analyzeSnapshot } from "./analysis.js";
 import { Dataset, serializeDataset } from "./dataset.js";
 import { run } from "./run.js";
-import { SnapshotFile } from "./snapshot.js";
+import { SnapshotFile, snapshotConfig } from "./snapshot.js";
 import { cachedClone, DEMO_URL } from "./test/clone.js";
 
 const repos: TestRepo[] = [];
@@ -39,6 +41,13 @@ function outcomeRepo(): TestRepo {
   r.write("a.ts", "export const a = 4;\n").commit("Fix a after the window", "2024-08-01T00:00:00Z");
   return r;
 }
+
+describe("snapshotConfig", () => {
+  it("applies the requested git time limit, within what the configuration allows", () => {
+    expect(snapshotConfig(1_800_000).limits.gitTimeoutMs).toBe(1_800_000);
+    expect(snapshotConfig(7_200_000).limits.gitTimeoutMs).toBe(3_600_000);
+  });
+});
 
 describe("snapshot", () => {
   // Runs pin and two snapshots twice, dozens of git processes, so it needs more than the
@@ -78,5 +87,67 @@ describe("snapshot", () => {
 
     expect(await run(["snapshot", ...args, "--out", out], io)).toBe(0);
     expect(readFileSync(file, "utf8")).toBe(first);
+  }, 120_000);
+
+  // Protocol gate: missing data must be reported, never scored as risk-free or as extreme.
+  it("handles unsupported languages and shallow history without failing the analysis", async () => {
+    const r = TestRepo.create("bs-missing-");
+    repos.push(r);
+    for (let month = 6; month <= 11; month++) {
+      r.write("a.ts", `export const a = ${month};`).write("b.py", `A = ${month}`);
+      r.commit(`change ${month}`, `2023-${String(month).padStart(2, "0")}-01T00:00:00Z`);
+    }
+    r.write("a.ts", "export const a = 99;").commit("Fix a", "2024-02-01T00:00:00Z");
+    r.write("b.py", "A = 99").commit("Fix b", "2024-03-01T00:00:00Z");
+    r.write("a.ts", "export const a = 100;").commit("later", "2024-08-01T00:00:00Z");
+
+    const dataset = Dataset.parse({
+      id: "test",
+      windowDays: 180,
+      snapshotDates: { T1: "2024-01-01T00:00:00Z", T2: "2024-07-01T00:00:00Z" },
+      repositories: [{ id: "demo", url: DEMO_URL, language: "typescript", license: "MIT" }],
+    });
+    const snapshotOf = async (cacheRoot: string) => {
+      const work = tempDir();
+      const datasetFile = path.join(work, "v1.json");
+      writeFileSync(datasetFile, serializeDataset(dataset));
+      const io = { stdout: { write: () => true }, stderr: { write: () => true }, cwd: work };
+      const args = ["--dataset", datasetFile, "--cache", cacheRoot, "--out", path.join(work, "out")];
+      expect(await run(["pin", ...args.slice(0, 4)], io)).toBe(0);
+      expect(await run(["snapshot", ...args], io)).toBe(0);
+      return SnapshotFile.parse(
+        JSON.parse(readFileSync(path.join(work, "out", "test", "snapshots", "demo.T1.json"), "utf8")),
+      );
+    };
+
+    const full = await snapshotOf(
+      (() => {
+        const cacheRoot = tempDir();
+        cachedClone(r, cacheRoot);
+        return cacheRoot;
+      })(),
+    );
+    const python = full.files.find((f) => f.path === "b.py");
+    expect(python?.groups.complexity).toBeNull();
+    expect(python?.score).not.toBeNull();
+    expect(full.files.find((f) => f.path === "a.ts")?.groups.complexity).not.toBeNull();
+    expect(python).toMatchObject({ bugfixCount: 1 });
+
+    const shallowRoot = tempDir();
+    const dir = path.join(shallowRoot, "demo");
+    execFileSync(
+      "git",
+      ["clone", "-q", "--no-checkout", "--depth", "4", `file://${r.root.replaceAll("\\", "/")}`, dir],
+      { env: testEnv() },
+    );
+    execFileSync("git", ["remote", "set-url", "origin", DEMO_URL], { cwd: dir, env: testEnv() });
+    const shallow = await snapshotOf(shallowRoot);
+    expect(shallow.coverage.incomplete).toBe(true);
+    expect(shallow.warnings.join(" ")).toContain("shallow clone");
+    expect(shallow.files.every((f) => !f.ranked)).toBe(true);
+
+    const analysis = analyzeSnapshot([shallow], { outcome: "bugfix", replicates: 10 });
+    expect(analysis.repositories[0]).toMatchObject({ rankedFiles: 0, eligible: false });
+    expect(analysis.pooled).toBeNull();
   }, 120_000);
 });
