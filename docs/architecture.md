@@ -1,6 +1,6 @@
 # Blindspot Architecture
 
-Status: Stage 0 draft · Last updated: 2026-10-24
+Status: Stages 1–2 built, CLI release prepared, hosted stages paused · Last updated: 2026-11-16
 
 Blindspot describes each file by the signals that make code hard to understand and change,
 and sorts files by a descriptive **attention index**. The index is not a prediction of
@@ -31,11 +31,13 @@ blindspot/
 │  ├─ report/       Terminal, JSON and standalone HTML renderers                (Stage 1)
 │  ├─ cli/          Commander entry point (`blindspot analyze`, `compare`, …)  (Stage 1)
 │  ├─ research/     Snapshotting, outcome labelling, statistics, exports        (Stage 2)
-│  ├─ db/           Prisma schema, migrations, tenant-scoped repositories       (Stage 3)
-│  └─ github/       GitHub App auth, webhook verification, PR comment builder   (Stage 4)
+│  ├─ db/           Prisma schema, migrations, tenant-scoped repositories       (Stage 3, paused)
+│  └─ github/       GitHub App auth, webhook verification, PR comment builder   (Stage 4, paused)
 ├─ apps/
-│  ├─ web/          Next.js dashboard + API route handlers                      (Stage 3/5)
-│  └─ worker/       pg-boss consumer that runs `engine` on cloned repos         (Stage 3/4)
+│  ├─ web/          Next.js dashboard + API route handlers                      (Stage 3/5, paused)
+│  └─ worker/       pg-boss consumer that runs `engine` on cloned repos         (Stage 3/4, paused)
+├─ scripts/         release.js (npm package), smoke-test.js, samples.js
+├─ research/        Pinned dataset, labelling sample and aggregate results     (Stage 2)
 └─ docs/
 ```
 
@@ -141,6 +143,18 @@ per-user opt-in, and results that **never feed `FileRisk`**. The only coupling i
 dashboard may show, to the developer who opted in, which files they have chosen to
 check. No hooks for it are implemented before it is scoped.
 
-## 7. Open items
+## 7. Packaging and release
 
-Tracked in [`blockers.md`](blockers.md). None block Stages 1–2.
+The workspace packages stay private. `scripts/release.js` bundles `cli` and everything it
+imports into one ESM file with esbuild, keeps `typescript` as the package's only runtime
+dependency (the complexity analyzer loads its compiler), and writes the license notices for
+bundled code. File modes are normalized before `npm pack`, so the tarball is byte-identical
+on Windows and Linux. `scripts/smoke-test.js` installs the tarball into an empty project and
+checks every command. The release workflow builds on both platforms, requires matching
+hashes, and publishes that tarball with npm provenance
+([ADR 0009](decisions/0009-release-the-cli-alone.md)).
+
+## 8. Open items
+
+Tracked in [`blockers.md`](blockers.md). The npm scope (B1) blocks publishing the CLI. The
+rest apply to the paused hosted stages.

@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src &#39;none&#39;; style-src &#39;sha256-AEoVDOD+GgOhcGhP8y8yzRFfAVDpP+y3stXGgKCVXHc=&#39;; script-src &#39;sha256-9H+s4QIjoEesQUTy6NbI8rnArk1J5w10lmTJp6piEVA=&#39;; img-src &#39;none&#39;; base-uri &#39;none&#39;; form-action &#39;none&#39;">
+<meta name="referrer" content="no-referrer">
+<title>Blindspot report</title>
+<style>
+:root{color-scheme:light dark;--bg:#ffffff;--surface:#f6f7f9;--text:#1a1c1e;--muted:#4e5560;--border:#d3d7dd;--focus:#0b57d0;--high-bg:#fde2e1;--high-fg:#8a1c13;--elevated-bg:#fdebd3;--elevated-fg:#7a3e00;--moderate-bg:#fff2bf;--moderate-fg:#5c4a00;--low-bg:#dcf2e3;--low-fg:#1d5a32;--insufficient_evidence-bg:#e9ebee;--insufficient_evidence-fg:#3f454d}
+@media (prefers-color-scheme:dark){:root{--bg:#121417;--surface:#1b1e23;--text:#e8eaed;--muted:#a9b0b9;--border:#373c44;--focus:#8ab4f8;--high-bg:#4a1712;--high-fg:#ffb4ab;--elevated-bg:#4a2c05;--elevated-fg:#ffc98a;--moderate-bg:#3d3300;--moderate-fg:#f2dc7a;--low-bg:#0f3a21;--low-fg:#9fdcb3;--insufficient_evidence-bg:#2a2e34;--insufficient_evidence-fg:#c4c9d0}}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+header,main,footer{max-width:1200px;margin:0 auto;padding:0 16px}
+header{padding-top:24px}
+h1{font-size:1.6rem;margin:0}
+h2{font-size:1.2rem;margin:32px 0 12px}
+.tagline{color:var(--muted);margin:4px 0 16px}
+.meta{display:grid;grid-template-columns:max-content 1fr;gap:4px 16px;margin:0}
+.meta dt{color:var(--muted)}
+.meta dd{margin:0;overflow-wrap:anywhere}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:16px;top:8px;background:var(--bg);padding:8px;z-index:1}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.chip{display:inline-block;padding:1px 8px;border-radius:999px;font-size:.85rem;font-weight:600;white-space:nowrap}
+.chip.high{background:var(--high-bg);color:var(--high-fg)}
+.chip.elevated{background:var(--elevated-bg);color:var(--elevated-fg)}
+.chip.moderate{background:var(--moderate-bg);color:var(--moderate-fg)}
+.chip.low{background:var(--low-bg);color:var(--low-fg)}
+.chip.insufficient_evidence{background:var(--insufficient_evidence-bg);color:var(--insufficient_evidence-fg)}
+.bands{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.notice{border-left:4px solid var(--elevated-fg);background:var(--surface);padding:8px 12px}
+.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:end;margin-bottom:8px}
+.controls label{display:flex;flex-direction:column;font-size:.85rem;color:var(--muted)}
+input,select,button{font:inherit;color:inherit;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:4px 8px}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%}
+caption{text-align:left;color:var(--muted);padding-bottom:4px}
+th,td{border-bottom:1px solid var(--border);padding:6px 8px;text-align:left;vertical-align:top}
+th button{border:0;padding:0;background:none;font-weight:700;cursor:pointer}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+summary{cursor:pointer}
+code{font-family:ui-monospace,"Cascadia Code",Consolas,monospace;overflow-wrap:anywhere}
+.detail{background:var(--surface);padding:8px 12px;margin-top:8px;border-radius:6px}
+.detail h3{font-size:.95rem;margin:8px 0 4px}
+.signals td,.signals th{padding:2px 6px;font-size:.85rem}
+.muted{color:var(--muted)}
+footer{color:var(--muted);padding-top:24px;padding-bottom:32px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#files">Skip to files</a>
+<header>
+<h1>Blindspot report</h1>
+<p class="tagline">Know the code.</p>
+<dl class="meta">
+<dt>Commit</dt><dd><code>4a427011ad7b4ab98bb5f02ecaa5375fba5addca</code></dd>
+<dt>As of</dt><dd>2024-12-18T13:40:07.000Z</dd>
+<dt>Model</dt><dd>bs-risk@0.1.0</dd>
+<dt>Tool</dt><dd>Blindspot 0.1.0</dd>
+<dt>Config</dt><dd><code>sha256:f145fd0698db28ff0b8029ed19c7c921b11f661aed42589968469bf299126b4a</code></dd>
+</dl>
+</header>
+<main>
+<section aria-labelledby="summary-heading">
+<h2 id="summary-heading">Summary</h2>
+
+<dl class="meta">
+<dt>Tracked files</dt><dd>49</dd>
+<dt>Analyzed files</dt><dd>34</dd>
+<dt>Excluded files</dt><dd>15 <span class="muted">(15 extension)</span></dd>
+<dt>Commits read</dt><dd>352</dd>
+</dl>
+<h3>Files by band</h3>
+<ul class="bands">
+<li><span class="chip high">High</span> 0</li>
+<li><span class="chip elevated">Elevated</span> 0</li>
+<li><span class="chip moderate">Moderate</span> 12</li>
+<li><span class="chip low">Low</span> 22</li>
+<li><span class="chip insufficient_evidence">Insufficient evidence</span> 0</li>
+</ul>
+</section>
+
+<section aria-labelledby="notes-heading">
+<h2 id="notes-heading">About the attention index</h2>
+<ul>
+<li>The attention index sorts files by complexity, change pressure, knowledge concentration and impact relative to other files in this repository. In Blindspot&#39;s validation study it ranked files that later received bug fixes below file size alone, so it is not a prediction of defects. It is not comparable across repositories and is not a measure of any developer.</li>
+<li>Review evidence is not available in local mode, so it is reported as missing rather than counted against any file.</li>
+<li>No explicit AI provenance markers were found. This does not mean the code was written without AI assistance.</li>
+</ul>
+</section>
+<section id="files" aria-labelledby="files-heading">
+<h2 id="files-heading">Files</h2>
+<div id="file-controls" class="controls" hidden>
+<label>Filter by path<input id="file-search" type="search" autocomplete="off"></label>
+<label>Band<select id="band-filter">
+<option value="">All bands</option>
+<option value="high">High</option>
+<option value="elevated">Elevated</option>
+<option value="moderate">Moderate</option>
+<option value="low">Low</option>
+<option value="insufficient_evidence">Insufficient evidence</option>
+</select></label>
+<p id="file-status" class="muted" aria-live="polite"></p>
+</div>
+<div class="table-wrap">
+<table id="files-table">
+<caption>Files ordered by attention index. Files with insufficient evidence are listed last and are not ranked.</caption>
+<thead><tr>
+<th scope="col" aria-sort="none"><button type="button" data-sort="path">File</button></th>
+<th scope="col" class="num" aria-sort="none"><button type="button" data-sort="score">Index</button></th>
+<th scope="col">Band</th>
+<th scope="col" class="num" aria-sort="none"><button type="button" data-sort="confidence">Confidence</button></th>
+</tr></thead>
+<tbody>
+<tr data-path="source/core/Ky.ts" data-band="moderate" data-score="41.1" data-confidence="0.79" data-rank="0">
+<td><details><summary><code>source/core/Ky.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.61 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>Total cognitive complexity is 120 (top 1% in this repository).</li><li>Its most complex function has a cyclomatic complexity of 26 (top 1% in this repository).</li><li>Contains 285 lines of code (top 16% in this repository).</li><li>Changed in 2 commits in the last 90 days (top 1% in this repository).</li><li>69% of lines changed in the last 365 days came from a single contributor.</li><li>19 files depend on this file directly or indirectly (top 43% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li></ul>
+<h3>Suggested actions</h3><ul><li>Add or review tests around the most complex functions before changing them.</li><li>Check dependents before changing this file&#39;s exported interfaces.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0.0263</td><td class="num">96</td><td>0.16</td></tr><tr><td><code>commits_recent</code></td><td class="num">2</td><td class="num">99</td><td>0.53</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">0.6893</td><td class="num">39</td><td>0.52</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.5253</td><td class="num">22</td><td>0.34</td></tr><tr><td><code>time_since_change</code></td><td class="num">0.5003</td><td class="num">3</td><td>0.01</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">26</td><td class="num">99</td><td>0.84</td></tr><tr><td><code>cognitive_total</code></td><td class="num">120</td><td class="num">99</td><td>0.90</td></tr><tr><td><code>size_loc</code></td><td class="num">285</td><td class="num">84</td><td>0.64</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">19</td><td class="num">57</td><td>0.61</td></tr></tbody></table>
+</div></details></td>
+<td class="num">41.1</td>
+<td><span class="chip moderate">Moderate</span></td>
+<td class="num">0.79</td>
+</tr>
+<tr data-path="source/utils/options.ts" data-band="moderate" data-score="37.5" data-confidence="0.55" data-rank="1">
+<td><details><summary><code>source/utils/options.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.61 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>100% of this file&#39;s historical changes were made by contributors with no commits in the last 180 days (top 6% in this repository).</li><li>Its most complex function has a cyclomatic complexity of 5 (top 15% in this repository).</li><li>19 files depend on this file directly or indirectly (top 43% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li><li>Limited history (2 commits); this estimate may change as history accumulates.</li></ul>
+<h3>Suggested actions</h3><ul><li>Involve a second contributor in the next change to spread familiarity with this file.</li><li>Check dependents before changing this file&#39;s exported interfaces.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: no changes in window</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">1</td><td class="num">94</td><td>0.97</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">5</td><td class="num">85</td><td>0.53</td></tr><tr><td><code>cognitive_total</code></td><td class="num">4</td><td class="num">75</td><td>0.32</td></tr><tr><td><code>size_loc</code></td><td class="num">13</td><td class="num">24</td><td>0.10</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">19</td><td class="num">57</td><td>0.61</td></tr></tbody></table>
+</div></details></td>
+<td class="num">37.5</td>
+<td><span class="chip moderate">Moderate</span> <span class="muted">(limited evidence)</span></td>
+<td class="num">0.55</td>
+</tr>
+<tr data-path="source/utils/normalize.ts" data-band="moderate" data-score="35.4" data-confidence="0.79" data-rank="2">
+<td><details><summary><code>source/utils/normalize.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.61 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>100% of lines changed in the last 365 days came from a single contributor (top 20% in this repository).</li><li>80% of this file&#39;s historical changes were made by contributors with no commits in the last 180 days (top 31% in this repository).</li><li>Its most complex function has a cyclomatic complexity of 6 (top 10% in this repository).</li><li>19 files depend on this file directly or indirectly (top 43% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li></ul>
+<h3>Suggested actions</h3><ul><li>Involve a second contributor in the next change to spread familiarity with this file.</li><li>Check dependents before changing this file&#39;s exported interfaces.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">1</td><td class="num">80</td><td>0.89</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.8036</td><td class="num">69</td><td>0.75</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">6</td><td class="num">90</td><td>0.58</td></tr><tr><td><code>cognitive_total</code></td><td class="num">6</td><td class="num">81</td><td>0.40</td></tr><tr><td><code>size_loc</code></td><td class="num">35</td><td class="num">53</td><td>0.24</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">19</td><td class="num">57</td><td>0.61</td></tr></tbody></table>
+</div></details></td>
+<td class="num">35.4</td>
+<td><span class="chip moderate">Moderate</span></td>
+<td class="num">0.79</td>
+</tr>
+<tr data-path="source/utils/merge.ts" data-band="moderate" data-score="34.6" data-confidence="0.79" data-rank="3">
+<td><details><summary><code>source/utils/merge.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.61 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>Total cognitive complexity is 36 (top 7% in this repository).</li><li>Its most complex function has a cyclomatic complexity of 10 (top 4% in this repository).</li><li>100% of lines changed in the last 365 days came from a single contributor (top 20% in this repository).</li><li>69% of this file&#39;s historical changes were made by contributors with no commits in the last 180 days.</li><li>19 files depend on this file directly or indirectly (top 43% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li></ul>
+<h3>Suggested actions</h3><ul><li>Add or review tests around the most complex functions before changing them.</li><li>Involve a second contributor in the next change to spread familiarity with this file.</li><li>Check dependents before changing this file&#39;s exported interfaces.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">1</td><td class="num">80</td><td>0.89</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.6923</td><td class="num">46</td><td>0.56</td></tr><tr><td><code>time_since_change</code></td><td class="num">140.8714</td><td class="num">31</td><td>0.29</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">10</td><td class="num">96</td><td>0.69</td></tr><tr><td><code>cognitive_total</code></td><td class="num">36</td><td class="num">93</td><td>0.74</td></tr><tr><td><code>size_loc</code></td><td class="num">66</td><td class="num">75</td><td>0.37</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">19</td><td class="num">57</td><td>0.61</td></tr></tbody></table>
+</div></details></td>
+<td class="num">34.6</td>
+<td><span class="chip moderate">Moderate</span></td>
+<td class="num">0.79</td>
+</tr>
+<tr data-path="source/utils/is.ts" data-band="moderate" data-score="34.5" data-confidence="0.47" data-rank="4">
+<td><details><summary><code>source/utils/is.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.74 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>100% of this file&#39;s historical changes were made by contributors with no commits in the last 180 days (top 6% in this repository).</li><li>20 files depend on this file directly or indirectly (top 18% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li><li>Limited history (1 commit); this estimate may change as history accumulates.</li></ul>
+<h3>Suggested actions</h3><ul><li>Involve a second contributor in the next change to spread familiarity with this file.</li><li>Check dependents before changing this file&#39;s exported interfaces.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: no changes in window</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">1</td><td class="num">94</td><td>0.97</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">2</td><td class="num">59</td><td>0.31</td></tr><tr><td><code>cognitive_total</code></td><td class="num">1</td><td class="num">53</td><td>0.14</td></tr><tr><td><code>size_loc</code></td><td class="num">1</td><td class="num">1</td><td>0.01</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">20</td><td class="num">82</td><td>0.74</td></tr></tbody></table>
+</div></details></td>
+<td class="num">34.5</td>
+<td><span class="chip moderate">Moderate</span> <span class="muted">(limited evidence)</span></td>
+<td class="num">0.47</td>
+</tr>
+<tr data-path="source/utils/timeout.ts" data-band="moderate" data-score="31.6" data-confidence="0.79" data-rank="5">
+<td><details><summary><code>source/utils/timeout.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.74 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>86% of this file&#39;s historical changes were made by contributors with no commits in the last 180 days (top 28% in this repository).</li><li>20 files depend on this file directly or indirectly (top 18% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li></ul>
+<h3>Suggested actions</h3><ul><li>Involve a second contributor in the next change to spread familiarity with this file.</li><li>Check dependents before changing this file&#39;s exported interfaces.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: no changes in window</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.8621</td><td class="num">72</td><td>0.79</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">2</td><td class="num">59</td><td>0.31</td></tr><tr><td><code>cognitive_total</code></td><td class="num">3</td><td class="num">68</td><td>0.27</td></tr><tr><td><code>size_loc</code></td><td class="num">27</td><td class="num">40</td><td>0.18</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">20</td><td class="num">82</td><td>0.74</td></tr></tbody></table>
+</div></details></td>
+<td class="num">31.6</td>
+<td><span class="chip moderate">Moderate</span></td>
+<td class="num">0.79</td>
+</tr>
+<tr data-path="source/utils/types.ts" data-band="moderate" data-score="31" data-confidence="0.47" data-rank="6">
+<td><details><summary><code>source/utils/types.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.74 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>100% of this file&#39;s historical changes were made by contributors with no commits in the last 180 days (top 6% in this repository).</li><li>20 files depend on this file directly or indirectly (top 18% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li><li>Limited history (1 commit); this estimate may change as history accumulates.</li></ul>
+<h3>Suggested actions</h3><ul><li>Involve a second contributor in the next change to spread familiarity with this file.</li><li>Check dependents before changing this file&#39;s exported interfaces.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: no changes in window</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">1</td><td class="num">94</td><td>0.97</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">1</td><td class="num">24</td><td>0.15</td></tr><tr><td><code>cognitive_total</code></td><td class="num">0</td><td class="num">24</td><td>0.00</td></tr><tr><td><code>size_loc</code></td><td class="num">6</td><td class="num">13</td><td>0.05</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">20</td><td class="num">82</td><td>0.74</td></tr></tbody></table>
+</div></details></td>
+<td class="num">31.0</td>
+<td><span class="chip moderate">Moderate</span> <span class="muted">(limited evidence)</span></td>
+<td class="num">0.47</td>
+</tr>
+<tr data-path="source/core/constants.ts" data-band="moderate" data-score="30.6" data-confidence="0.79" data-rank="7">
+<td><details><summary><code>source/core/constants.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.61 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>93% of lines changed in the last 365 days came from a single contributor (top 43% in this repository).</li><li>69% of this file&#39;s historical changes were made by contributors with no commits in the last 180 days.</li><li>Its most complex function has a cyclomatic complexity of 7 (top 7% in this repository).</li><li>19 files depend on this file directly or indirectly (top 43% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li></ul>
+<h3>Suggested actions</h3><ul><li>Add or review tests around the most complex functions before changing them.</li><li>Involve a second contributor in the next change to spread familiarity with this file.</li><li>Check dependents before changing this file&#39;s exported interfaces.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">0.931</td><td class="num">57</td><td>0.73</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.6866</td><td class="num">43</td><td>0.54</td></tr><tr><td><code>time_since_change</code></td><td class="num">176.091</td><td class="num">60</td><td>0.44</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">7</td><td class="num">93</td><td>0.62</td></tr><tr><td><code>cognitive_total</code></td><td class="num">9</td><td class="num">84</td><td>0.47</td></tr><tr><td><code>size_loc</code></td><td class="num">75</td><td class="num">78</td><td>0.39</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">19</td><td class="num">57</td><td>0.61</td></tr></tbody></table>
+</div></details></td>
+<td class="num">30.6</td>
+<td><span class="chip moderate">Moderate</span></td>
+<td class="num">0.79</td>
+</tr>
+<tr data-path="source/types/retry.ts" data-band="moderate" data-score="29.4" data-confidence="0.71" data-rank="8">
+<td><details><summary><code>source/types/retry.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.74 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>94% of this file&#39;s historical changes were made by contributors with no commits in the last 180 days (top 13% in this repository).</li><li>20 files depend on this file directly or indirectly (top 18% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li><li>Limited history (4 commits); this estimate may change as history accumulates.</li></ul>
+<h3>Suggested actions</h3><ul><li>Involve a second contributor in the next change to spread familiarity with this file.</li><li>Check dependents before changing this file&#39;s exported interfaces.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: no changes in window</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.9365</td><td class="num">87</td><td>0.90</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">1</td><td class="num">24</td><td>0.15</td></tr><tr><td><code>cognitive_total</code></td><td class="num">0</td><td class="num">24</td><td>0.00</td></tr><tr><td><code>size_loc</code></td><td class="num">16</td><td class="num">28</td><td>0.12</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">20</td><td class="num">82</td><td>0.74</td></tr></tbody></table>
+</div></details></td>
+<td class="num">29.4</td>
+<td><span class="chip moderate">Moderate</span></td>
+<td class="num">0.71</td>
+</tr>
+<tr data-path="source/types/response.ts" data-band="moderate" data-score="28.3" data-confidence="0.79" data-rank="9">
+<td><details><summary><code>source/types/response.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.80 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>100% of lines changed in the last 365 days came from a single contributor (top 20% in this repository).</li><li>88% of this file&#39;s historical changes were made by contributors with no commits in the last 180 days (top 22% in this repository).</li><li>21 files depend on this file directly or indirectly (top 6% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li></ul>
+<h3>Suggested actions</h3><ul><li>Involve a second contributor in the next change to spread familiarity with this file.</li><li>Check dependents before changing this file&#39;s exported interfaces.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">1</td><td class="num">80</td><td>0.89</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.8795</td><td class="num">78</td><td>0.83</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">1</td><td class="num">24</td><td>0.15</td></tr><tr><td><code>cognitive_total</code></td><td class="num">0</td><td class="num">24</td><td>0.00</td></tr><tr><td><code>size_loc</code></td><td class="num">3</td><td class="num">6</td><td>0.02</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">21</td><td class="num">94</td><td>0.80</td></tr></tbody></table>
+</div></details></td>
+<td class="num">28.3</td>
+<td><span class="chip moderate">Moderate</span></td>
+<td class="num">0.79</td>
+</tr>
+<tr data-path="source/types/common.ts" data-band="moderate" data-score="26.2" data-confidence="0.55" data-rank="10">
+<td><details><summary><code>source/types/common.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.74 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>88% of this file&#39;s historical changes were made by contributors with no commits in the last 180 days (top 25% in this repository).</li><li>20 files depend on this file directly or indirectly (top 18% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li><li>Limited history (2 commits); this estimate may change as history accumulates.</li></ul>
+<h3>Suggested actions</h3><ul><li>Involve a second contributor in the next change to spread familiarity with this file.</li><li>Check dependents before changing this file&#39;s exported interfaces.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: no changes in window</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.875</td><td class="num">75</td><td>0.81</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">1</td><td class="num">24</td><td>0.15</td></tr><tr><td><code>cognitive_total</code></td><td class="num">0</td><td class="num">24</td><td>0.00</td></tr><tr><td><code>size_loc</code></td><td class="num">5</td><td class="num">10</td><td>0.04</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">20</td><td class="num">82</td><td>0.74</td></tr></tbody></table>
+</div></details></td>
+<td class="num">26.2</td>
+<td><span class="chip moderate">Moderate</span> <span class="muted">(limited evidence)</span></td>
+<td class="num">0.55</td>
+</tr>
+<tr data-path="source/utils/delay.ts" data-band="moderate" data-score="25.7" data-confidence="0.71" data-rank="11">
+<td><details><summary><code>source/utils/delay.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.61 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>100% of lines changed in the last 365 days came from a single contributor (top 20% in this repository).</li><li>19 files depend on this file directly or indirectly (top 43% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li><li>Limited history (4 commits); this estimate may change as history accumulates.</li></ul>
+<h3>Suggested actions</h3><ul><li>Involve a second contributor in the next change to spread familiarity with this file.</li><li>Check dependents before changing this file&#39;s exported interfaces.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">1</td><td class="num">80</td><td>0.89</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.5965</td><td class="num">34</td><td>0.45</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">2</td><td class="num">59</td><td>0.31</td></tr><tr><td><code>cognitive_total</code></td><td class="num">2</td><td class="num">62</td><td>0.21</td></tr><tr><td><code>size_loc</code></td><td class="num">23</td><td class="num">35</td><td>0.16</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">19</td><td class="num">57</td><td>0.61</td></tr></tbody></table>
+</div></details></td>
+<td class="num">25.7</td>
+<td><span class="chip moderate">Moderate</span></td>
+<td class="num">0.71</td>
+</tr>
+<tr data-path="test/helpers/parse-body.ts" data-band="low" data-score="24.9" data-confidence="0.47" data-rank="12">
+<td><details><summary><code>test/helpers/parse-body.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.29 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>100% of this file&#39;s historical changes were made by contributors with no commits in the last 180 days (top 6% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li><li>Limited history (1 commit); this estimate may change as history accumulates.</li></ul>
+<h3>Suggested actions</h3><ul><li>Involve a second contributor in the next change to spread familiarity with this file.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: no changes in window</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">1</td><td class="num">94</td><td>0.97</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">1</td><td class="num">24</td><td>0.15</td></tr><tr><td><code>cognitive_total</code></td><td class="num">0</td><td class="num">24</td><td>0.00</td></tr><tr><td><code>size_loc</code></td><td class="num">10</td><td class="num">19</td><td>0.08</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">3</td><td class="num">37</td><td>0.29</td></tr></tbody></table>
+</div></details></td>
+<td class="num">24.9</td>
+<td><span class="chip low">Low</span> <span class="muted">(limited evidence)</span></td>
+<td class="num">0.47</td>
+</tr>
+<tr data-path="source/types/ResponsePromise.ts" data-band="low" data-score="24.8" data-confidence="0.71" data-rank="13">
+<td><details><summary><code>source/types/ResponsePromise.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.74 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>100% of lines changed in the last 365 days came from a single contributor (top 20% in this repository).</li><li>72% of this file&#39;s historical changes were made by contributors with no commits in the last 180 days (top 49% in this repository).</li><li>20 files depend on this file directly or indirectly (top 18% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li><li>Limited history (4 commits); this estimate may change as history accumulates.</li></ul>
+<h3>Suggested actions</h3><ul><li>Involve a second contributor in the next change to spread familiarity with this file.</li><li>Check dependents before changing this file&#39;s exported interfaces.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">1</td><td class="num">80</td><td>0.89</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.7193</td><td class="num">51</td><td>0.61</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">1</td><td class="num">24</td><td>0.15</td></tr><tr><td><code>cognitive_total</code></td><td class="num">0</td><td class="num">24</td><td>0.00</td></tr><tr><td><code>size_loc</code></td><td class="num">13</td><td class="num">24</td><td>0.10</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">20</td><td class="num">82</td><td>0.74</td></tr></tbody></table>
+</div></details></td>
+<td class="num">24.8</td>
+<td><span class="chip low">Low</span></td>
+<td class="num">0.71</td>
+</tr>
+<tr data-path="source/types/hooks.ts" data-band="low" data-score="23.6" data-confidence="0.79" data-rank="14">
+<td><details><summary><code>source/types/hooks.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.61 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>88% of this file&#39;s historical changes were made by contributors with no commits in the last 180 days (top 19% in this repository).</li><li>83% of lines changed in the last 365 days came from a single contributor.</li><li>19 files depend on this file directly or indirectly (top 43% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li></ul>
+<h3>Suggested actions</h3><ul><li>Involve a second contributor in the next change to spread familiarity with this file.</li><li>Check dependents before changing this file&#39;s exported interfaces.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">0.8333</td><td class="num">48</td><td>0.63</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.8824</td><td class="num">81</td><td>0.84</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">1</td><td class="num">24</td><td>0.15</td></tr><tr><td><code>cognitive_total</code></td><td class="num">0</td><td class="num">24</td><td>0.00</td></tr><tr><td><code>size_loc</code></td><td class="num">33</td><td class="num">46</td><td>0.21</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">19</td><td class="num">57</td><td>0.61</td></tr></tbody></table>
+</div></details></td>
+<td class="num">23.6</td>
+<td><span class="chip low">Low</span></td>
+<td class="num">0.79</td>
+</tr>
+<tr data-path="source/index.ts" data-band="low" data-score="23.5" data-confidence="0.79" data-rank="15">
+<td><details><summary><code>source/index.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.61 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>91% of lines changed in the last 365 days came from a single contributor (top 48% in this repository).</li><li>19 files depend on this file directly or indirectly (top 43% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li></ul>
+<h3>Suggested actions</h3><ul><li>Check dependents before changing this file&#39;s exported interfaces.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">0.9091</td><td class="num">52</td><td>0.69</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.4696</td><td class="num">16</td><td>0.28</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">3</td><td class="num">76</td><td>0.42</td></tr><tr><td><code>cognitive_total</code></td><td class="num">4</td><td class="num">75</td><td>0.32</td></tr><tr><td><code>size_loc</code></td><td class="num">45</td><td class="num">60</td><td>0.28</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">19</td><td class="num">57</td><td>0.61</td></tr></tbody></table>
+</div></details></td>
+<td class="num">23.5</td>
+<td><span class="chip low">Low</span></td>
+<td class="num">0.79</td>
+</tr>
+<tr data-path="test/helpers/with-page.ts" data-band="low" data-score="23.5" data-confidence="0.79" data-rank="16">
+<td><details><summary><code>test/helpers/with-page.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.24 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>100% of lines changed in the last 365 days came from a single contributor (top 20% in this repository).</li><li>76% of this file&#39;s historical changes were made by contributors with no commits in the last 180 days (top 37% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li></ul>
+<h3>Suggested actions</h3><ul><li>Involve a second contributor in the next change to spread familiarity with this file.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">1</td><td class="num">80</td><td>0.89</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.7639</td><td class="num">63</td><td>0.69</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">2</td><td class="num">59</td><td>0.31</td></tr><tr><td><code>cognitive_total</code></td><td class="num">1</td><td class="num">53</td><td>0.14</td></tr><tr><td><code>size_loc</code></td><td class="num">28</td><td class="num">43</td><td>0.19</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">2</td><td class="num">34</td><td>0.24</td></tr></tbody></table>
+</div></details></td>
+<td class="num">23.5</td>
+<td><span class="chip low">Low</span></td>
+<td class="num">0.79</td>
+</tr>
+<tr data-path="source/types/options.ts" data-band="low" data-score="22.1" data-confidence="0.79" data-rank="17">
+<td><details><summary><code>source/types/options.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.61 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>91% of this file&#39;s historical changes were made by contributors with no commits in the last 180 days (top 16% in this repository).</li><li>19 files depend on this file directly or indirectly (top 43% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li></ul>
+<h3>Suggested actions</h3><ul><li>Involve a second contributor in the next change to spread familiarity with this file.</li><li>Check dependents before changing this file&#39;s exported interfaces.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">0.65</td><td class="num">25</td><td>0.40</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.9132</td><td class="num">84</td><td>0.87</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">1</td><td class="num">24</td><td>0.15</td></tr><tr><td><code>cognitive_total</code></td><td class="num">0</td><td class="num">24</td><td>0.00</td></tr><tr><td><code>size_loc</code></td><td class="num">96</td><td class="num">81</td><td>0.44</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">19</td><td class="num">57</td><td>0.61</td></tr></tbody></table>
+</div></details></td>
+<td class="num">22.1</td>
+<td><span class="chip low">Low</span></td>
+<td class="num">0.79</td>
+</tr>
+<tr data-path="test/helpers/create-http-test-server.ts" data-band="low" data-score="21.5" data-confidence="0.63" data-rank="18">
+<td><details><summary><code>test/helpers/create-http-test-server.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.42 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>72% of this file&#39;s historical changes were made by contributors with no commits in the last 180 days.</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li><li>Limited history (3 commits); this estimate may change as history accumulates.</li></ul>
+<h3>Suggested actions</h3><ul><li>Involve a second contributor in the next change to spread familiarity with this file.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: no changes in window</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.7174</td><td class="num">49</td><td>0.59</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">2</td><td class="num">59</td><td>0.31</td></tr><tr><td><code>cognitive_total</code></td><td class="num">1</td><td class="num">53</td><td>0.14</td></tr><tr><td><code>size_loc</code></td><td class="num">57</td><td class="num">69</td><td>0.33</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">8</td><td class="num">40</td><td>0.42</td></tr></tbody></table>
+</div></details></td>
+<td class="num">21.5</td>
+<td><span class="chip low">Low</span> <span class="muted">(limited evidence)</span></td>
+<td class="num">0.63</td>
+</tr>
+<tr data-path="test/retry.ts" data-band="low" data-score="20.5" data-confidence="0.79" data-rank="19">
+<td><details><summary><code>test/retry.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.00 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>Total cognitive complexity is 45 (top 4% in this repository).</li><li>Contains 530 lines of code (top 7% in this repository).</li><li>70% of lines changed in the last 365 days came from a single contributor.</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li></ul>
+<h3>Suggested actions</h3><ul><li>Add or review tests around the most complex functions before changing them.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">0.6981</td><td class="num">43</td><td>0.55</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.5294</td><td class="num">25</td><td>0.36</td></tr><tr><td><code>time_since_change</code></td><td class="num">127.592</td><td class="num">26</td><td>0.26</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">3</td><td class="num">76</td><td>0.42</td></tr><tr><td><code>cognitive_total</code></td><td class="num">45</td><td class="num">96</td><td>0.78</td></tr><tr><td><code>size_loc</code></td><td class="num">530</td><td class="num">93</td><td>0.77</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">0</td><td class="num">15</td><td>0.00</td></tr></tbody></table>
+</div></details></td>
+<td class="num">20.5</td>
+<td><span class="chip low">Low</span></td>
+<td class="num">0.79</td>
+</tr>
+<tr data-path="test/headers.ts" data-band="low" data-score="20" data-confidence="0.79" data-rank="20">
+<td><details><summary><code>test/headers.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.00 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>100% of lines changed in the last 365 days came from a single contributor (top 20% in this repository).</li><li>78% of this file&#39;s historical changes were made by contributors with no commits in the last 180 days (top 34% in this repository).</li><li>Contains 333 lines of code (top 13% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li></ul>
+<h3>Suggested actions</h3><ul><li>Involve a second contributor in the next change to spread familiarity with this file.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">1</td><td class="num">80</td><td>0.89</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.7785</td><td class="num">66</td><td>0.72</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">1</td><td class="num">24</td><td>0.15</td></tr><tr><td><code>cognitive_total</code></td><td class="num">0</td><td class="num">24</td><td>0.00</td></tr><tr><td><code>size_loc</code></td><td class="num">333</td><td class="num">87</td><td>0.68</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">0</td><td class="num">15</td><td>0.00</td></tr></tbody></table>
+</div></details></td>
+<td class="num">20.0</td>
+<td><span class="chip low">Low</span></td>
+<td class="num">0.79</td>
+</tr>
+<tr data-path="test/hooks.ts" data-band="low" data-score="18.9" data-confidence="0.79" data-rank="21">
+<td><details><summary><code>test/hooks.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.00 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>Contains 566 lines of code (top 4% in this repository).</li><li>Total cognitive complexity is 29 (top 10% in this repository).</li><li>68% of this file&#39;s historical changes were made by contributors with no commits in the last 180 days.</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li></ul>
+<h3>Suggested actions</h3><ul><li>Add or review tests around the most complex functions before changing them.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">0.5</td><td class="num">11</td><td>0.24</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.6839</td><td class="num">40</td><td>0.52</td></tr><tr><td><code>time_since_change</code></td><td class="num">151.8897</td><td class="num">51</td><td>0.39</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">2</td><td class="num">59</td><td>0.31</td></tr><tr><td><code>cognitive_total</code></td><td class="num">29</td><td class="num">90</td><td>0.69</td></tr><tr><td><code>size_loc</code></td><td class="num">566</td><td class="num">96</td><td>0.79</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">0</td><td class="num">15</td><td>0.00</td></tr></tbody></table>
+</div></details></td>
+<td class="num">18.9</td>
+<td><span class="chip low">Low</span></td>
+<td class="num">0.79</td>
+</tr>
+<tr data-path="source/types/request.ts" data-band="low" data-score="18.3" data-confidence="0.79" data-rank="22">
+<td><details><summary><code>source/types/request.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.82 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>68% of this file&#39;s historical changes were made by contributors with no commits in the last 180 days.</li><li>22 files depend on this file directly or indirectly (top 1% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li></ul>
+<h3>Suggested actions</h3><ul><li>Check dependents before changing this file&#39;s exported interfaces.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">0.6625</td><td class="num">30</td><td>0.44</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.6824</td><td class="num">37</td><td>0.50</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">1</td><td class="num">24</td><td>0.15</td></tr><tr><td><code>cognitive_total</code></td><td class="num">0</td><td class="num">24</td><td>0.00</td></tr><tr><td><code>size_loc</code></td><td class="num">48</td><td class="num">63</td><td>0.30</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">22</td><td class="num">99</td><td>0.82</td></tr></tbody></table>
+</div></details></td>
+<td class="num">18.3</td>
+<td><span class="chip low">Low</span></td>
+<td class="num">0.79</td>
+</tr>
+<tr data-path="test/main.ts" data-band="low" data-score="17.9" data-confidence="0.79" data-rank="23">
+<td><details><summary><code>test/main.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.00 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>Contains 693 lines of code (top 1% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li></ul>
+<h3>Suggested actions</h3><p class="muted">No specific action is suggested.</p>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0.0284</td><td class="num">99</td><td>0.17</td></tr><tr><td><code>commits_recent</code></td><td class="num">1</td><td class="num">96</td><td>0.40</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">0.4398</td><td class="num">2</td><td>0.10</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.4408</td><td class="num">13</td><td>0.24</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">3</td><td class="num">76</td><td>0.42</td></tr><tr><td><code>cognitive_total</code></td><td class="num">3</td><td class="num">68</td><td>0.27</td></tr><tr><td><code>size_loc</code></td><td class="num">693</td><td class="num">99</td><td>0.83</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">0</td><td class="num">15</td><td>0.00</td></tr></tbody></table>
+</div></details></td>
+<td class="num">17.9</td>
+<td><span class="chip low">Low</span></td>
+<td class="num">0.79</td>
+</tr>
+<tr data-path="test/browser.ts" data-band="low" data-score="17.8" data-confidence="0.79" data-rank="24">
+<td><details><summary><code>test/browser.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.00 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>Contains 398 lines of code (top 10% in this repository).</li><li>73% of this file&#39;s historical changes were made by contributors with no commits in the last 180 days (top 46% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li></ul>
+<h3>Suggested actions</h3><ul><li>Add or review tests around the most complex functions before changing them.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">0.497</td><td class="num">7</td><td>0.18</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.7304</td><td class="num">54</td><td>0.63</td></tr><tr><td><code>time_since_change</code></td><td class="num">145.7706</td><td class="num">37</td><td>0.32</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">3</td><td class="num">76</td><td>0.42</td></tr><tr><td><code>cognitive_total</code></td><td class="num">10</td><td class="num">87</td><td>0.50</td></tr><tr><td><code>size_loc</code></td><td class="num">398</td><td class="num">90</td><td>0.72</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">0</td><td class="num">15</td><td>0.00</td></tr></tbody></table>
+</div></details></td>
+<td class="num">17.8</td>
+<td><span class="chip low">Low</span></td>
+<td class="num">0.79</td>
+</tr>
+<tr data-path="source/errors/HTTPError.ts" data-band="low" data-score="17.4" data-confidence="0.79" data-rank="25">
+<td><details><summary><code>source/errors/HTTPError.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.61 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>Its most complex function has a cyclomatic complexity of 5 (top 15% in this repository).</li><li>19 files depend on this file directly or indirectly (top 43% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li></ul>
+<h3>Suggested actions</h3><ul><li>Check dependents before changing this file&#39;s exported interfaces.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">0.5385</td><td class="num">16</td><td>0.29</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.4043</td><td class="num">10</td><td>0.20</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">5</td><td class="num">85</td><td>0.53</td></tr><tr><td><code>cognitive_total</code></td><td class="num">4</td><td class="num">75</td><td>0.32</td></tr><tr><td><code>size_loc</code></td><td class="num">19</td><td class="num">31</td><td>0.14</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">19</td><td class="num">57</td><td>0.61</td></tr></tbody></table>
+</div></details></td>
+<td class="num">17.4</td>
+<td><span class="chip low">Low</span></td>
+<td class="num">0.79</td>
+</tr>
+<tr data-path="source/types/ky.ts" data-band="low" data-score="17.1" data-confidence="0.79" data-rank="26">
+<td><details><summary><code>source/types/ky.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.61 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>76% of this file&#39;s historical changes were made by contributors with no commits in the last 180 days (top 40% in this repository).</li><li>19 files depend on this file directly or indirectly (top 43% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li></ul>
+<h3>Suggested actions</h3><ul><li>Involve a second contributor in the next change to spread familiarity with this file.</li><li>Check dependents before changing this file&#39;s exported interfaces.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">0.5429</td><td class="num">20</td><td>0.33</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.7628</td><td class="num">60</td><td>0.68</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">1</td><td class="num">24</td><td>0.15</td></tr><tr><td><code>cognitive_total</code></td><td class="num">0</td><td class="num">24</td><td>0.00</td></tr><tr><td><code>size_loc</code></td><td class="num">34</td><td class="num">49</td><td>0.22</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">19</td><td class="num">57</td><td>0.61</td></tr></tbody></table>
+</div></details></td>
+<td class="num">17.1</td>
+<td><span class="chip low">Low</span></td>
+<td class="num">0.79</td>
+</tr>
+<tr data-path="source/errors/TimeoutError.ts" data-band="low" data-score="15.4" data-confidence="0.71" data-rank="27">
+<td><details><summary><code>source/errors/TimeoutError.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.80 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>21 files depend on this file directly or indirectly (top 6% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li><li>Limited history (4 commits); this estimate may change as history accumulates.</li></ul>
+<h3>Suggested actions</h3><ul><li>Check dependents before changing this file&#39;s exported interfaces.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">0.6667</td><td class="num">34</td><td>0.48</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.5333</td><td class="num">28</td><td>0.39</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">1</td><td class="num">24</td><td>0.15</td></tr><tr><td><code>cognitive_total</code></td><td class="num">0</td><td class="num">24</td><td>0.00</td></tr><tr><td><code>size_loc</code></td><td class="num">9</td><td class="num">16</td><td>0.07</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">21</td><td class="num">94</td><td>0.80</td></tr></tbody></table>
+</div></details></td>
+<td class="num">15.4</td>
+<td><span class="chip low">Low</span></td>
+<td class="num">0.71</td>
+</tr>
+<tr data-path="test/methods.ts" data-band="low" data-score="15.4" data-confidence="0.63" data-rank="28">
+<td><details><summary><code>test/methods.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.00 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>74% of this file&#39;s historical changes were made by contributors with no commits in the last 180 days (top 43% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li><li>Limited history (3 commits); this estimate may change as history accumulates.</li></ul>
+<h3>Suggested actions</h3><ul><li>Involve a second contributor in the next change to spread familiarity with this file.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: no changes in window</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.7375</td><td class="num">57</td><td>0.65</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">1</td><td class="num">24</td><td>0.15</td></tr><tr><td><code>cognitive_total</code></td><td class="num">0</td><td class="num">24</td><td>0.00</td></tr><tr><td><code>size_loc</code></td><td class="num">51</td><td class="num">66</td><td>0.31</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">0</td><td class="num">15</td><td>0.00</td></tr></tbody></table>
+</div></details></td>
+<td class="num">15.4</td>
+<td><span class="chip low">Low</span> <span class="muted">(limited evidence)</span></td>
+<td class="num">0.63</td>
+</tr>
+<tr data-path="test/http-error.ts" data-band="low" data-score="15.2" data-confidence="0.79" data-rank="29">
+<td><details><summary><code>test/http-error.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.00 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>100% of lines changed in the last 365 days came from a single contributor (top 20% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li></ul>
+<h3>Suggested actions</h3><ul><li>Involve a second contributor in the next change to spread familiarity with this file.</li></ul>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">1</td><td class="num">80</td><td>0.89</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.5417</td><td class="num">31</td><td>0.41</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">1</td><td class="num">24</td><td>0.15</td></tr><tr><td><code>cognitive_total</code></td><td class="num">0</td><td class="num">24</td><td>0.00</td></tr><tr><td><code>size_loc</code></td><td class="num">42</td><td class="num">57</td><td>0.27</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">0</td><td class="num">15</td><td>0.00</td></tr></tbody></table>
+</div></details></td>
+<td class="num">15.2</td>
+<td><span class="chip low">Low</span></td>
+<td class="num">0.79</td>
+</tr>
+<tr data-path="test/helpers/with-performance.ts" data-band="low" data-score="14.7" data-confidence="0.47" data-rank="30">
+<td><details><summary><code>test/helpers/with-performance.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.17 · bs-risk@0.1.0</p>
+<h3>Why</h3><ul><li>100% of lines changed in the last 365 days came from a single contributor (top 20% in this repository).</li></ul>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li><li>Limited history (1 commit); this estimate may change as history accumulates.</li></ul>
+<h3>Suggested actions</h3><p class="muted">No specific action is suggested.</p>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">1</td><td class="num">80</td><td>0.89</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0</td><td class="num">1</td><td>0.00</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">2</td><td class="num">59</td><td>0.31</td></tr><tr><td><code>cognitive_total</code></td><td class="num">1</td><td class="num">53</td><td>0.14</td></tr><tr><td><code>size_loc</code></td><td class="num">23</td><td class="num">35</td><td>0.16</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">1</td><td class="num">31</td><td>0.17</td></tr></tbody></table>
+</div></details></td>
+<td class="num">14.7</td>
+<td><span class="chip low">Low</span> <span class="muted">(limited evidence)</span></td>
+<td class="num">0.47</td>
+</tr>
+<tr data-path="test/fetch.ts" data-band="low" data-score="11.7" data-confidence="0.79" data-rank="31">
+<td><details><summary><code>test/fetch.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.00 · bs-risk@0.1.0</p>
+<h3>Why</h3><p class="muted">No individual signal stands out for this file.</p>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li></ul>
+<h3>Suggested actions</h3><p class="muted">No specific action is suggested.</p>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: no changes in window</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.4821</td><td class="num">19</td><td>0.30</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">2</td><td class="num">59</td><td>0.31</td></tr><tr><td><code>cognitive_total</code></td><td class="num">2</td><td class="num">62</td><td>0.21</td></tr><tr><td><code>size_loc</code></td><td class="num">65</td><td class="num">72</td><td>0.36</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">0</td><td class="num">15</td><td>0.00</td></tr></tbody></table>
+</div></details></td>
+<td class="num">11.7</td>
+<td><span class="chip low">Low</span></td>
+<td class="num">0.79</td>
+</tr>
+<tr data-path="test/prefix-url.ts" data-band="low" data-score="4.5" data-confidence="0.79" data-rank="32">
+<td><details><summary><code>test/prefix-url.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.00 · bs-risk@0.1.0</p>
+<h3>Why</h3><p class="muted">No individual signal stands out for this file.</p>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li></ul>
+<h3>Suggested actions</h3><p class="muted">No specific action is suggested.</p>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: no changes in window</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.3295</td><td class="num">4</td><td>0.12</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">1</td><td class="num">24</td><td>0.15</td></tr><tr><td><code>cognitive_total</code></td><td class="num">0</td><td class="num">24</td><td>0.00</td></tr><tr><td><code>size_loc</code></td><td class="num">35</td><td class="num">53</td><td>0.24</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">0</td><td class="num">15</td><td>0.00</td></tr></tbody></table>
+</div></details></td>
+<td class="num">4.5</td>
+<td><span class="chip low">Low</span></td>
+<td class="num">0.79</td>
+</tr>
+<tr data-path="test/helpers/index.ts" data-band="low" data-score="4.4" data-confidence="0.55" data-rank="33">
+<td><details><summary><code>test/helpers/index.ts</code></summary><div class="detail">
+<p class="muted">typescript · impact 0.00 · bs-risk@0.1.0</p>
+<h3>Why</h3><p class="muted">No individual signal stands out for this file.</p>
+<h3>Limitations</h3><ul><li>Review evidence not assessed: review data is not available in local mode.</li><li>Limited history (2 commits); this estimate may change as history accumulates.</li></ul>
+<h3>Suggested actions</h3><p class="muted">No specific action is suggested.</p>
+<h3>Signals</h3>
+<table class="signals"><thead><tr><th scope="col">Signal</th><th scope="col" class="num">Raw</th><th scope="col" class="num">Percentile</th><th scope="col">Normalized or status</th></tr></thead>
+<tbody><tr><td><code>churn_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>commits_recent</code></td><td class="num">0</td><td class="num">47</td><td>0.00</td></tr><tr><td><code>ownership_concentration</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: no changes in window</td></tr><tr><td><code>inactive_knowledge</code></td><td class="num">0.3333</td><td class="num">7</td><td>0.16</td></tr><tr><td><code>time_since_change</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>cyclomatic_max</code></td><td class="num">1</td><td class="num">24</td><td>0.15</td></tr><tr><td><code>cognitive_total</code></td><td class="num">0</td><td class="num">24</td><td>0.00</td></tr><tr><td><code>size_loc</code></td><td class="num">3</td><td class="num">6</td><td>0.02</td></tr><tr><td><code>unreviewed_change_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">missing: not available locally</td></tr><tr><td><code>ai_attributed_unreviewed_share</code></td><td class="num">—</td><td class="num">—</td><td class="muted">not applicable</td></tr><tr><td><code>fan_in_transitive</code></td><td class="num">0</td><td class="num">15</td><td>0.00</td></tr></tbody></table>
+</div></details></td>
+<td class="num">4.4</td>
+<td><span class="chip low">Low</span> <span class="muted">(limited evidence)</span></td>
+<td class="num">0.55</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</section>
+</main>
+<footer>
+<p>The attention index sorts files by complexity, change pressure, knowledge concentration and impact, relative to other files in this repository. In Blindspot's validation study it ranked files that later received bug fixes below file size alone, so it is not a prediction of defects. It is not a measure of code quality or of any developer.</p>
+</footer>
+<script>
+(() => {
+  const table = document.getElementById("files-table");
+  if (!table) return;
+  const controls = document.getElementById("file-controls");
+  const search = document.getElementById("file-search");
+  const band = document.getElementById("band-filter");
+  const status = document.getElementById("file-status");
+  const body = table.tBodies[0];
+  const rows = Array.from(body.rows);
+  controls.hidden = false;
+  const apply = () => {
+    const query = search.value.trim().toLowerCase();
+    let shown = 0;
+    for (const row of rows) {
+      const visible = (!query || row.dataset.path.toLowerCase().includes(query)) && (!band.value || row.dataset.band === band.value);
+      row.hidden = !visible;
+      if (visible) shown++;
+    }
+    status.textContent = shown + " of " + rows.length + " files shown";
+  };
+  search.addEventListener("input", apply);
+  band.addEventListener("change", apply);
+  for (const button of table.querySelectorAll("th button[data-sort]")) {
+    button.addEventListener("click", () => {
+      const key = button.dataset.sort;
+      const header = button.closest("th");
+      const ascending = header.getAttribute("aria-sort") === "descending";
+      for (const th of table.querySelectorAll("th[aria-sort]")) th.setAttribute("aria-sort", "none");
+      header.setAttribute("aria-sort", ascending ? "ascending" : "descending");
+      const value = (row) => (key === "path" ? row.dataset.path : Number(row.dataset[key]));
+      rows.sort((a, b) => {
+        const x = value(a);
+        const y = value(b);
+        const order = x < y ? -1 : x > y ? 1 : Number(a.dataset.rank) - Number(b.dataset.rank);
+        return ascending ? order : -order;
+      });
+      for (const row of rows) body.appendChild(row);
+    });
+  }
+  apply();
+})();
+</script>
+</body>
+</html>

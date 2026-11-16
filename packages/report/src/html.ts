@@ -195,7 +195,7 @@ ${BAND_ORDER.map((b) => `<li><span class="chip ${b}">${e(BAND_LABEL[b])}</span> 
 </ul>
 </section>
 ${list("warnings-heading", "Warnings", result.warnings)}
-${list("notes-heading", "About these scores", result.notes)}
+${list("notes-heading", "About the attention index", result.notes)}
 <section id="files" aria-labelledby="files-heading">
 <h2 id="files-heading">Files</h2>
 ${shown.length === 0 ? `<p class="muted">No files were analyzed. Check the excluded counts above, or adjust <code>include</code>, <code>exclude</code> and <code>extensions</code> in <code>blindspot.config.json</code>.</p>` : filesTable(shown)}

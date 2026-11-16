@@ -1,0 +1,4563 @@
+{
+  "schemaVersion": 1,
+  "toolVersion": "0.1.0",
+  "modelVersion": "bs-risk@0.1.0",
+  "asOf": "2024-12-18T13:40:07.000Z",
+  "repository": {
+    "headCommit": "4a427011ad7b4ab98bb5f02ecaa5375fba5addca",
+    "shallow": false
+  },
+  "configHash": "sha256:f145fd0698db28ff0b8029ed19c7c921b11f661aed42589968469bf299126b4a",
+  "coverage": {
+    "trackedFiles": 49,
+    "analyzedFiles": 34,
+    "excludedFiles": 15,
+    "excludedByReason": {
+      "extension": 15
+    },
+    "commitsRead": 352,
+    "historyTruncated": false,
+    "incomplete": false
+  },
+  "notes": [
+    "The attention index sorts files by complexity, change pressure, knowledge concentration and impact relative to other files in this repository. In Blindspot's validation study it ranked files that later received bug fixes below file size alone, so it is not a prediction of defects. It is not comparable across repositories and is not a measure of any developer.",
+    "Review evidence is not available in local mode, so it is reported as missing rather than counted against any file.",
+    "No explicit AI provenance markers were found. This does not mean the code was written without AI assistance."
+  ],
+  "warnings": [],
+  "files": [
+    {
+      "path": "source/core/Ky.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 41.1,
+      "band": "moderate",
+      "confidence": 0.79,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0.613,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.3436,
+          "contribution": 0.1145
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.2876,
+          "contribution": 0.0959
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.8264,
+          "contribution": 0.2755
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0.0263,
+          "percentile": 0.9559,
+          "normalized": 0.1566
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 2,
+          "percentile": 0.9853,
+          "normalized": 0.5306
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "observed",
+          "raw": 0.6893,
+          "percentile": 0.3864,
+          "normalized": 0.516
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.5253,
+          "percentile": 0.2206,
+          "normalized": 0.3404
+        },
+        {
+          "id": "time_since_change",
+          "status": "observed",
+          "raw": 0.5003,
+          "percentile": 0.0294,
+          "normalized": 0.0063
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 26,
+          "percentile": 0.9853,
+          "normalized": 0.8436
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 120,
+          "percentile": 0.9853,
+          "normalized": 0.903
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 285,
+          "percentile": 0.8382,
+          "normalized": 0.639
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 19,
+          "percentile": 0.5735,
+          "normalized": 0.613
+        }
+      ],
+      "explanations": [
+        "Total cognitive complexity is 120 (top 1% in this repository).",
+        "Its most complex function has a cyclomatic complexity of 26 (top 1% in this repository).",
+        "Contains 285 lines of code (top 16% in this repository).",
+        "Changed in 2 commits in the last 90 days (top 1% in this repository).",
+        "69% of lines changed in the last 365 days came from a single contributor.",
+        "19 files depend on this file directly or indirectly (top 43% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode."
+      ],
+      "actions": [
+        "Add or review tests around the most complex functions before changing them.",
+        "Check dependents before changing this file's exported interfaces."
+      ]
+    },
+    {
+      "path": "source/core/constants.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 30.6,
+      "band": "moderate",
+      "confidence": 0.79,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0.613,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.5705,
+          "contribution": 0.1902
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.5144,
+          "contribution": 0.1715
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "observed",
+          "raw": 0.931,
+          "percentile": 0.5682,
+          "normalized": 0.7273
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.6866,
+          "percentile": 0.4265,
+          "normalized": 0.5411
+        },
+        {
+          "id": "time_since_change",
+          "status": "observed",
+          "raw": 176.091,
+          "percentile": 0.6029,
+          "normalized": 0.443
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 7,
+          "percentile": 0.9265,
+          "normalized": 0.6176
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 9,
+          "percentile": 0.8382,
+          "normalized": 0.471
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 75,
+          "percentile": 0.7794,
+          "normalized": 0.3948
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 19,
+          "percentile": 0.5735,
+          "normalized": 0.613
+        }
+      ],
+      "explanations": [
+        "93% of lines changed in the last 365 days came from a single contributor (top 43% in this repository).",
+        "69% of this file's historical changes were made by contributors with no commits in the last 180 days.",
+        "Its most complex function has a cyclomatic complexity of 7 (top 7% in this repository).",
+        "19 files depend on this file directly or indirectly (top 43% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode."
+      ],
+      "actions": [
+        "Add or review tests around the most complex functions before changing them.",
+        "Involve a second contributor in the next change to spread familiarity with this file.",
+        "Check dependents before changing this file's exported interfaces."
+      ]
+    },
+    {
+      "path": "source/errors/HTTPError.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 17.4,
+      "band": "low",
+      "confidence": 0.79,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0.613,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.2483,
+          "contribution": 0.0828
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.3691,
+          "contribution": 0.123
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "observed",
+          "raw": 0.5385,
+          "percentile": 0.1591,
+          "normalized": 0.2927
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.4043,
+          "percentile": 0.1029,
+          "normalized": 0.204
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 5,
+          "percentile": 0.8529,
+          "normalized": 0.5332
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 4,
+          "percentile": 0.75,
+          "normalized": 0.3216
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 19,
+          "percentile": 0.3088,
+          "normalized": 0.1356
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 19,
+          "percentile": 0.5735,
+          "normalized": 0.613
+        }
+      ],
+      "explanations": [
+        "Its most complex function has a cyclomatic complexity of 5 (top 15% in this repository).",
+        "19 files depend on this file directly or indirectly (top 43% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode."
+      ],
+      "actions": [
+        "Check dependents before changing this file's exported interfaces."
+      ]
+    },
+    {
+      "path": "source/errors/TimeoutError.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 15.4,
+      "band": "low",
+      "confidence": 0.71,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0.7985,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.4314,
+          "contribution": 0.1438
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.0722,
+          "contribution": 0.0241
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "observed",
+          "raw": 0.6667,
+          "percentile": 0.3409,
+          "normalized": 0.4767
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.5333,
+          "percentile": 0.2794,
+          "normalized": 0.386
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.2353,
+          "normalized": 0.1463
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.2353,
+          "normalized": 0
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 9,
+          "percentile": 0.1618,
+          "normalized": 0.0686
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 21,
+          "percentile": 0.9412,
+          "normalized": 0.7985
+        }
+      ],
+      "explanations": [
+        "21 files depend on this file directly or indirectly (top 6% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode.",
+        "Limited history (4 commits); this estimate may change as history accumulates."
+      ],
+      "actions": [
+        "Check dependents before changing this file's exported interfaces."
+      ]
+    },
+    {
+      "path": "source/index.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 23.5,
+      "band": "low",
+      "confidence": 0.79,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0.613,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.4825,
+          "contribution": 0.1608
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.3528,
+          "contribution": 0.1176
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "observed",
+          "raw": 0.9091,
+          "percentile": 0.5227,
+          "normalized": 0.6894
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.4696,
+          "percentile": 0.1618,
+          "normalized": 0.2756
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 3,
+          "percentile": 0.7647,
+          "normalized": 0.4201
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 4,
+          "percentile": 0.75,
+          "normalized": 0.3216
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 45,
+          "percentile": 0.6029,
+          "normalized": 0.2804
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 19,
+          "percentile": 0.5735,
+          "normalized": 0.613
+        }
+      ],
+      "explanations": [
+        "91% of lines changed in the last 365 days came from a single contributor (top 48% in this repository).",
+        "19 files depend on this file directly or indirectly (top 43% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode."
+      ],
+      "actions": [
+        "Check dependents before changing this file's exported interfaces."
+      ]
+    },
+    {
+      "path": "source/types/ResponsePromise.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 24.8,
+      "band": "low",
+      "confidence": 0.71,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0.741,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.7502,
+          "contribution": 0.2501
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.0783,
+          "contribution": 0.0261
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.7955,
+          "normalized": 0.8919
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.7193,
+          "percentile": 0.5147,
+          "normalized": 0.6085
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.2353,
+          "normalized": 0.1463
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.2353,
+          "normalized": 0
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 13,
+          "percentile": 0.2353,
+          "normalized": 0.0989
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 20,
+          "percentile": 0.8235,
+          "normalized": 0.741
+        }
+      ],
+      "explanations": [
+        "100% of lines changed in the last 365 days came from a single contributor (top 20% in this repository).",
+        "72% of this file's historical changes were made by contributors with no commits in the last 180 days (top 49% in this repository).",
+        "20 files depend on this file directly or indirectly (top 18% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode.",
+        "Limited history (4 commits); this estimate may change as history accumulates."
+      ],
+      "actions": [
+        "Involve a second contributor in the next change to spread familiarity with this file.",
+        "Check dependents before changing this file's exported interfaces."
+      ]
+    },
+    {
+      "path": "source/types/common.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 26.2,
+      "band": "moderate",
+      "confidence": 0.55,
+      "limitedEvidence": true,
+      "impact": {
+        "value": 0.741,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.8101,
+          "contribution": 0.27
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.0667,
+          "contribution": 0.0222
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "missing",
+          "reason": "no_changes_in_window"
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.875,
+          "percentile": 0.75,
+          "normalized": 0.8101
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.2353,
+          "normalized": 0.1463
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.2353,
+          "normalized": 0
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 5,
+          "percentile": 0.1029,
+          "normalized": 0.0411
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 20,
+          "percentile": 0.8235,
+          "normalized": 0.741
+        }
+      ],
+      "explanations": [
+        "88% of this file's historical changes were made by contributors with no commits in the last 180 days (top 25% in this repository).",
+        "20 files depend on this file directly or indirectly (top 18% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode.",
+        "Limited history (2 commits); this estimate may change as history accumulates."
+      ],
+      "actions": [
+        "Involve a second contributor in the next change to spread familiarity with this file.",
+        "Check dependents before changing this file's exported interfaces."
+      ]
+    },
+    {
+      "path": "source/types/hooks.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 23.6,
+      "band": "low",
+      "confidence": 0.79,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0.613,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.7377,
+          "contribution": 0.2459
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.101,
+          "contribution": 0.0337
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "observed",
+          "raw": 0.8333,
+          "percentile": 0.4773,
+          "normalized": 0.6307
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.8824,
+          "percentile": 0.8088,
+          "normalized": 0.8448
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.2353,
+          "normalized": 0.1463
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.2353,
+          "normalized": 0
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 33,
+          "percentile": 0.4559,
+          "normalized": 0.2126
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 19,
+          "percentile": 0.5735,
+          "normalized": 0.613
+        }
+      ],
+      "explanations": [
+        "88% of this file's historical changes were made by contributors with no commits in the last 180 days (top 19% in this repository).",
+        "83% of lines changed in the last 365 days came from a single contributor.",
+        "19 files depend on this file directly or indirectly (top 43% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode."
+      ],
+      "actions": [
+        "Involve a second contributor in the next change to spread familiarity with this file.",
+        "Check dependents before changing this file's exported interfaces."
+      ]
+    },
+    {
+      "path": "source/types/ky.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 17.1,
+      "band": "low",
+      "confidence": 0.79,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0.613,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.5057,
+          "contribution": 0.1686
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.103,
+          "contribution": 0.0343
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "observed",
+          "raw": 0.5429,
+          "percentile": 0.2045,
+          "normalized": 0.3332
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.7628,
+          "percentile": 0.6029,
+          "normalized": 0.6782
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.2353,
+          "normalized": 0.1463
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.2353,
+          "normalized": 0
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 34,
+          "percentile": 0.4853,
+          "normalized": 0.2223
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 19,
+          "percentile": 0.5735,
+          "normalized": 0.613
+        }
+      ],
+      "explanations": [
+        "76% of this file's historical changes were made by contributors with no commits in the last 180 days (top 40% in this repository).",
+        "19 files depend on this file directly or indirectly (top 43% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode."
+      ],
+      "actions": [
+        "Involve a second contributor in the next change to spread familiarity with this file.",
+        "Check dependents before changing this file's exported interfaces."
+      ]
+    },
+    {
+      "path": "source/types/options.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 22.1,
+      "band": "low",
+      "confidence": 0.79,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0.613,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.639,
+          "contribution": 0.213
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.1471,
+          "contribution": 0.049
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "observed",
+          "raw": 0.65,
+          "percentile": 0.25,
+          "normalized": 0.4031
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.9132,
+          "percentile": 0.8382,
+          "normalized": 0.8749
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.2353,
+          "normalized": 0.1463
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.2353,
+          "normalized": 0
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 96,
+          "percentile": 0.8088,
+          "normalized": 0.4428
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 19,
+          "percentile": 0.5735,
+          "normalized": 0.613
+        }
+      ],
+      "explanations": [
+        "91% of this file's historical changes were made by contributors with no commits in the last 180 days (top 16% in this repository).",
+        "19 files depend on this file directly or indirectly (top 43% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode."
+      ],
+      "actions": [
+        "Involve a second contributor in the next change to spread familiarity with this file.",
+        "Check dependents before changing this file's exported interfaces."
+      ]
+    },
+    {
+      "path": "source/types/request.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 18.3,
+      "band": "low",
+      "confidence": 0.79,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0.823,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.4716,
+          "contribution": 0.1572
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.1176,
+          "contribution": 0.0392
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "observed",
+          "raw": 0.6625,
+          "percentile": 0.2955,
+          "normalized": 0.4424
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.6824,
+          "percentile": 0.3676,
+          "normalized": 0.5009
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.2353,
+          "normalized": 0.1463
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.2353,
+          "normalized": 0
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 48,
+          "percentile": 0.6324,
+          "normalized": 0.2953
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 22,
+          "percentile": 0.9853,
+          "normalized": 0.823
+        }
+      ],
+      "explanations": [
+        "68% of this file's historical changes were made by contributors with no commits in the last 180 days.",
+        "22 files depend on this file directly or indirectly (top 1% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode."
+      ],
+      "actions": [
+        "Check dependents before changing this file's exported interfaces."
+      ]
+    },
+    {
+      "path": "source/types/response.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 28.3,
+      "band": "moderate",
+      "confidence": 0.79,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0.7985,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.8599,
+          "contribution": 0.2866
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.0633,
+          "contribution": 0.0211
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.7955,
+          "normalized": 0.8919
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.8795,
+          "percentile": 0.7794,
+          "normalized": 0.828
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.2353,
+          "normalized": 0.1463
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.2353,
+          "normalized": 0
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 3,
+          "percentile": 0.0588,
+          "normalized": 0.0241
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 21,
+          "percentile": 0.9412,
+          "normalized": 0.7985
+        }
+      ],
+      "explanations": [
+        "100% of lines changed in the last 365 days came from a single contributor (top 20% in this repository).",
+        "88% of this file's historical changes were made by contributors with no commits in the last 180 days (top 22% in this repository).",
+        "21 files depend on this file directly or indirectly (top 6% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode."
+      ],
+      "actions": [
+        "Involve a second contributor in the next change to spread familiarity with this file.",
+        "Check dependents before changing this file's exported interfaces."
+      ]
+    },
+    {
+      "path": "source/types/retry.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 29.4,
+      "band": "moderate",
+      "confidence": 0.71,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0.741,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.9014,
+          "contribution": 0.3005
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.0823,
+          "contribution": 0.0274
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "missing",
+          "reason": "no_changes_in_window"
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.9365,
+          "percentile": 0.8676,
+          "normalized": 0.9014
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.2353,
+          "normalized": 0.1463
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.2353,
+          "normalized": 0
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 16,
+          "percentile": 0.2794,
+          "normalized": 0.1189
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 20,
+          "percentile": 0.8235,
+          "normalized": 0.741
+        }
+      ],
+      "explanations": [
+        "94% of this file's historical changes were made by contributors with no commits in the last 180 days (top 13% in this repository).",
+        "20 files depend on this file directly or indirectly (top 18% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode.",
+        "Limited history (4 commits); this estimate may change as history accumulates."
+      ],
+      "actions": [
+        "Involve a second contributor in the next change to spread familiarity with this file.",
+        "Check dependents before changing this file's exported interfaces."
+      ]
+    },
+    {
+      "path": "source/utils/delay.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 25.7,
+      "band": "moderate",
+      "confidence": 0.71,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0.613,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.6705,
+          "contribution": 0.2235
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.2425,
+          "contribution": 0.0808
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.7955,
+          "normalized": 0.8919
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.5965,
+          "percentile": 0.3382,
+          "normalized": 0.4492
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 2,
+          "percentile": 0.5882,
+          "normalized": 0.3131
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 2,
+          "percentile": 0.6176,
+          "normalized": 0.2139
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 23,
+          "percentile": 0.3529,
+          "normalized": 0.1585
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 19,
+          "percentile": 0.5735,
+          "normalized": 0.613
+        }
+      ],
+      "explanations": [
+        "100% of lines changed in the last 365 days came from a single contributor (top 20% in this repository).",
+        "19 files depend on this file directly or indirectly (top 43% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode.",
+        "Limited history (4 commits); this estimate may change as history accumulates."
+      ],
+      "actions": [
+        "Involve a second contributor in the next change to spread familiarity with this file.",
+        "Check dependents before changing this file's exported interfaces."
+      ]
+    },
+    {
+      "path": "source/utils/is.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 34.5,
+      "band": "moderate",
+      "confidence": 0.47,
+      "limitedEvidence": true,
+      "impact": {
+        "value": 0.741,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.9701,
+          "contribution": 0.3234
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.1837,
+          "contribution": 0.0612
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "missing",
+          "reason": "no_changes_in_window"
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.9412,
+          "normalized": 0.9701
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 2,
+          "percentile": 0.5882,
+          "normalized": 0.3131
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.5294,
+          "normalized": 0.1427
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.0147,
+          "normalized": 0.007
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 20,
+          "percentile": 0.8235,
+          "normalized": 0.741
+        }
+      ],
+      "explanations": [
+        "100% of this file's historical changes were made by contributors with no commits in the last 180 days (top 6% in this repository).",
+        "20 files depend on this file directly or indirectly (top 18% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode.",
+        "Limited history (1 commit); this estimate may change as history accumulates."
+      ],
+      "actions": [
+        "Involve a second contributor in the next change to spread familiarity with this file.",
+        "Check dependents before changing this file's exported interfaces."
+      ]
+    },
+    {
+      "path": "source/utils/merge.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 34.6,
+      "band": "moderate",
+      "confidence": 0.79,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0.613,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.5823,
+          "contribution": 0.1941
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.6459,
+          "contribution": 0.2153
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.7955,
+          "normalized": 0.8919
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.6923,
+          "percentile": 0.4559,
+          "normalized": 0.5618
+        },
+        {
+          "id": "time_since_change",
+          "status": "observed",
+          "raw": 140.8714,
+          "percentile": 0.3088,
+          "normalized": 0.2933
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 10,
+          "percentile": 0.9559,
+          "normalized": 0.6913
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 36,
+          "percentile": 0.9265,
+          "normalized": 0.7394
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 66,
+          "percentile": 0.75,
+          "normalized": 0.3678
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 19,
+          "percentile": 0.5735,
+          "normalized": 0.613
+        }
+      ],
+      "explanations": [
+        "Total cognitive complexity is 36 (top 7% in this repository).",
+        "Its most complex function has a cyclomatic complexity of 10 (top 4% in this repository).",
+        "100% of lines changed in the last 365 days came from a single contributor (top 20% in this repository).",
+        "69% of this file's historical changes were made by contributors with no commits in the last 180 days.",
+        "19 files depend on this file directly or indirectly (top 43% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode."
+      ],
+      "actions": [
+        "Add or review tests around the most complex functions before changing them.",
+        "Involve a second contributor in the next change to spread familiarity with this file.",
+        "Check dependents before changing this file's exported interfaces."
+      ]
+    },
+    {
+      "path": "source/utils/normalize.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 35.4,
+      "band": "moderate",
+      "confidence": 0.79,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0.613,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.8186,
+          "contribution": 0.2729
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.4373,
+          "contribution": 0.1458
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.7955,
+          "normalized": 0.8919
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.8036,
+          "percentile": 0.6912,
+          "normalized": 0.7453
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 6,
+          "percentile": 0.8971,
+          "normalized": 0.58
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 6,
+          "percentile": 0.8088,
+          "normalized": 0.3957
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 35,
+          "percentile": 0.5294,
+          "normalized": 0.2352
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 19,
+          "percentile": 0.5735,
+          "normalized": 0.613
+        }
+      ],
+      "explanations": [
+        "100% of lines changed in the last 365 days came from a single contributor (top 20% in this repository).",
+        "80% of this file's historical changes were made by contributors with no commits in the last 180 days (top 31% in this repository).",
+        "Its most complex function has a cyclomatic complexity of 6 (top 10% in this repository).",
+        "19 files depend on this file directly or indirectly (top 43% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode."
+      ],
+      "actions": [
+        "Involve a second contributor in the next change to spread familiarity with this file.",
+        "Check dependents before changing this file's exported interfaces."
+      ]
+    },
+    {
+      "path": "source/utils/options.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 37.5,
+      "band": "moderate",
+      "confidence": 0.55,
+      "limitedEvidence": true,
+      "impact": {
+        "value": 0.613,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.9701,
+          "contribution": 0.3234
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.3617,
+          "contribution": 0.1206
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "missing",
+          "reason": "no_changes_in_window"
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.9412,
+          "normalized": 0.9701
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 5,
+          "percentile": 0.8529,
+          "normalized": 0.5332
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 4,
+          "percentile": 0.75,
+          "normalized": 0.3216
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 13,
+          "percentile": 0.2353,
+          "normalized": 0.0989
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 19,
+          "percentile": 0.5735,
+          "normalized": 0.613
+        }
+      ],
+      "explanations": [
+        "100% of this file's historical changes were made by contributors with no commits in the last 180 days (top 6% in this repository).",
+        "Its most complex function has a cyclomatic complexity of 5 (top 15% in this repository).",
+        "19 files depend on this file directly or indirectly (top 43% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode.",
+        "Limited history (2 commits); this estimate may change as history accumulates."
+      ],
+      "actions": [
+        "Involve a second contributor in the next change to spread familiarity with this file.",
+        "Check dependents before changing this file's exported interfaces."
+      ]
+    },
+    {
+      "path": "source/utils/timeout.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 31.6,
+      "band": "moderate",
+      "confidence": 0.79,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0.741,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.7882,
+          "contribution": 0.2627
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.2691,
+          "contribution": 0.0897
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "missing",
+          "reason": "no_changes_in_window"
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.8621,
+          "percentile": 0.7206,
+          "normalized": 0.7882
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 2,
+          "percentile": 0.5882,
+          "normalized": 0.3131
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 3,
+          "percentile": 0.6765,
+          "normalized": 0.2692
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 27,
+          "percentile": 0.3971,
+          "normalized": 0.1811
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 20,
+          "percentile": 0.8235,
+          "normalized": 0.741
+        }
+      ],
+      "explanations": [
+        "86% of this file's historical changes were made by contributors with no commits in the last 180 days (top 28% in this repository).",
+        "20 files depend on this file directly or indirectly (top 18% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode."
+      ],
+      "actions": [
+        "Involve a second contributor in the next change to spread familiarity with this file.",
+        "Check dependents before changing this file's exported interfaces."
+      ]
+    },
+    {
+      "path": "source/utils/types.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 31,
+      "band": "moderate",
+      "confidence": 0.47,
+      "limitedEvidence": true,
+      "impact": {
+        "value": 0.741,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.9701,
+          "contribution": 0.3234
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.0687,
+          "contribution": 0.0229
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "missing",
+          "reason": "no_changes_in_window"
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.9412,
+          "normalized": 0.9701
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.2353,
+          "normalized": 0.1463
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.2353,
+          "normalized": 0
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 6,
+          "percentile": 0.1324,
+          "normalized": 0.0509
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 20,
+          "percentile": 0.8235,
+          "normalized": 0.741
+        }
+      ],
+      "explanations": [
+        "100% of this file's historical changes were made by contributors with no commits in the last 180 days (top 6% in this repository).",
+        "20 files depend on this file directly or indirectly (top 18% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode.",
+        "Limited history (1 commit); this estimate may change as history accumulates."
+      ],
+      "actions": [
+        "Involve a second contributor in the next change to spread familiarity with this file.",
+        "Check dependents before changing this file's exported interfaces."
+      ]
+    },
+    {
+      "path": "test/browser.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 17.8,
+      "band": "low",
+      "confidence": 0.79,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.3795,
+          "contribution": 0.1265
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.5102,
+          "contribution": 0.1701
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "observed",
+          "raw": 0.497,
+          "percentile": 0.0682,
+          "normalized": 0.1841
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.7304,
+          "percentile": 0.5441,
+          "normalized": 0.6304
+        },
+        {
+          "id": "time_since_change",
+          "status": "observed",
+          "raw": 145.7706,
+          "percentile": 0.3676,
+          "normalized": 0.3239
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 3,
+          "percentile": 0.7647,
+          "normalized": 0.4201
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 10,
+          "percentile": 0.8676,
+          "normalized": 0.4979
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 398,
+          "percentile": 0.8971,
+          "normalized": 0.7152
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.1471,
+          "normalized": 0
+        }
+      ],
+      "explanations": [
+        "Contains 398 lines of code (top 10% in this repository).",
+        "73% of this file's historical changes were made by contributors with no commits in the last 180 days (top 46% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode."
+      ],
+      "actions": [
+        "Add or review tests around the most complex functions before changing them."
+      ]
+    },
+    {
+      "path": "test/fetch.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 11.7,
+      "band": "low",
+      "confidence": 0.79,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.3036,
+          "contribution": 0.1012
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.2824,
+          "contribution": 0.0941
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "missing",
+          "reason": "no_changes_in_window"
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.4821,
+          "percentile": 0.1912,
+          "normalized": 0.3036
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 2,
+          "percentile": 0.5882,
+          "normalized": 0.3131
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 2,
+          "percentile": 0.6176,
+          "normalized": 0.2139
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 65,
+          "percentile": 0.7206,
+          "normalized": 0.3582
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.1471,
+          "normalized": 0
+        }
+      ],
+      "explanations": [],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode."
+      ],
+      "actions": []
+    },
+    {
+      "path": "test/headers.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 20,
+      "band": "low",
+      "confidence": 0.79,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.8048,
+          "contribution": 0.2683
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.1936,
+          "contribution": 0.0645
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.7955,
+          "normalized": 0.8919
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.7785,
+          "percentile": 0.6618,
+          "normalized": 0.7178
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.2353,
+          "normalized": 0.1463
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.2353,
+          "normalized": 0
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 333,
+          "percentile": 0.8676,
+          "normalized": 0.6756
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.1471,
+          "normalized": 0
+        }
+      ],
+      "explanations": [
+        "100% of lines changed in the last 365 days came from a single contributor (top 20% in this repository).",
+        "78% of this file's historical changes were made by contributors with no commits in the last 180 days (top 34% in this repository).",
+        "Contains 333 lines of code (top 13% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode."
+      ],
+      "actions": [
+        "Involve a second contributor in the next change to spread familiarity with this file."
+      ]
+    },
+    {
+      "path": "test/helpers/create-http-test-server.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 21.5,
+      "band": "low",
+      "confidence": 0.63,
+      "limitedEvidence": true,
+      "impact": {
+        "value": 0.4201,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.59,
+          "contribution": 0.1967
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.2488,
+          "contribution": 0.0829
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "missing",
+          "reason": "no_changes_in_window"
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.7174,
+          "percentile": 0.4853,
+          "normalized": 0.59
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 2,
+          "percentile": 0.5882,
+          "normalized": 0.3131
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.5294,
+          "normalized": 0.1427
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 57,
+          "percentile": 0.6912,
+          "normalized": 0.3322
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 8,
+          "percentile": 0.3971,
+          "normalized": 0.4201
+        }
+      ],
+      "explanations": [
+        "72% of this file's historical changes were made by contributors with no commits in the last 180 days."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode.",
+        "Limited history (3 commits); this estimate may change as history accumulates."
+      ],
+      "actions": [
+        "Involve a second contributor in the next change to spread familiarity with this file."
+      ]
+    },
+    {
+      "path": "test/helpers/index.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 4.4,
+      "band": "low",
+      "confidence": 0.55,
+      "limitedEvidence": true,
+      "impact": {
+        "value": 0,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.1566,
+          "contribution": 0.0522
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.0633,
+          "contribution": 0.0211
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "missing",
+          "reason": "no_changes_in_window"
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.3333,
+          "percentile": 0.0735,
+          "normalized": 0.1566
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.2353,
+          "normalized": 0.1463
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.2353,
+          "normalized": 0
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 3,
+          "percentile": 0.0588,
+          "normalized": 0.0241
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.1471,
+          "normalized": 0
+        }
+      ],
+      "explanations": [],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode.",
+        "Limited history (2 commits); this estimate may change as history accumulates."
+      ],
+      "actions": []
+    },
+    {
+      "path": "test/helpers/parse-body.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 24.9,
+      "band": "low",
+      "confidence": 0.47,
+      "limitedEvidence": true,
+      "impact": {
+        "value": 0.2913,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.9701,
+          "contribution": 0.3234
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.0742,
+          "contribution": 0.0247
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "missing",
+          "reason": "no_changes_in_window"
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.9412,
+          "normalized": 0.9701
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.2353,
+          "normalized": 0.1463
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.2353,
+          "normalized": 0
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 10,
+          "percentile": 0.1912,
+          "normalized": 0.0785
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 3,
+          "percentile": 0.3676,
+          "normalized": 0.2913
+        }
+      ],
+      "explanations": [
+        "100% of this file's historical changes were made by contributors with no commits in the last 180 days (top 6% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode.",
+        "Limited history (1 commit); this estimate may change as history accumulates."
+      ],
+      "actions": [
+        "Involve a second contributor in the next change to spread familiarity with this file."
+      ]
+    },
+    {
+      "path": "test/helpers/with-page.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 23.5,
+      "band": "low",
+      "confidence": 0.79,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0.2374,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.7934,
+          "contribution": 0.2645
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.2205,
+          "contribution": 0.0735
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.7955,
+          "normalized": 0.8919
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.7639,
+          "percentile": 0.6324,
+          "normalized": 0.695
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 2,
+          "percentile": 0.5882,
+          "normalized": 0.3131
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.5294,
+          "normalized": 0.1427
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 28,
+          "percentile": 0.4265,
+          "normalized": 0.1908
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 2,
+          "percentile": 0.3382,
+          "normalized": 0.2374
+        }
+      ],
+      "explanations": [
+        "100% of lines changed in the last 365 days came from a single contributor (top 20% in this repository).",
+        "76% of this file's historical changes were made by contributors with no commits in the last 180 days (top 37% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode."
+      ],
+      "actions": [
+        "Involve a second contributor in the next change to spread familiarity with this file."
+      ]
+    },
+    {
+      "path": "test/helpers/with-performance.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 14.7,
+      "band": "low",
+      "confidence": 0.47,
+      "limitedEvidence": true,
+      "impact": {
+        "value": 0.1676,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.4459,
+          "contribution": 0.1486
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.214,
+          "contribution": 0.0713
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.7955,
+          "normalized": 0.8919
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.0147,
+          "normalized": 0
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 2,
+          "percentile": 0.5882,
+          "normalized": 0.3131
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.5294,
+          "normalized": 0.1427
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 23,
+          "percentile": 0.3529,
+          "normalized": 0.1585
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.3088,
+          "normalized": 0.1676
+        }
+      ],
+      "explanations": [
+        "100% of lines changed in the last 365 days came from a single contributor (top 20% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode.",
+        "Limited history (1 commit); this estimate may change as history accumulates."
+      ],
+      "actions": []
+    },
+    {
+      "path": "test/hooks.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 18.9,
+      "band": "low",
+      "confidence": 0.79,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.3828,
+          "contribution": 0.1276
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.561,
+          "contribution": 0.187
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "observed",
+          "raw": 0.5,
+          "percentile": 0.1136,
+          "normalized": 0.2384
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.6839,
+          "percentile": 0.3971,
+          "normalized": 0.5211
+        },
+        {
+          "id": "time_since_change",
+          "status": "observed",
+          "raw": 151.8897,
+          "percentile": 0.5147,
+          "normalized": 0.3889
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 2,
+          "percentile": 0.5882,
+          "normalized": 0.3131
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 29,
+          "percentile": 0.8971,
+          "normalized": 0.6941
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 566,
+          "percentile": 0.9559,
+          "normalized": 0.7904
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.1471,
+          "normalized": 0
+        }
+      ],
+      "explanations": [
+        "Contains 566 lines of code (top 4% in this repository).",
+        "Total cognitive complexity is 29 (top 10% in this repository).",
+        "68% of this file's historical changes were made by contributors with no commits in the last 180 days."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode."
+      ],
+      "actions": [
+        "Add or review tests around the most complex functions before changing them."
+      ]
+    },
+    {
+      "path": "test/http-error.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 15.2,
+      "band": "low",
+      "confidence": 0.79,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.6504,
+          "contribution": 0.2168
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.1116,
+          "contribution": 0.0372
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.7955,
+          "normalized": 0.8919
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.5417,
+          "percentile": 0.3088,
+          "normalized": 0.409
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.2353,
+          "normalized": 0.1463
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.2353,
+          "normalized": 0
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 42,
+          "percentile": 0.5735,
+          "normalized": 0.2654
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.1471,
+          "normalized": 0
+        }
+      ],
+      "explanations": [
+        "100% of lines changed in the last 365 days came from a single contributor (top 20% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode."
+      ],
+      "actions": [
+        "Involve a second contributor in the next change to spread familiarity with this file."
+      ]
+    },
+    {
+      "path": "test/main.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 17.9,
+      "band": "low",
+      "confidence": 0.79,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.2821,
+          "contribution": 0.094
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.1708,
+          "contribution": 0.0569
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.4416,
+          "contribution": 0.1472
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0.0284,
+          "percentile": 0.9853,
+          "normalized": 0.1651
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.9559,
+          "normalized": 0.3991
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "observed",
+          "raw": 0.4398,
+          "percentile": 0.0227,
+          "normalized": 0.1
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.4408,
+          "percentile": 0.1324,
+          "normalized": 0.2415
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 3,
+          "percentile": 0.7647,
+          "normalized": 0.4201
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 3,
+          "percentile": 0.6765,
+          "normalized": 0.2692
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 693,
+          "percentile": 0.9853,
+          "normalized": 0.8292
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.1471,
+          "normalized": 0
+        }
+      ],
+      "explanations": [
+        "Contains 693 lines of code (top 1% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode."
+      ],
+      "actions": []
+    },
+    {
+      "path": "test/methods.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 15.4,
+      "band": "low",
+      "confidence": 0.63,
+      "limitedEvidence": true,
+      "impact": {
+        "value": 0,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.6504,
+          "contribution": 0.2168
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.1205,
+          "contribution": 0.0402
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "missing",
+          "reason": "no_changes_in_window"
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.7375,
+          "percentile": 0.5735,
+          "normalized": 0.6504
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.2353,
+          "normalized": 0.1463
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.2353,
+          "normalized": 0
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 51,
+          "percentile": 0.6618,
+          "normalized": 0.3101
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.1471,
+          "normalized": 0
+        }
+      ],
+      "explanations": [
+        "74% of this file's historical changes were made by contributors with no commits in the last 180 days (top 43% in this repository)."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode.",
+        "Limited history (3 commits); this estimate may change as history accumulates."
+      ],
+      "actions": [
+        "Involve a second contributor in the next change to spread familiarity with this file."
+      ]
+    },
+    {
+      "path": "test/prefix-url.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 4.5,
+      "band": "low",
+      "confidence": 0.79,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.1206,
+          "contribution": 0.0402
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.1055,
+          "contribution": 0.0352
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "missing",
+          "reason": "no_changes_in_window"
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.3295,
+          "percentile": 0.0441,
+          "normalized": 0.1206
+        },
+        {
+          "id": "time_since_change",
+          "status": "not_applicable",
+          "note": "Time since last change only counts toward risk for files with above-average complexity."
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 1,
+          "percentile": 0.2353,
+          "normalized": 0.1463
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.2353,
+          "normalized": 0
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 35,
+          "percentile": 0.5294,
+          "normalized": 0.2352
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.1471,
+          "normalized": 0
+        }
+      ],
+      "explanations": [],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode."
+      ],
+      "actions": []
+    },
+    {
+      "path": "test/retry.ts",
+      "language": "typescript",
+      "modelVersion": "bs-risk@0.1.0",
+      "score": 20.5,
+      "band": "low",
+      "confidence": 0.79,
+      "limitedEvidence": false,
+      "impact": {
+        "value": 0,
+        "status": "observed"
+      },
+      "groups": [
+        {
+          "id": "changePressure",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0,
+          "contribution": 0
+        },
+        {
+          "id": "knowledge",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.3916,
+          "contribution": 0.1305
+        },
+        {
+          "id": "complexity",
+          "weight": 0.25,
+          "status": "observed",
+          "value": 0.6354,
+          "contribution": 0.2118
+        },
+        {
+          "id": "review",
+          "weight": 0.2,
+          "status": "missing",
+          "value": null,
+          "contribution": null
+        },
+        {
+          "id": "provenance",
+          "weight": 0.05,
+          "status": "not_applicable",
+          "value": null,
+          "contribution": null
+        }
+      ],
+      "signals": [
+        {
+          "id": "churn_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "commits_recent",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.4706,
+          "normalized": 0
+        },
+        {
+          "id": "ownership_concentration",
+          "status": "observed",
+          "raw": 0.6981,
+          "percentile": 0.4318,
+          "normalized": 0.5491
+        },
+        {
+          "id": "inactive_knowledge",
+          "status": "observed",
+          "raw": 0.5294,
+          "percentile": 0.25,
+          "normalized": 0.3638
+        },
+        {
+          "id": "time_since_change",
+          "status": "observed",
+          "raw": 127.592,
+          "percentile": 0.2647,
+          "normalized": 0.2618
+        },
+        {
+          "id": "cyclomatic_max",
+          "status": "observed",
+          "raw": 3,
+          "percentile": 0.7647,
+          "normalized": 0.4201
+        },
+        {
+          "id": "cognitive_total",
+          "status": "observed",
+          "raw": 45,
+          "percentile": 0.9559,
+          "normalized": 0.7839
+        },
+        {
+          "id": "size_loc",
+          "status": "observed",
+          "raw": 530,
+          "percentile": 0.9265,
+          "normalized": 0.7692
+        },
+        {
+          "id": "unreviewed_change_share",
+          "status": "missing",
+          "reason": "not_available_locally"
+        },
+        {
+          "id": "ai_attributed_unreviewed_share",
+          "status": "not_applicable",
+          "note": "No explicit AI provenance markers in recent changes. This does not mean the code was written without AI assistance."
+        },
+        {
+          "id": "fan_in_transitive",
+          "status": "observed",
+          "raw": 0,
+          "percentile": 0.1471,
+          "normalized": 0
+        }
+      ],
+      "explanations": [
+        "Total cognitive complexity is 45 (top 4% in this repository).",
+        "Contains 530 lines of code (top 7% in this repository).",
+        "70% of lines changed in the last 365 days came from a single contributor."
+      ],
+      "limitations": [
+        "Review evidence not assessed: review data is not available in local mode."
+      ],
+      "actions": [
+        "Add or review tests around the most complex functions before changing them."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+name: Release
+
+# Manual only. Builds and smoke-tests the package on Linux and Windows, requires both
+# tarballs to be byte-identical, then publishes that tarball with npm provenance.
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: "Publish to npm (leave off for a dry run)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  build:
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm check
+      - name: Refuse the placeholder package name
+        run: |
+          if grep -q '"@your-npm-scope/blindspot"' release.json; then
+            echo "::error::Set the npm package name in release.json before releasing."
+            exit 1
+          fi
+      - run: pnpm release:pack | tee pack.log
+      - run: pnpm release:smoke release/*.tgz
+      - name: Record the tarball hash
+        run: grep '^sha256:' pack.log | cut -d' ' -f2 > release/${{ runner.os }}.sha256
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: release-${{ runner.os }}
+          path: |
+            release/*.tgz
+            release/*.sha256
+          if-no-files-found: error
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: npm
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          pattern: release-*
+          path: artifacts
+      - name: Require identical tarballs from Linux and Windows
+        run: |
+          linux=$(cat artifacts/release-Linux/Linux.sha256)
+          windows=$(cat artifacts/release-Windows/Windows.sha256)
+          echo "Linux:   $linux"
+          echo "Windows: $windows"
+          test -n "$linux" && test "$linux" = "$windows"
+          echo "$linux  $(ls artifacts/release-Linux/*.tgz)" | sha256sum --check
+      - name: Publish
+        env:
+          PUBLISH: ${{ inputs.publish }}
+        run: |
+          tarball=$(ls artifacts/release-Linux/*.tgz)
+          if [ "$PUBLISH" = "true" ]; then
+            npm publish "$tarball" --provenance --access public
+          else
+            npm publish "$tarball" --provenance --access public --dry-run
+          fi

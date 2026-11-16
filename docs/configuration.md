@@ -8,7 +8,7 @@ Blindspot reads configuration from, in order:
 
 If none exists, the defaults below apply.
 
-Configuration is **JSON only**. A `.js` or `.ts` config would run code from the repository being analyzed (see [ADR 0003](decisions/0003-json-only-config.md)). Unknown keys are rejected so typos are caught. A repository config that is a symbolic link is refused. Run `blindspot schema config` for the JSON Schema.
+Configuration is **JSON only**. A `.js` or `.ts` config would run code from the repository being analyzed (see [ADR 0003](decisions/0003-json-only-config.md)). Unknown keys are rejected so typos are caught. A repository config that is a symbolic link is refused. Run `blindspot schema config` for the JSON Schema. The optional `$schema` key may point at a saved copy of it, so editors can offer completion. Blindspot ignores its value.
 
 ```json
 {

@@ -7,3 +7,6 @@ coverage
 # Generated research outputs are kept byte-for-byte as the pipeline writes them
 research/results/
 research/labels/
+
+# Sample reports are kept byte for byte as scripts/samples.js writes them
+docs/samples/

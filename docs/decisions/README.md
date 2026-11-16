@@ -12,3 +12,4 @@ Short records of decisions that are costly to reverse. Format: context → decis
 | [0006](0006-cli-first-release.md)          | Ship the local CLI (Stages 1–2) as v0.1 before hosted work                | Accepted |
 | [0007](0007-github-only-auth.md)           | GitHub is the only sign-in method                                         | Accepted |
 | [0008](0008-descriptive-not-predictive.md) | Present the score as a descriptive attention index, not a risk prediction | Accepted |
+| [0009](0009-release-the-cli-alone.md)      | Release the CLI on its own, as one reproducible npm package               | Accepted |
