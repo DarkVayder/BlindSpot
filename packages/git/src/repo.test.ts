@@ -1,5 +1,5 @@
 import { execFileSync } from "node:child_process";
-import { existsSync, rmSync } from "node:fs";
+import { existsSync, realpathSync, rmSync } from "node:fs";
 import path from "node:path";
 import { afterAll, describe, expect, it } from "vitest";
 import { readLog } from "./log.js";
@@ -42,7 +42,7 @@ describe("openRepository", () => {
     r.write("src/a.ts", "export const a = 1;\n");
     const head = r.commit("first", "2026-03-01T12:00:00Z");
     const opened = await openRepository(r.path("src"), T);
-    expect(opened.root).toBe(path.resolve(r.root));
+    expect(opened.root).toBe(realpathSync.native(r.root));
     expect(opened.head).toBe(head);
     expect(opened.headCommittedAt).toBe(Date.parse("2026-03-01T12:00:00Z") / 1000);
   });

@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, rmSync } from "node:fs";
+import { existsSync, mkdirSync, realpathSync, rmSync } from "node:fs";
 import path from "node:path";
 import { GitError, runGit } from "@blindspot/git";
 import type { DatasetRepository } from "./dataset.js";
@@ -28,7 +28,7 @@ export async function fetchRepository(repo: DatasetRepository, options: FetchOpt
       cwd: dir,
       timeoutMs: options.timeoutMs,
     }).catch(() => "");
-    if (path.resolve(top.trim()) !== path.resolve(dir)) {
+    if (!samePath(top.trim(), dir)) {
       throw new GitError("not_a_repository", `${dir} exists but is not a clone. Remove it and fetch again.`);
     }
     const origin = (
@@ -123,4 +123,11 @@ async function withRetry<T>(
       await new Promise((resolve) => setTimeout(resolve, options.retryDelayMs * attempt));
     }
   }
+}
+
+// git reports long paths, but a path can arrive in another form, such as a Windows 8.3
+// short name (C:\Users\RUNNER~1). Compare canonical paths, not strings.
+function samePath(a: string, b: string): boolean {
+  if (a === "" || !existsSync(a) || !existsSync(b)) return false;
+  return realpathSync.native(path.resolve(a)) === realpathSync.native(path.resolve(b));
 }

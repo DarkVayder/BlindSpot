@@ -70,6 +70,25 @@ Developer Mode is on.
   [docs/decisions](docs/decisions/README.md).
 - Update the relevant doc in the same change as the code.
 
+## Branches and rulesets
+
+`dev` is the working branch and the repository's default. `main` receives changes from `dev`
+by pull request and is what gets released. Release tags are named `v<version>`.
+
+The repository's rulesets are kept as JSON in [.github/rulesets](.github/rulesets). GitHub
+does not read these files by itself: import each one under **Settings → Rules → Rulesets →
+New ruleset → Import a ruleset**, and re-import after changing it.
+
+| Ruleset             | Applies to | Rules                                                                                                                                      |
+| ------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `dev.json`          | `dev`      | No deletion, no force-push. Direct pushes are allowed.                                                                                     |
+| `main.json`         | `main`     | No deletion, no force-push. Changes only by pull request, with resolved review threads and both CI checks passing on an up-to-date branch. |
+| `release-tags.json` | `v*` tags  | No deletion and no moving a tag once pushed, so a published version always points at the commit that was built.                            |
+
+No one can bypass these rules, including administrators. The CI checks are bound to GitHub
+Actions, so only a check reported by Actions can satisfy them. To change a rule, edit its
+file and re-import it, so the repository and its documented settings stay the same.
+
 ## Releasing
 
 1. Update `CHANGELOG.md` and the version in `packages/cli/package.json`.

@@ -9,3 +9,14 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 5
+    groups:
+      minor-and-patch:
+        update-types: [minor, patch]
+    ignore:
+      # The package supports Node.js 24 (engines), so its types must not describe a newer Node.
+      - dependency-name: "@types/node"
+        update-types: [version-update:semver-major]
+      # TypeScript 7 drops the JavaScript compiler API the complexity analyzer uses and is not
+      # supported by typescript-eslint, so majors are upgraded deliberately, not automatically.
+      - dependency-name: typescript
+        update-types: [version-update:semver-major]
