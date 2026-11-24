@@ -26,6 +26,6 @@
     "@blindspot/core": "workspace:*",
     "@blindspot/engine": "workspace:*",
     "@blindspot/report": "workspace:*",
-    "commander": "^15.0.0"
+    "commander": "^15.1.0"
   }
 }
