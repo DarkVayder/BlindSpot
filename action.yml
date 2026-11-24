@@ -1,0 +1,44 @@
+name: Blindspot
+description: Map the complexity, change pressure and knowledge concentration of every file, and compare pull requests with their base. Runs locally on the runner.
+author: Rabiu Muhammad
+branding:
+  icon: eye
+  color: blue
+
+inputs:
+  path:
+    description: Repository, or any directory inside it, to analyze.
+    default: "."
+  config:
+    description: Configuration file. Defaults to blindspot.config.json at the repository root.
+    default: ""
+  fail-on:
+    description: >-
+      Fail the step when files reach a band. One of high, elevated, moderate (any ranked file
+      at or above that band), or new-high, new-elevated, new-moderate (only files that moved
+      there since the pull request's base). Empty means never fail.
+    default: ""
+  top:
+    description: Number of files to list in each summary table (1 to 100).
+    default: "10"
+  report-dir:
+    description: Directory, relative to the workspace, for blindspot.json and blindspot.html.
+    default: blindspot-report
+
+outputs:
+  report-json:
+    description: Path of the JSON report.
+  report-html:
+    description: Path of the standalone HTML report.
+  ranked-files:
+    description: Number of files with enough evidence to be ranked.
+  elevated-files:
+    description: Number of ranked files at or above Elevated.
+  newly-elevated-files:
+    description: Number of files that moved to Elevated or above since the pull request's base. Empty when there was nothing to compare.
+  gate:
+    description: passed, failed or off.
+
+runs:
+  using: node24
+  main: packages/action/bundle/index.mjs

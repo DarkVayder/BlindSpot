@@ -15,17 +15,18 @@ Developer Mode is on.
 
 ## Layout
 
-| Path                 | What it is                                                                                     |
-| -------------------- | ---------------------------------------------------------------------------------------------- |
-| `packages/core`      | Schemas (config, evidence, results), the scoring model, glob matching and report comparison.   |
-| `packages/git`       | The hardened git runner, the streaming log parser, file listing and blob reading.              |
-| `packages/analyzers` | File selection, binary and generated detection, TS/JS complexity and the import graph.         |
-| `packages/engine`    | Composes git, analyzers and core into one `AnalysisResult`, and loads configuration.           |
-| `packages/report`    | Terminal, JSON and standalone HTML output, with escaping for hostile names.                    |
-| `packages/cli`       | The `blindspot` command. This is what gets published, bundled with everything above.           |
-| `packages/research`  | The Stage 2 validation pipeline. Development only, never published.                            |
-| `scripts/`           | `release.js` builds the npm package; `smoke-test.js` checks it after installation.             |
-| `docs/`              | Architecture, threat model, scoring model, research protocol and report, and decision records. |
+| Path                 | What it is                                                                                                           |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `packages/core`      | Schemas (config, evidence, results), the scoring model, glob matching and report comparison.                         |
+| `packages/git`       | The hardened git runner, the streaming log parser, file listing and blob reading.                                    |
+| `packages/analyzers` | File selection, binary and generated detection, TS/JS complexity and the import graph.                               |
+| `packages/engine`    | Composes git, analyzers and core into one `AnalysisResult`, and loads configuration.                                 |
+| `packages/report`    | Terminal, JSON and standalone HTML output, with escaping for hostile names.                                          |
+| `packages/cli`       | The `blindspot` command. This is what gets published, bundled with everything above.                                 |
+| `packages/action`    | The GitHub Action. `scripts/action-build.js` bundles it into `packages/action/bundle/index.mjs`, which is committed. |
+| `packages/research`  | The Stage 2 validation pipeline. Development only, never published.                                                  |
+| `scripts/`           | `release.js` builds the npm package; `smoke-test.js` checks it after installation.                                   |
+| `docs/`              | Architecture, threat model, scoring model, research protocol and report, and decision records.                       |
 
 [docs/architecture.md](docs/architecture.md) explains how the pieces fit together.
 
@@ -59,6 +60,8 @@ Developer Mode is on.
   review the diff.
 - `docs/cli.md`, `docs/configuration.md` and the package README are checked against the
   CLI's real options, exit codes and configuration schema. Update them in the same change.
+- After changing code the action bundles, run `pnpm action:build` and commit
+  `packages/action/bundle`. CI fails if the committed bundle differs from a fresh build.
 - Repository hygiene tests reject invisible control, bidi and BOM characters anywhere in
   the source and docs.
 

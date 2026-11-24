@@ -32,6 +32,8 @@ Once the package is published, `npx <package-name> analyze .` will do the same w
 
 ### In CI
 
+Use the [GitHub Action](docs/github-action.md): it writes a job summary on every pull request and compares it with the commit it branched from. To run the CLI yourself instead:
+
 Run the analysis on full history (`fetch-depth: 0` with `actions/checkout`). On a shallow clone, every file reports insufficient evidence. To fail only when a change moves files into a higher band, keep a JSON report from your main branch as a baseline:
 
 ```bash
@@ -67,7 +69,7 @@ Blindspot runs entirely on your machine. It makes no network requests, collects 
 
 ## Documentation
 
-- [CLI reference](docs/cli.md) and [configuration reference](docs/configuration.md)
+- [CLI reference](docs/cli.md), [configuration reference](docs/configuration.md) and [GitHub Action](docs/github-action.md)
 - [Scoring model](docs/scoring-model.md), [research report](docs/research-report.md) and [research protocol](docs/research-protocol.md)
 - [Architecture](docs/architecture.md) and [threat model](docs/threat-model.md)
 - [Decision records](docs/decisions/README.md), [stage plan](docs/stage-plan.md) and [blockers](docs/blockers.md)

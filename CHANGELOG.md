@@ -19,6 +19,9 @@ First release.
   files newly at or above a band.
 - `blindspot init` for a starter `blindspot.config.json`, and `blindspot schema` for the
   configuration and report JSON Schemas.
+- A GitHub Action (`DarkVayder/BlindSpot`) that writes a job summary, compares a pull request
+  with the commit it branched from, and can gate on `fail-on`. It runs self-contained on the
+  runner with no token or network.
 
 ### Notes
 

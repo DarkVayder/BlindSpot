@@ -36,6 +36,24 @@ importers:
         specifier: ^5.0.5
         version: 5.0.5(@types/node@24.19.2)(vite@8.3.5(@types/node@24.19.2)(esbuild@0.28.2))
 
+  packages/action:
+    dependencies:
+      '@blindspot/cli':
+        specifier: workspace:*
+        version: link:../cli
+      '@blindspot/core':
+        specifier: workspace:*
+        version: link:../core
+      '@blindspot/engine':
+        specifier: workspace:*
+        version: link:../engine
+      '@blindspot/git':
+        specifier: workspace:*
+        version: link:../git
+      '@blindspot/report':
+        specifier: workspace:*
+        version: link:../report
+
   packages/analyzers:
     dependencies:
       '@blindspot/core':

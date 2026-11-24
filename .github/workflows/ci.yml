@@ -37,4 +37,39 @@ jobs:
       - run: pnpm release:pack
       - run: pnpm release:smoke release/*.tgz
         shell: bash
+      - name: Check the action bundle matches the source
+        shell: bash
+        run: |
+          node scripts/action-build.js
+          git diff --exit-code -- packages/action/bundle
       - run: pnpm audit --prod --audit-level high
+
+  # Runs the committed action bundle against this repository, the way users run it.
+  action:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - id: blindspot
+        uses: ./
+        with:
+          top: "5"
+      - name: Check the outputs
+        shell: bash
+        env:
+          REPORT_JSON: ${{ steps.blindspot.outputs.report-json }}
+          REPORT_HTML: ${{ steps.blindspot.outputs.report-html }}
+          RANKED: ${{ steps.blindspot.outputs.ranked-files }}
+          GATE: ${{ steps.blindspot.outputs.gate }}
+        run: |
+          test -s "$REPORT_JSON"
+          test -s "$REPORT_HTML"
+          test "$GATE" = off
+          test "$RANKED" -gt 0
+          echo "Ranked files: $RANKED"

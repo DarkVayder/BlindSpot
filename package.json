@@ -15,7 +15,8 @@
     "test": "vitest run",
     "check": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm build && pnpm test",
     "release:pack": "pnpm build && node scripts/release.js",
-    "release:smoke": "node scripts/smoke-test.js"
+    "release:smoke": "node scripts/smoke-test.js",
+    "action:build": "pnpm build && node scripts/action-build.js"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

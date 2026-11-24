@@ -30,6 +30,7 @@ blindspot/
 │  ├─ engine/       Orchestrates git + analyzers + core scoring → AnalysisResult(Stage 1)
 │  ├─ report/       Terminal, JSON and standalone HTML renderers                (Stage 1)
 │  ├─ cli/          Commander entry point (`blindspot analyze`, `compare`, …)  (Stage 1)
+│  ├─ action/       GitHub Action: job summary, PR base comparison, gate       (ADR 0010)
 │  ├─ research/     Snapshotting, outcome labelling, statistics, exports        (Stage 2)
 │  ├─ db/           Prisma schema, migrations, tenant-scoped repositories       (Stage 3, paused)
 │  └─ github/       GitHub App auth, webhook verification, PR comment builder   (Stage 4, paused)

@@ -1,0 +1,20 @@
+{
+  "name": "@blindspot/action",
+  "version": "0.1.0",
+  "private": true,
+  "description": "GitHub Action that runs Blindspot on a repository and writes a job summary.",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "@blindspot/cli": "workspace:*",
+    "@blindspot/core": "workspace:*",
+    "@blindspot/engine": "workspace:*",
+    "@blindspot/git": "workspace:*",
+    "@blindspot/report": "workspace:*"
+  }
+}

@@ -64,8 +64,9 @@ const PRODUCT_DOCS = [
   "docs/configuration.md",
   "docs/scoring-model.md",
   "docs/architecture.md",
+  "docs/github-action.md",
 ];
-const PRODUCT_PACKAGES = ["core", "engine", "report", "cli"];
+const PRODUCT_PACKAGES = ["core", "engine", "report", "cli", "action"];
 const CLAIMS = [
   /\bpredict(s|ive|ively)\b/i,
   /\bpredicted to\b/i,

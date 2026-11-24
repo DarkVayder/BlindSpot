@@ -17,6 +17,7 @@ import {
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { build } from "esbuild";
+import { thirdPartyNotices } from "./notices.js";
 
 const root = fileURLToPath(new URL("..", import.meta.url));
 const out = path.join(root, "release");
@@ -52,7 +53,10 @@ const result = await build({
   logLevel: "warning",
 });
 
-writeFileSync(path.join(pkgDir, "THIRD_PARTY_NOTICES.md"), notices(result.metafile));
+writeFileSync(
+  path.join(pkgDir, "THIRD_PARTY_NOTICES.md"),
+  thirdPartyNotices(result.metafile, root, "dist/bin.js"),
+);
 
 const manifest = {
   name,
@@ -98,32 +102,6 @@ console.log(
 console.log(`sha256: ${sha256}`);
 if (name === PLACEHOLDER)
   console.log("note: release.json still has the placeholder name; set the npm scope before publishing.");
-
-// Every third-party package bundled into dist/bin.js, with its license text. TypeScript is
-// a dependency installed alongside, not bundled, so it ships its own license.
-function notices(metafile) {
-  const packages = new Map();
-  for (const input of Object.keys(metafile.inputs)) {
-    const file = input.replaceAll("\\", "/");
-    const at = file.lastIndexOf("node_modules/");
-    if (at < 0) continue;
-    const [scope = "", rest = ""] = file.slice(at + "node_modules/".length).split("/");
-    const pkgName = scope.startsWith("@") ? `${scope}/${rest}` : scope;
-    packages.set(pkgName, path.resolve(root, file.slice(0, at + "node_modules/".length + pkgName.length)));
-  }
-  const sections = [...packages.entries()]
-    .sort(([a], [b]) => (a < b ? -1 : 1))
-    .map(([pkgName, dir]) => {
-      const meta = JSON.parse(readFileSync(path.join(dir, "package.json"), "utf8"));
-      const licenseFile = ["LICENSE", "LICENSE.md", "LICENSE.txt", "license"].find((f) =>
-        existsSync(path.join(dir, f)),
-      );
-      if (!licenseFile) throw new Error(`${pkgName} has no license file to include.`);
-      const text = readFileSync(path.join(dir, licenseFile), "utf8").replaceAll("\r\n", "\n").trim();
-      return `## ${pkgName} ${meta.version} (${meta.license})\n\n\`\`\`\n${text}\n\`\`\`\n`;
-    });
-  return `# Third-party notices\n\nThis package bundles the following software into \`dist/bin.js\`.\n\n${sections.join("\n")}`;
-}
 
 // npm's own script, run with this Node, so no shell is involved and paths with spaces are
 // passed intact. Node installers place it next to the binary (Windows) or under ../lib.

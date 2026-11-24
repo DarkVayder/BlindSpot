@@ -7,6 +7,7 @@
     { "path": "packages/engine" },
     { "path": "packages/report" },
     { "path": "packages/cli" },
-    { "path": "packages/research" }
+    { "path": "packages/research" },
+    { "path": "packages/action" }
   ]
 }
